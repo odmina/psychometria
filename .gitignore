@@ -3,3 +3,10 @@
 
 #nie śledź kalendarza
 *.ics
+
+#nie śledź sublimetext
+*.sublime-project
+*.sublime-workspace
+
+#nie śledź logistyki
+LOGISTYKA*

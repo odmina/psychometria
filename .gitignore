@@ -1,0 +1,5 @@
+#nie śledź pdfów
+*.pdf
+
+#nie śledź kalendarza
+*.ics

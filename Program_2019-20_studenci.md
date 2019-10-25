@@ -33,7 +33,6 @@ kosultacje: mailowo - postaram się odpowiadać w miarę możliwości w ciągu d
 	* Cecha jako zmienna latentna
 	* O co chodzi z cechą, pomiarem i błędem - proces wnioskowania psychometrycznego
 * Testy psychologiczne - definicja i cechy testu psychologicznego
-	* Oglądamy testy!
 	* Warunki, które powinien spełniać test psychologiczny
 		* Obiektywność
 		* Standaryzacja
@@ -41,9 +40,10 @@ kosultacje: mailowo - postaram się odpowiadać w miarę możliwości w ciągu d
 		* Trafność
 		* Normalizacja
 		* Właściwa adaptacja
+	* Oglądamy testy!
 * Jak etycznie, rozważnie i z szacunkiem dla osób badanych stosować testy psychologiczne
-	* Odpowiedzialność użytkowników testów (czytaj: psychologów stosujących testy)
 	* Prawa osób badanych
+	* Odpowiedzialność użytkowników testów (czytaj: psychologów stosujących testy)
 	* Stosowanie testów w grupach o specjalnych potrzebach
 
 ## Zajęcia II (18.11.2019): Rzetelność - jak precyzyjnie test mierzy to, co mierzy
@@ -52,10 +52,17 @@ kosultacje: mailowo - postaram się odpowiadać w miarę możliwości w ciągu d
 ## Zajęcia V (09.12.2019): Konstruowanie testów i adaptacje / Podsumowanie zajęć
 
 # Literatura
-## Podstawowa
+## Podstawowe podręczniki - lista
 1. Hornowska, E. (2009). Testy psychologiczne. Teoria i praktyka (4th ed.). Warszawa: Wydawnictwo Naukowe “Scholar.”
 2. Zawadzki, B., & Hornowska, E. (2008). Psychometria. Konstrukcja i adaptacja testów psychologicznych. In J. Strelau & D. Doliński (Eds.), Psychologia. Podręcznik Akademicki, tom 1 (I, pp. 847–893). Gdańsk: Gdańskie Wydawnictwo Psychologiczne.
 3. American Educational Research Association, American Psychological Association, & National Council on Measurement in Education. (2007). Standardy dla testów stosowanych w psychologii i pedagogice. Gdańsk: Gdańskie Wydawnictwo Psychologiczne. *Nie mogę wymagać znajomości, bo nie ma w bibliotece GUMed, ale gorąco polecam. Dostępne w bibliotece AWF i Wojewódzkiej i Miejskiej Bibliotece Publicznej w Gdańsku (konia z rzędem temu, kto ustali, w którym oddziale :))*
+
+## Zajęcia I
+
+## Zajęcia II
+## Zajęcia III
+## Zajęcia IV
+## Zajęcia V
 
 ## Materiały z internetu wykorzystywane na zajęciach
 
@@ -63,17 +70,12 @@ kosultacje: mailowo - postaram się odpowiadać w miarę możliwości w ciągu d
 ## Rozszerzona, dla dociekliwych
 1. 
 
-## Zajęcia I
-## Zajęcia II
-## Zajęcia III
-## Zajęcia IV
-## Zajęcia V
 
 # Zadania
 **UWAGA: Zadania przesłane po terminie nie zostaną zaliczone**
 
 ## Zadanie 1 - sytuacja testowa
-**Termin: 18.11.2019 godz. 23:59**
+**Termin: 13.11.2019 godz. 23:59**
 Podaj przykład osoby, która Twoim zdaniem może mieć specjalne potrzeby w związku z sytuacją testową. Wskaż również konkretną sytuację testową.  Ważne, żeby był to bardzo konkretny przypadek (przykłady poniżej). Opisz krótko, w jaki sposób można dostosować okoliczności przeprowadzenia testu w tej sytuacji (pamiętaj o standaryzacji), na co należy zwrócić szczególną uwagę podczas przeprowadzania testu/testów i analizowania wyników.
 
 Poniżej kilka gotowych przykladów. Jeżeli będziesz miał problem z wymyśleniem własnego, możesz z nich skorzystać z przykładów 2 i 3 (pierwszy wykorzystaliśmy na zajęciach), ale bardzo doceniam Waszą kreatywność.

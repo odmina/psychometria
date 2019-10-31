@@ -10,3 +10,6 @@
 
 #nie śledź logistyki
 LOGISTYKA*
+
+#nie śledź revealjs (folder, rekursywnie)
+reveal.js/

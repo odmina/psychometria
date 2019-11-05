@@ -1,12 +1,5 @@
 ---
-bibliography: references.bibtex
-author: Małgorzata Basińska
 title: "Psychometria - ćwiczenia (semestr zimowy 2019/20)"
-csl: apa.csl
-theme: white
-css: styles.css
-output: 
-  revealjs::revealjs_presentation
 ---
 
 # Przedstawmy się

@@ -1,11 +1,5 @@
 ---
-bibliography: references_psychometria.bib
-author: Małgorzata Basińska
 title: "Krótkie wprowadzenie do psychometrii"
-theme: white
-bibliography: references.bibtex
-csl: apa.csl
-css: "styles.css"
 ---
 
 # Cel zajęć

@@ -1,5 +1,6 @@
-#nie śledź pdfów
+#nie śledź pdfów poza folderem slajdy_pdf
 *.pdf
+!slajdy_pdf/*.pdf
 
 #nie śledź kalendarza
 *.ics
@@ -8,8 +9,8 @@
 *.sublime-project
 *.sublime-workspace
 
-#nie śledź logistyki
-LOGISTYKA*
+#nie śledź logistyki (folder, rekursywnie)
+logistyka_2019-20/
 
 #nie śledź revealjs (folder, rekursywnie)
 reveal.js/

@@ -6,8 +6,6 @@ theme: white
 bibliography: references.bibtex
 csl: apa.csl
 css: "styles.css"
-output: 
-  revealjs::revealjs_presentation
 ---
 
 # Cel zajęć

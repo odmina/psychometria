@@ -3,9 +3,9 @@ title: "Psychometria - ćwiczenia (semestr zimowy 2019/20)"
 ---
 
 # Przedstawmy się
+
 ## Małgorzata Basińska
-<!-- ![Moje foto](img/MojeFoto.jpg) -->
-<img src="img/MojeFoto.jpg" height="350px">  
+![Moje foto](img/MojeFoto.jpg){#id .class height=350px}  
 [Uwielbiam spędzać czas na dociekaniach]{.smallcaps}  
 [Interesuję się prawami człowieka]{.smallcaps}  
 [Lubię piec ciacha i ciasteczka]{.smallcaps}  

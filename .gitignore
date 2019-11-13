@@ -14,3 +14,7 @@ logistyka_2019-20/
 
 #nie śledź revealjs (folder, rekursywnie)
 reveal.js/
+
+#nie sledź logów
+*.log
+

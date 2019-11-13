@@ -1,3 +1,21 @@
 ---
 linkcolor: blue
+geometry:
+- top=35mm
+- left=35mm
+- right=35mm
+- bottom=35mm
+mainfont: Courier
+header-includes: |
+    \usepackage{polski}
+    \usepackage[polish]{babel}
+    \usepackage{fontspec}
+    \usepackage{fancyhdr}
+    \pagestyle{fancy}
+    \fancyhead[R]{Ćwiczenia z psychometrii - M. Basińska}
+    \fancyhead[C]{}
+    \fancyhead[L]{}
+    \fancyfoot[R]{\thepage}
+    \fancyfoot[C]{}
+    \fancyfoot[L]{}
 ---

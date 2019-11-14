@@ -18,3 +18,5 @@ reveal.js/
 #nie sledź logów
 *.log
 
+#nie śledź .Rhistory
+.Rhistory

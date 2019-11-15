@@ -23,3 +23,9 @@ reveal.js/
 
 #nie śledź .DS_Store
 .DS_store
+
+#nie śledź folderu materiały do druku
+materialy_do_druku/
+
+#nie śledź folderu z zadaniami domowymi
+zadania_domowe/

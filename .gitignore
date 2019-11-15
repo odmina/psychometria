@@ -20,3 +20,6 @@ reveal.js/
 
 #nie śledź .Rhistory
 .Rhistory
+
+#nie śledź .DS_Store
+.DS_store

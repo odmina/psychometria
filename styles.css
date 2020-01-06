@@ -21,3 +21,8 @@
 	text-align: left;
 	background-color: #EFEFEF;
 }
+
+.reveal section caption {
+  text-align: left;
+  font-size: 0.1em;
+  }

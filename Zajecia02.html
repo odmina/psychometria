@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Małgorzata Basińska">
+  <title>Rzetelność - jak dobrze test mierzy to, co mierzy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="reveal.js/css/reset.css">
+  <link rel="stylesheet" href="reveal.js/css/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+  <link rel="stylesheet" href="reveal.js/css/theme/white.css" id="theme">
+  <link rel="stylesheet" href="styles.css"/>
+  <!-- Printing and PDF exports -->
+  <script>
+    var link = document.createElement( 'link' );
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = window.location.search.match( /print-pdf/gi ) ? 'reveal.js/css/print/pdf.css' : 'reveal.js/css/print/paper.css';
+    document.getElementsByTagName( 'head' )[0].appendChild( link );
+  </script>
+  <!--[if lt IE 9]>
+  <script src="reveal.js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Rzetelność - jak dobrze test mierzy to, co mierzy</h1>
+  <p class="author">Małgorzata Basińska</p>
+</section>
+
+<section><section id="cel-zajęć" class="title-slide slide level1"><h1>Cel zajęć</h1></section>
+<section id="po-zajęciach-powinniście-umieć" class="slide level2">
+<h2>Po zajęciach powinniście umieć</h2>
+<ul>
+<li>podać definicję rzetelności</li>
+<li>wytłumaczyć, o co chodzi z błędem i wynikiem prawdziwym w myśl klasycznej teorii testów</li>
+<li>wskazać źródła błędu w pomiarze testowym</li>
+<li>wskazać metodę badania rzetelności odpowiednią dla danego testu i sytuacji testowej</li>
+<li>obliczyć rzetelność testu z wykorzystaniem wybranych wzorów</li>
+<li>ocenić rzetelność indywidualnego wyniku testowego</li>
+</ul>
+</section>
+<section id="plan" class="slide level2">
+<h2>Plan</h2>
+<ol type="1">
+<li>Klasyczna teoria testów - podstawy</li>
+<li>Źródła błędu i metody ich oceny</li>
+<li>Liczymy rzetelność! (na różne sposoby)</li>
+<li>Teoria uniwersalizacji</li>
+<li>Podsumowanie zajęć i zadanie domowe</li>
+<li>Liczymy przedziały ufności dla wyniku otrzymanego i prawdziwego</li>
+</ol>
+</section>
+<section id="po-co-nam-wiedza-o-rzetelności" class="slide level2">
+<h2>Po co nam wiedza o rzetelności?</h2>
+<ul>
+<li>informacje o wynikach uzyskanych przez pacjentów/klientów w testach są nieodłączną częścią pracy psychologa</li>
+<li>odpowiedzialne korzystanie z takich informacji wymaga wiedzy:
+<ul>
+<li>o tym, że wynik testu nie odzwierciedla idealnie poziomu danej cechy u badanego</li>
+<li>jak interpretować wynik testowe korzystając z wiedzy o rzetelności i błędzie pomiaru</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>dzięki dorobkowi psychometrii w tym zakresie testy psychologiczne stają się coraz dokładniejszymi narzędziami pomiaru</li>
+</ul>
+</section></section>
+<section><section id="klasyczna-teoria-testów" class="title-slide slide level1"><h1>Klasyczna teoria testów</h1></section>
+<section id="definicja-rzetelności-wg-s.-urbiny-urbina2014essentials" class="slide level2">
+<h2>Definicja rzetelności wg S. Urbiny <span class="citation" data-cites="urbina2014essentials">(Urbina, 2014)</span></h2>
+<blockquote>
+<p><strong>Rzetelność</strong> to właściwość wyników testowych<br />
+sugerująca, że są one wystarczająco stabilne<br />
+i wolne od błędu pomiaru by były użyteczne.</p>
+</blockquote>
+</section>
+<section id="definicja-rzetelności-wg-standardów-americaneducationalresearchassociation2007" class="slide level2">
+<h2>Definicja rzetelności wg <em>Standardów</em> <span class="citation" data-cites="AmericanEducationalResearchAssociation2007">(AERA, APA, &amp; NCME, 2007)</span></h2>
+<blockquote>
+<p>Stopień, w jakim wyniki testowe otrzymane dla<br />
+grupy osób są stabilne oraz nie zmieniają się<br />
+w kolejnych badaniach tym samym testem;<br />
+mogą być uznane za powtarzalne i rzetelne<br />
+dla osoby badanej; także stopień, w jakim wyniki testowe są wolne<br />
+od błędu pomiaru dla danej grupy.</p>
+</blockquote>
+</section>
+<section id="burza-mózgów" class="slide level2">
+<h2>Burza mózgów!</h2>
+<ul>
+<li>Czy istnieje idealne narzędzie pomiarowe?</li>
+<li>Idealne narzędzie pomiarowe - czyli jakie?</li>
+<li>Co składa się na wynik uzyskany w teście?</li>
+<li>Co to jest wynik prawdziwy?</li>
+</ul>
+</section>
+<section id="pytanie" class="slide level2">
+<h2>Pytanie</h2>
+<p><strong>Czy istnieje idealne narzędzie pomiarowe?</strong><br />
+<strong>Takie, które daje pomiar nieobarczony błędem?</strong></p>
+</section>
+<section id="co-składa-się-na-wynik-uzyskany-w-teście" class="slide level2">
+<h2>Co składa się na wynik uzyskany w teście</h2>
+<p><img data-src="img/rownanie_ktt.png" /></p>
+</section>
+<section id="co-to-jest-wynik-prawdziwy---jak-go-sobie-wyobrazić" class="slide level2">
+<h2>Co to jest wynik prawdziwy - jak go sobie wyobrazić?</h2>
+<p>Hipotetyczny wynik idealnie odzwierciedlający poziom mierzonej cechy u osoby badanej, czytaj: nieobarczony błędem.</p>
+</section>
+<section id="co-to-jest-wynik-prawdziwy-w-myśl-klasycznej-teorii-testów" class="slide level2">
+<h2>Co to jest wynik prawdziwy w myśl klasycznej teorii testów</h2>
+<p>Wynik osoby badanej, gdybyśmy przebadali ją tym samym testem nieskończoną liczbę razy. <img data-src="img/infinity.png" /></p>
+</section>
+<section id="założenia-klasycznej-teorii-testów" class="slide level2">
+<h2>Założenia klasycznej teorii testów</h2>
+<ul>
+<li><span class="math inline">\(X_O=X_t+X_e\)</span> (na wynik obserwowany składa się wynik prawdziwy i błąd)</li>
+<li>Błąd ma charakter <strong>losowy</strong>, więc:
+<ul>
+<li>Gdybyśmy badali tę samą osobę danym testem nieskończenie wiele razy, to średni błąd wynosiłby 0</li>
+<li>Korelacja błędu i wyniku prawdziwego wynosi 0</li>
+<li>W dwóch kolejnych badaniach tym samym testem korelacja <strong>błędu</strong> wynosi zero</li>
+</ul></li>
+</ul>
+</section>
+<section id="błąd-losowy-vs-błąd-systematyczny" class="slide level2">
+<h2>Błąd losowy vs błąd systematyczny</h2>
+<div>
+<ul>
+<li class="fragment">Za każdym razem kiedy się ważysz waga dodaje 1 kg - jaki to błąd?</li>
+<li class="fragment">Zmierzyłeś wysokość swojego pokoju przykładając centymetr krawiecki do ściany. Zrobiłeś to 10 razy i za każdym razem uzyskałeś trochę inny wynik - jaki to błąd?</li>
+</ul>
+</div>
+</section>
+<section id="definicja-rzetelności-wzorem" class="slide level2">
+<h2>Definicja rzetelności wzorem</h2>
+<p><span class="math display">\[r_{xx}=\frac{s^2_t}{s^2}\]</span><br />
+<span class="math display">\[s^2=s^2_t+s^2_e\]</span></p>
+</section>
+<section id="jakie-są-źródła-błędu-podczas-testowania-mcintire2007foundationsurbina2014essentials" class="slide level2">
+<h2>Jakie są źródła błędu podczas testowania <span class="citation" data-cites="mcintire2007foundations">(McIntire &amp; Miller, 2007)</span><span class="citation" data-cites="urbina2014essentials">(Urbina, 2014)</span></h2>
+<div>
+<ul>
+<li class="fragment">kontekst przeprowadzenia testu
+<ul>
+<li class="fragment">ocena testu</li>
+</ul></li>
+<li class="fragment">osoby badane</li>
+<li class="fragment">konstrukcja testu (test sam w sobie)</li>
+</ul>
+</div>
+</section></section>
+<section><section id="rzetelność-a-różnice-między-oceniającymi" class="title-slide slide level1"><h1>Rzetelność a różnice między oceniającymi</h1></section>
+<section id="rzetelność-a-różnice-między-oceniającymi-1" class="slide level2">
+<h2>Rzetelność a różnice między oceniającymi</h2>
+<div>
+<ul>
+<li class="fragment"><strong>PRZYKŁAD:</strong>
+<ul>
+<li class="fragment">Test, który wymaga wprawy w ocenie - jakie znacie testy tego typu?</li>
+</ul></li>
+<li class="fragment"><strong>JAK OSZACOWAĆ RZETELNOŚĆ:</strong>
+<ul>
+<li class="fragment">Korelacja pomiędzy ocenami dwóch różnych sędziów</li>
+<li class="fragment">Kappa Cohena</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="kappa-cohena" class="slide level2">
+<h2>Kappa Cohena</h2>
+<ul>
+<li><span class="math inline">\(\kappa=\frac{p_o-p_c}{1-p_c}\)</span></li>
+<li>Gdzie:
+<ul>
+<li><span class="math inline">\(p_o\)</span> - proporcja obserwowana wystąpienia zgodnych próbek</li>
+<li><span class="math inline">\(p_c\)</span> - proporcja oczekiwana wystąpienia zgodnych próbek</li>
+</ul></li>
+</ul>
+</section>
+<section id="liczymy" class="slide level2">
+<h2>Liczymy!</h2>
+<ul>
+<li><span class="math inline">\(\kappa=\frac{p_o-p_c}{1-p_c}\)</span><br />
+</li>
+<li>Sędzia 1:Tak|Tak|Nie|Tak|Nie|Tak|Tak|Tak|</li>
+<li>Sędzia 2:Tak|Nie|Tak|Tak|Nie|Nie|Tak|Nie|</li>
+</ul>
+</section>
+<section id="tabelka-z-liczebnościami" class="slide level2">
+<h2>Tabelka z liczebnościami</h2>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: center;">S1 Tak</th>
+<th style="text-align: center;">S1 Nie</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S2 Tak</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S2 Nie</td>
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="jak-to-policzyć" class="slide level2">
+<h2>Jak to policzyć?</h2>
+<ul>
+<li>proporcja odpowiedzi “tak” dla S1: 0,75</li>
+<li>proporcja odpowiedzi “tak” dla S2: 0,5</li>
+<li>proporcja oczekiwana dla zgodnych odpowiedzi “tak”: 0,75 x 0,5=0,375</li>
+<li>proporcja oczekiwana dla zgodnych odpowiedzi “nie”: 0,25 x 0,5 = 0,125</li>
+<li>obserwowana proporcja odpowiedzi zgodnych 0,5</li>
+<li>wynik: 0 (przy wartościach od -1 do 1)</li>
+</ul>
+</section>
+<section id="do-zastanowienia-się" class="slide level2">
+<h2>Do zastanowienia się…</h2>
+<ul>
+<li>Czy współczynnik zgodności podany w podręczniku testowym będzie wyższy czy niższy od współczynnika zgodności oszacowanego dla dwóch sędziów, którzy uczą się dopiero oceniać test?</li>
+</ul>
+</section></section>
+<section><section id="rzetelność-a-próbkowanie-czasu-test-retest" class="title-slide slide level1"><h1>Rzetelność a próbkowanie czasu: test-retest</h1></section>
+<section id="rzetelność-a-próbkowanie-czasu" class="slide level2">
+<h2>Rzetelność a próbkowanie czasu</h2>
+<ul>
+<li><strong>PRZYKŁAD:</strong>
+<ul>
+<li>test badający cechę, która z założenia jest stabilna w czasie - znacie taki test?</li>
+</ul></li>
+<li><strong>JAK OSZACOWAĆ RZETELNOŚĆ:</strong>
+<ul>
+<li>technika test-retest</li>
+<li>korelacja między wynikami dwukrotnie przeprowadzonego testu</li>
+</ul></li>
+</ul>
+</section>
+<section id="o-co-chodzi-z-sigmą" class="slide level2">
+<h2>O co chodzi z sigmą</h2>
+<p><span class="math inline">\(\sum_{i=1}^{n} x_i\)</span></p>
+<p>Gdzie:<br />
+n - liczebność zbioru - może to być zbiór osób badanych, pozycji testowych itp.<br />
+<span class="math inline">\(x_i\)</span> - i-ty obiekt w zbiorze</p>
+<p>Powyższe wyrażenie można rozwinąć tak:<br />
+<span class="math inline">\(x_1+x_2...+x_i+...+x_n\)</span></p>
+</section>
+<section id="inne-znaczki-matematyczne" class="slide level2">
+<h2>Inne znaczki matematyczne</h2>
+<p><span class="math inline">\(\bar{x}\)</span> - średnia zmiennej x</p>
+</section>
+<section id="przykład" class="slide level2">
+<h2>Przykład</h2>
+<ul>
+<li>Badamy stabilność czasową wyników SES Rosenberga metodą test - retest.</li>
+<li>Wyniki w teście podczas pierwszego pomiaru oznaczamy jako T1.</li>
+<li>Wyniki w teście podczas drugiego pomiaru oznaczamy jako T2.</li>
+<li><em>Uwaga: wyniki dla retestu w podanym przykładzie zostały wygenerowane losowo. Proszę nie traktować ich poważnie :)</em></li>
+</ul>
+</section>
+<section id="dane" class="slide level2">
+<h2>Dane</h2>
+<table>
+<thead>
+<tr class="header">
+<th>N</th>
+<th>T1</th>
+<th>T2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>16</td>
+<td>17</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>35</td>
+<td>34</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>13</td>
+<td>10</td>
+</tr>
+<tr class="even">
+<td>..</td>
+<td>..</td>
+<td>..</td>
+</tr>
+<tr class="odd">
+<td>n</td>
+<td>..</td>
+<td>..</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="jak-to-policzymy" class="slide level2">
+<h2>Jak to policzymy???</h2>
+<p>Współczynnik korelacji Pearsona dla wyników pierwszego (test) i drugiego (retest) pomiaru.</p>
+<p><span class="math display">\[r_{tt}=\frac{\sum_{i=1}^n(\bar{t_1}-t_{1i})(\bar{t_2}-t_{2i})}{\sqrt{\sum_{i=1}^{n}(\bar{t_{1i}}-t_{1i})^2} \sqrt{\sum_{i=1}^{n}(\bar{t_2}-t_{2i})^2}}\]</span></p>
+</section>
+<section id="dwa-identyczne-pomiary" class="slide level2">
+<h2>0 - dwa identyczne pomiary</h2>
+<p><img data-src="img/tt1.png" id="id" class="class" height="350" /><br />
+<span class="math inline">\(r_{tt}=1\)</span></p>
+</section>
+<section id="i---dodane-trochę-błędu-do-drugiego-pomiaru" class="slide level2">
+<h2>I - dodane trochę błędu do drugiego pomiaru</h2>
+<p><img data-src="img/tt09.png" id="id" class="class" height="350" /><br />
+<span class="math inline">\(r_{tt}=0.8906881\)</span></p>
+</section>
+<section id="ii---dodane-więcej-błędu-do-drugiego-pomiaru" class="slide level2">
+<h2>II - dodane więcej błędu do drugiego pomiaru</h2>
+<p><img data-src="img/tt07.png" id="id" class="class" height="350" /><br />
+<span class="math inline">\(r_{tt}=0.7064398\)</span></p>
+</section>
+<section id="iii---całkowicie-losowe-wyniki-w-drugim-pomiarze" class="slide level2">
+<h2>III - całkowicie losowe wyniki w drugim pomiarze</h2>
+<p><img data-src="img/tt00.png" id="id" class="class" height="350" /><br />
+<span class="math inline">\(r_{tt}=-0.009529104\)</span></p>
+</section></section>
+<section><section id="rzetelność-a-dobór-treści" class="title-slide slide level1"><h1>Rzetelność a dobór treści</h1></section>
+<section id="rzetelność-a-dobór-treści-1" class="slide level2">
+<h2>Rzetelność a dobór treści 1</h2>
+<ul>
+<li><strong>PRZYKŁAD:</strong>
+<ul>
+<li>test oceniający świadomość zdrowotną, przeprowadzony w grupie studentów, którzy niedawno brali udział w programie edukacyjnym dotyczącym żywienia</li>
+</ul></li>
+<li><strong>JAK OSZACOWAĆ RZETELNOŚĆ:</strong>
+<ul>
+<li>współczynnik równoważności międzypołówkowej</li>
+<li>korelacja między połówkami testu</li>
+<li>ważne pytanie: jak dzielić test na połowy??</li>
+</ul></li>
+</ul>
+</section>
+<section id="wzór-spearmana-browna-dla-połówek-testu" class="slide level2">
+<h2>Wzór Spearmana-Browna dla połówek testu</h2>
+<p>Do szacowania rzetelności całego testu na postawie współczynnika równoważności międzypołówkowej (korelacji między połówkami testu) <span class="math display">\[r_{tt}=\frac{2r_{pp}}{1+r_{pp}}\]</span> Gdzie: <span class="math inline">\(r_{tt}\)</span> - rzetelność całego testu<br />
+<span class="math inline">\(r_{pp}\)</span> - rzetelność połówek testu</p>
+</section>
+<section id="zadanko" class="slide level2">
+<h2>Zadanko</h2>
+<p>Współczynnik korelacji między połówkami testu wynosi 0,72. Ile wynosi rzetelność tego testu?</p>
+</section>
+<section id="wzór-spearmana-browna-wersja-ogólna" class="slide level2">
+<h2>Wzór Spearmana-Browna wersja ogólna</h2>
+<p><span class="math display">\[r_{nn}=\frac{nr_{cc}}{1+(n-1)r_{cc}}\]</span><br />
+Gdzie:<br />
+<span class="math inline">\(r_{nn}\)</span> - rzetelność testu wydłużonego <strong>n</strong> razy<br />
+<span class="math inline">\(r_{cc}\)</span> - rzetelność testu, którą zmierzyliśmy<br />
+Wartość <span class="math inline">\(r_{nn}\)</span> uzyskana ze wzoru Spearmana-Browna nigdy nie będzie większa od 1. Kto wie dlaczego?</p>
+</section>
+<section id="wzór-spearmana-browna-można-wykorzystać-by-stwierdzić-ile-razy-należy-wydłużyć-test-aby-uzyskać-zakładaną-rzetelność" class="slide level2">
+<h2>Wzór Spearmana-Browna można wykorzystać, by stwierdzić, ile razy należy wydłużyć test, aby uzyskać zakładaną rzetelność</h2>
+</section>
+<section id="rzetelność-a-próbkowanie-treści-2" class="slide level2">
+<h2>Rzetelność a próbkowanie treści 2</h2>
+<ul>
+<li><strong>PRZYKŁAD:</strong>
+<ul>
+<li>test oceniający umiejętność czytania ze zrozumieniem - niektóre fragmenty tekstu mogą być znane w danej grupie</li>
+</ul></li>
+<li><strong>JAK OSZACOWAĆ RZETELNOŚĆ:</strong>
+<ul>
+<li>korelacja między wynikami uzyskanymi z wykorzystaniem wersji równoległych (alternatywnych)</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="rzetelność-a-spójność-wewnętrzna-testu" class="title-slide slide level1"><h1>Rzetelność a spójność wewnętrzna testu</h1></section>
+<section id="alfa-cronbacha-wygląda-tak" class="slide level2">
+<h2>Alfa Cronbacha wygląda tak</h2>
+<p><span class="math display">\[\alpha=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{k}s_i^2}{s^2_t})\]</span><br />
+Gdzie:<br />
+k - liczba pozycji w teście<br />
+<span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście<br />
+<span class="math inline">\(s_i^2\)</span> - wariancja wyniku każdej z pozycji testowych</p>
+</section>
+<section id="co-się-dzieje-w-hipotetycznym-teście-w-którym-pozycje-są-idealnie-spójne" class="slide level2">
+<h2>Co się dzieje w hipotetycznym teście, w którym pozycje są idealnie spójne?</h2>
+</section>
+<section class="slide level2">
+
+<table>
+<thead>
+<tr class="header">
+<th>n</th>
+<th>k1</th>
+<th>k2</th>
+<th>k3</th>
+<th>k4</th>
+<th>k5</th>
+<th>k6</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<ol type="1">
+<li>Liczymy dla każdego badanego wynik ogólny</li>
+<li>Liczymy średnią wyniku ogólnego</li>
+<li>Liczymy dla każdego badanego o ile jego wynik ogólny różni się od średniej i podnosimy uzyskaną różnicę do kwadratu</li>
+<li>Sumujemy kwadraty różnic i dzielimy przez liczbę badanych</li>
+<li>Mamy wariancję wyniku ogólnego w teście <span class="math inline">\(s_t^2\)</span></li>
+</ol>
+</section>
+<section class="slide level2">
+
+<ol type="1">
+<li>Liczymy średnią dla pierwszej pozycji w teście</li>
+<li>Liczymy dla każdego badanego o ile jego wynik w danej pozycji różni się od średniej i podnosimy uzyskaną różnicę do kwadratu</li>
+<li>Sumujemy kwadraty różnic i dzielimy przez liczbę badanych</li>
+<li>Mamy wariancję pierwszej pozycji w teście <span class="math inline">\(s_1^2\)</span></li>
+<li>Powtarzamy dla każdej kolejnej pozycji i sumujemy uzyskane wyniki</li>
+</ol>
+</section>
+<section id="jaka-jest-alfa-w-hipotetycznym-teście-w-którym-pozycje-są-idealnie-spójne" class="slide level2">
+<h2>Jaka jest alfa w hipotetycznym teście, w którym pozycje są idealnie spójne?</h2>
+<p><span class="math display">\[\alpha=1\]</span></p>
+</section>
+<section id="alfa-dla-rse" class="slide level2">
+<h2>Alfa dla RSE</h2>
+<p><span class="math display">\[\alpha = 0,91\]</span><br />
+<span class="math display">\[\bar{t} = 16,30\]</span><br />
+<span class="math display">\[s_t = 6,98\]</span></p>
+</section>
+<section id="liczymy-to-sami" class="slide level2">
+<h2>Liczymy to sami</h2>
+<p><span class="math inline">\(\alpha=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{k}s_i^2}{s^2_t})\)</span><br />
+<span class="math inline">\(s_t = 6,98\)</span><br />
+Liczba pozycji: 10<br />
+SD dla poszczególnych pozycji:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>P1 0.86</td>
+<td>P2 0.79</td>
+<td>P4 0.81</td>
+<td>P6 0.92</td>
+</tr>
+<tr class="even">
+<td>P7 0.93</td>
+<td>P3 0.95</td>
+<td>P5 0.98</td>
+<td>P8 0.96</td>
+</tr>
+<tr class="odd">
+<td>P9 0.99</td>
+<td>P10 1.07</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="liczymy-to-sami-1" class="slide level2">
+<h2>Liczymy to sami</h2>
+<p><span class="math inline">\(\alpha=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{k}s_i^2}{s^2_t})\)</span><br />
+<span class="math inline">\(s_t = 6,98\)</span><br />
+Liczba pozycji: 10<br />
+Wariancja dla poszczególnych pozycji:</p>
+<table>
+<tbody>
+<tr class="odd">
+<td>P1 0.74</td>
+<td>P2 0.62</td>
+<td>P4 0.66</td>
+<td>P6 0.85</td>
+</tr>
+<tr class="even">
+<td>P7 0.86</td>
+<td>P3 0.90</td>
+<td>P5 0.96</td>
+<td>P8 0.92</td>
+</tr>
+<tr class="odd">
+<td>P9 0.98</td>
+<td>P10 1.14</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="za-co-się-stanie-jak-dodamy-przypadkowy-błąd" class="slide level2">
+<h2>Za co się stanie, jak dodamy przypadkowy błąd?</h2>
+<table>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\(\bar{t}\)</span></th>
+<th><span class="math inline">\(s_t\)</span></th>
+<th><span class="math inline">\(\sum_{i=1}^{k}s_i^2\)</span></th>
+<th><span class="math inline">\(\alpha\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td></td>
+<td>16.30</td>
+<td>6.98</td>
+<td>8.63</td>
+<td>0.91</td>
+</tr>
+<tr class="even">
+<td>błąd</td>
+<td>16.23</td>
+<td>7.64</td>
+<td>19.08</td>
+<td>0.76</td>
+</tr>
+<tr class="odd">
+<td>błąd*2</td>
+<td>16.30</td>
+<td>8.27</td>
+<td>28.59</td>
+<td>0.65</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="wzór-k-r20-wygląda-tak" class="slide level2">
+<h2>Wzór K-R20 wygląda tak</h2>
+<p><span class="math display">\[KR_{20}=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{q}p_i q_i}{s^2_t})\]</span><br />
+Gdzie:<br />
+k - liczba pozycji w teście<br />
+<span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście<br />
+<span class="math inline">\(p_i\)</span> - proporcja osób odpowiadających zgodnie z kluczem <span class="math inline">\(q_i\)</span> - proporcja osób odpowiadających NIEzgodnie z kluczem</p>
+</section></section>
+<section><section id="rzetelność-testów-szybkości" class="title-slide slide level1"><h1>Rzetelność testów szybkości</h1></section>
+<section id="jak-zmierzylibyście-rzetelność-poniższego-testu" class="slide level2">
+<h2>Jak zmierzylibyście rzetelność poniższego testu?</h2>
+<ul>
+<li>test zawiera k zadań</li>
+<li>zadania te trzeba wykonać w czasie 5 minut</li>
+<li>miarą wyniku osiągniętego w teście jest liczba zadań wykonanych w ramach ustalonego limitu czasu<br />
+<strong>Co stałoby się, gdybyśmy podzielili test na połowy (pozycje parzyste i nieparzyste) i obliczyli rzetelność na podstawie liczby wykonanych zadań w każdej połowie?</strong></li>
+</ul>
+</section>
+<section id="metody-badania-rzetelności-testów-szybkości" class="slide level2">
+<h2>Metody badania rzetelności testów szybkości</h2>
+<div>
+<ul>
+<li class="fragment">Sposób pierwszy:
+<ul>
+<li class="fragment">podział testu na dwie części,</li>
+<li class="fragment">rozwiązywanie dwóch części osobno w dwukrotnie mniejszym limicie czasu,</li>
+<li class="fragment">obliczenie korelacji liczby wykonanych zadań dla dwóch części,</li>
+<li class="fragment">zastosowanie wzoru Spearmana-Browna.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="metody-badania-rzetelności-testów-szybkości-1" class="slide level2">
+<h2>Metody badania rzetelności testów szybkości</h2>
+<div>
+<ul>
+<li class="fragment">Sposób drugi
+<ul>
+<li class="fragment">podzielenie czasu testu na 4 części,</li>
+<li class="fragment">dawanie badanym znaku, by po upływie każdej ćwiartki czasu zaznaczali, przy którym pytaniu są,</li>
+<li class="fragment">obliczenie korelacji pomiędzy liczbą zadań wykonanych dla dwóch połówek czasu, pierwszej stworzonej z 1 i 4 ćwiartki, a drugiej stworzonej z ćwiartki 2 i 3,</li>
+<li class="fragment">zastosowanie wzoru Spearmana-Browna.</li>
+</ul></li>
+</ul>
+</div>
+</section></section>
+<section><section id="ocena-rzetelności-indywidualnego-wyniku" class="title-slide slide level1"><h1>Ocena rzetelności indywidualnego wyniku</h1></section>
+<section id="standardowy-błąd-pomiaru" class="slide level2">
+<h2>Standardowy błąd pomiaru</h2>
+<p><span class="math display">\[SEM=s_x\sqrt{1-r_{tt}}\]</span></p>
+<p>Gdzie:<br />
+<span class="math inline">\(s_x\)</span> - odchylenie standardowe wyników testowych<br />
+<span class="math inline">\(r_tt\)</span> - rzetelność testu</p>
+</section>
+<section id="sem-ma-rozkład-normalny" class="slide level2">
+<h2>SEM ma rozkład normalny…</h2>
+<figure>
+<img data-src="img/rn.png" id="id" class="class" height="350" alt="" /><figcaption>By Dan Kernler - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=36506025</figcaption>
+</figure>
+</section>
+<section id="i-dlatego" class="slide level2">
+<h2>…i dlatego:</h2>
+<ul>
+<li>68% wyników mieści się w zakresie +/- 1 SD</li>
+<li>90% wyników mieści się w zakresie +/- 1,64 SD</li>
+<li>95% wyników mieści się w zakresie +/- 1,96 SD</li>
+<li>99% wyników mieści się w zakresie +/- 2,58 SD</li>
+</ul>
+</section>
+<section id="zadanko-1" class="slide level2">
+<h2>Zadanko</h2>
+<p>Skonstruujcie 95% przedział ufności dla wyniku 100 w teście o odchyleniu standardowym 15 i rzetelności 0,902 <span class="math display">\[&lt;X-1,96 SEM, X+1,96 SEM&gt;\]</span> <span class="math display">\[SEM=s_x\sqrt{1-r_{tt}}\]</span></p>
+</section>
+<section id="błąd-standardowy-różnicy-między-dwoma-wynikami" class="slide level2">
+<h2>Błąd standardowy różnicy między dwoma wynikami</h2>
+<p><span class="math inline">\(SE_{diff}=\sqrt{SEM_1^2+SEM_2^2}\)</span> <span class="math inline">\(SE_{diff}=\sqrt{s_{x1}^2(1-r_{tt1})+s_{x2}^2(1-r_{tt2})}\)</span> <span class="math inline">\(SE_{diff}=s_{x}\sqrt{2-r_{tt1}-r_{tt2}}\)</span></p>
+</section>
+<section id="se_diff-również-ma-rozkład-normalny" class="slide level2">
+<h2><span class="math inline">\(SE_{diff}\)</span> również ma rozkład normalny</h2>
+<p>…i dlatego mamy 95% szansy, że różnica wynosząca minimum <span class="math inline">\(1,96 * SE_{diff}\)</span> jest nieprzypadkowa.<br />
+W tym przypadku poziom ufności p wynosi <span class="math inline">\(1-0.95=0.05\)</span></p>
+</section>
+<section id="zadanko-2" class="slide level2">
+<h2>Zadanko</h2>
+<p>W teście o rzetelności 0,9 i odchyleniu standardowym 5 otrzymaliśmy u jednego badanego wynik 25 a u drugiego 35. Czy mamy prawo twierdzić, że te wyniki się różnią? Przyjmijcie p = 0.05 <span class="math inline">\(SE_{diff}=s_{x}\sqrt{2-r_{tt1}-r_{tt2}}\)</span></p>
+</section></section>
+<section><section id="podsumowanie" class="title-slide slide level1"><h1>Podsumowanie</h1></section>
+<section id="jak-zwiększać-rzetelność-mcintire2007foundations" class="slide level2">
+<h2>Jak zwiększać rzetelność? <span class="citation" data-cites="mcintire2007foundations">(McIntire &amp; Miller, 2007)</span></h2>
+<div>
+<ul>
+<li class="fragment">dodanie pytań</li>
+<li class="fragment">zwiększenie homogeniczności testu</li>
+<li class="fragment">skrócenie interwału pomiędzy testem i retestem (uwaga na efekt wprawy!)</li>
+<li class="fragment">zwiększenie efektywności przeprowadzania testu</li>
+<li class="fragment">ostrożność podczas oceniania</li>
+<li class="fragment">ograniczenie zgadywania lub odpowiadania nieszczerze / bez zaangażowania</li>
+</ul>
+</div>
+</section>
+<section id="źródła-błędu-a-rzetelność" class="slide level2">
+<h2>Źródła błędu a rzetelność</h2>
+<ul>
+<li>niezgodność/niespójność w ocenach sędziów</li>
+<li>zmienność w czasie</li>
+<li>brak spójności wewnętrznej testu i błędy w doborze treści</li>
+</ul>
+</section>
+<section id="metody-szacowania-rzetelności-vs-źródła-błędu" class="slide level2">
+<h2>Metody szacowania rzetelności vs źródła błędu</h2>
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sędziowie</td>
+<td style="text-align: left;">Ocena tego samego materiału przez dwóch sędziów i obliczenie - współczynnika korelacji - kappa Cohena</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Zmienność w czasie</td>
+<td style="text-align: left;">Technika test - retest i obliczenie współczynnika korelacji między testem i retestem</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dobór (próbkowanie) i heterogeniczność treści</td>
+<td style="text-align: left;">Ocena korelacji między połówkami testu (pamiętaj o wzorze Spearmana-Browna) Ocena korelacji między wersjami alternatywnymi Ocena spójności wewnętrznej - K-R20 - Alfa Cronbacha</td>
+</tr>
+</tbody>
+</table>
+</section></section>
+<section><section id="zadania" class="title-slide slide level1"><h1>Zadania</h1></section>
+<section id="zadanie-z-artykułami" class="slide level2">
+<h2>Zadanie z artykułami!</h2>
+<ol type="1">
+<li>Sorokowska, A., Słowińska, A., Zbieg, A., &amp; Sorokowski, P. (2014). Polska adaptacja testu Ten Item Personality Inventory (TIPI)–TIPI-PL–wersja standardowa i internetowa.</li>
+<li>Łaguna, M., Oleś, P., &amp; Filipiuk, D. (2011). Orientacja pozytywna i jej pomiar: Polska adaptacja Skali Orientacji Pozytywnej. Studia Psychologiczne (Psychological Studies), 49(4), 47–54.</li>
+<li>Łaguna, M., Lachowicz-Tabaczek, K., &amp; Dzwonkowska, I. (2007). Skala samooceny SES Morrisa Rosenberga–polska adaptacja metody. Psychologia Społeczna, 2(02), 164–176.</li>
+<li>Grygiel, P., Humenny, G., Rebisz, S., Świtaj, P., &amp; Sikorska, J. (2013). Validating the polish adaptation of the 11-item De Jong Gierveld loneliness scale. European Journal of Psychological Assessment.</li>
+</ol>
+</section>
+<section id="zadanie-domowe-2" class="slide level2">
+<h2>Zadanie domowe 2</h2>
+<ol type="1">
+<li>Policz współczynnik równoważności międzypołówkowej (pozycje testu to zmienne Q1-Q26, jak podzielić test na pół?)</li>
+<li>Zastosuj na nim formułę Spearmana-Browna</li>
+<li>Policz alfę Cronbacha</li>
+</ol>
+</section></section>
+<section><section id="literatura" class="title-slide slide level1"><h1>Literatura</h1></section>
+<section id="literatura-1" class="slide level2">
+<h2 class="unnumbered">Literatura</h2>
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
+<div id="ref-AmericanEducationalResearchAssociation2007">
+<p>AERA, APA, &amp; NCME. (2007). <em>Standardy dla testów stosowanych w psychologii i pedagogice</em>. Gdańsk: Gdańskie Wydawnictwo Psychologiczne.</p>
+</div>
+<div id="ref-mcintire2007foundations">
+<p>McIntire, S. A., &amp; Miller, L. A. (2007). <em>Foundations of Psychological Testing: A Practical Approach</em>. Retrieved from <a href="https://books.google.pl/books?id=dB0fw5lf0GQC">https://books.google.pl/books?id=dB0fw5lf0GQC</a></p>
+</div>
+<div id="ref-urbina2014essentials">
+<p>Urbina, S. (2014). <em>Essentials of Psychological Testing</em> (II). Retrieved from <a href="https://books.google.pl/books?id=UnHrAwAAQBAJ">https://books.google.pl/books?id=UnHrAwAAQBAJ</a></p>
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="reveal.js/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'reveal.js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'reveal.js/plugin/zoom-js/zoom.js', async: true },
+          { src: 'reveal.js/plugin/math/math.js', async: true },
+          { src: 'reveal.js/plugin/notes/notes.js', async: true }
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -135,22 +135,29 @@ Uwaga 2: nie wybieraj bardzo trudnych przypadków (swoją drogą, przy znacznej 
 
 ## Zadanie II - oceniamy rzetelność
 
-**Termin 25.11.2019, godz. 23.59**  
+**Termin 02.12.2019, godz. 23.59**  
 **UWAGA!!! Zbiór potrzebny to liczenia dostaniecie najdalej 14.11.2019 (czwartek). Bardzo proszę, żebyście spróbowali go otworzyć przed zajęciami o rzetelności (18.11.2019), żeby w trakcie zajęć/tuż przed nimi/po nich udało się rozwiązać wszystkie problemy z kategorii "Plik nie chce mi się otworzyć" itp.**  
-Treść zadania dostaniecie najpóźniej na zajęciach o rzetelności (II).
+
+1. Policz współczynnik równoważności międzypołówkowej (pozycje testu to zmienne Q1-Q26, jak podzielić test na pół?)  
+2. Zastosuj na nim formułę Spearmana-Browna  
+3. Policz alfę Cronbacha  
 
 ## Zadanie III - oceniamy trafność
+**Termin 06.12.2019, godz. 23.59**  
 
-**Termin 02.12.2019, godz. 23.59**  
-Treść zadania otrzymacie najpóźniej na zajęciach o trafności (III).
+1. Policz współczynnik korelacji między wynikiem w teście (pozycje Q1-Q26) a wynikiem w zmiennej "nerdy" (jedna z ostatnich kolumn). O jakim rodzaju trafności będzie mówił ten wynik? Czy świadczy o tym, że NPAS jest trafnym narzędziem? Zinterpretuj go.  
+2. Policz współczynnik korelacji między wynikiem w teście a wynikiem w podskali ekstrawersji TIPI. Żeby uzyskać wynik w skali ekstrawersji TIPI musisz zsumować wynik w zmiennej TIPI1 i odwrócony wynik w zmiennej TIPI6 (1=7, 2=6, 3=5, 4=4, 5=3, 6=2, 7=1). O jakim rodzaju trafności będzie mówił ten wynik? Czy świadczy o tym, że NPAS jest trafnym narzędziem? Zinterpretuj go.  
+
 
 ## Zadanie IV - plan konstrukcji kwestionariusza 
 
-**Termin: 04.12.2019, godz. 23:59**  
+**Termin: 06.12.2019, godz. 23:59**  
 *W celu realizacji tego zadania zalecam zapoznanie się z podrozdziałem 10.7 z książki "Psychologia. Podręcznik akademicki" oraz z rozdziałem 5 i częścią "Krótki przewodnik, czyli jak samemu zbudować test" z "Testów psychologicznych" E. Hornowskiej.*  
 
-Przygotujcie plan konstrukcji kwestionariusza mierzącego interesującą Was cechę (interesujący Was konstrukt). w planie powinny znaleźć się następujące punkty:   
-
+Przygotujcie plan konstrukcji kwestionariusza mierzącego interesującą Was cechę (interesujący Was konstrukt). W planie powinny znaleźć się następujące punkty:  
+  
+*Uwaga: proszę dokładnie trzymać się przedstawionej struktury, wraz z nagłówkami. Odejście od niej może spowodować, że nie znajdę jakiejś informacji i nie przyznam za nią punktów*  
+  
 1. **Cel pomiaru**: wskażcie, do czego wykorzystywany będzie opracowywany test, jakich informacji ma dostarczyć użytkownikom. *(2 punkty)*
 2. **Grupa docelowa**: wskażcie DOKŁADNIE, dla kogo przeznaczony będzie test (dzieci - źle; dzieci w wieku od 6 do 9 lat, uczące się w klasach 1-3, niezależnie od poziomu umiejętności czytania - dobrze). *(1 punkt)*
 3. **Plan testu**:
@@ -160,13 +167,16 @@ Przygotujcie plan konstrukcji kwestionariusza mierzącego interesującą Was cec
 	- **Procedura wykonania testu**: wskażcie, czy test będzie wykonywany metodą papier-ołówek, komputerowo lub w inny sposób, czy będzie wykonywany indywidualnie, czy grupowo, jak długo będzie trwał. *(1 punkt)*
 	- **Sposób oceny**: podajcie sposób oceny wykonania testu (na czas? punkty?). *(1 punkt)*
 8. **Procedura tworzenia testu**:
-	- **Przykładowe pozycje testowe**: stwórzcie 10 przykładowych pozycji testowych. *(2 punkty)*
+	- **Przykładowe pozycje testowe**: stwórzcie 10 przykładowych pozycji testowych. *(1 punkt)*
 	- **Instrukcja dla badanego**: napiszcie instrukcję do Waszego testu. Pamiętajcie, że standaryzacja -> obiektywność. *(2 punkty)*
-	- **Instrukcja dla oceniającego**: stwórzcie instrukcję oceny Waszego testu, wraz z kluczem odpowiedzi dla 10 przykładowych pozycji. *(2 punkty)*
+	- **Instrukcja dla oceniającego**: stwórzcie instrukcję oceny Waszego testu, wraz z kluczem odpowiedzi dla 10 przykładowych pozycji. *(1 punkty)*
 	- **Eliminacja stronniczości wynikającej ze stylów odpowiadania**: w jaki sposób zamierzacie sobie z nią poradzić? 2-3 zdania. *(2 punkty)*
-	- **Opiszcie procedurę analizy pozycji testowych wraz z wytycznymi do badania pilotażowego**: ok. pół standardowej strony A4. Opiszcie kroki, jakie podejmiecie, by przeanalizować wstępną pulę pozycji testowych. Wskażcie, w jakim celu podejmujecie każdy z kroków. Wskażcie wielkość próby w badaniu pilotażowym oraz sposób doboru próby. *(3 punkty)*
-9. **Badanie rzetelności ostatecznej wersji testu**: opiszcie, jak zbadacie rzetelność ostatecznej wersji testu i uzasadnijcie swój wybór w 2-3 zdaniach. *(3 punkty)*
-10. **Badanie trafności ostatecznej wersji testu**: opiszcie, jak zbadacie trafność ostatecznej wersji testu i uzasadnijcie swój wybór w 2-3 zdaniach. *(3 punkty)*
+	- **Opiszcie procedurę analizy pozycji testowych i badanie pilotażowe**: Opiszcie kroki, jakie podejmiecie, by przeanalizować wstępną pulę pozycji testowych. Wskażcie, w jakim celu podejmujecie każdy z kroków. Opiszcie, jak będzie wyglądało badanie pilotażowe. Połóżcie szczególny nacisk na analizę trafności treściowej waszego narzędzia. *(3 punkty, 2 za trafność treściową, 1 za pozostałe kwestie)*
+9. **Badanie rzetelności ostatecznej wersji testu**: opiszcie, jak zbadacie rzetelność ostatecznej wersji testu. Odnieście się do rzetelności związanej z:
+	- doborem treści,
+	- zmiennością w czasie (wskażcie na co musicie uważać przy jej badaniu),
+	- ocenami sędziów (jeżeli nie musicie jej badać, wskażcie dlaczego). *(5 punktów, po 2 za dobór treści i czas, 1 za sędziów)*
+10. **Badanie trafności ostatecznej wersji testu**: opiszcie, jak zbadacie trafność kryterialną (diagnostyczną lub prognostyczną) oraz teoretyczną ostatecznej wersji testu. W obydwu przypadkach uzasadnijcie wybór metod badania trafności. *(6 punktów, po 3 za każdy rodzaj trafności)*
 11. **Normy**: Wskażcie, czy będziecie tworzyć normy (krótko tak lub nie) wraz z 1-2 zdaniowym uzasadnieniem. *(1 punkt)*
 
 

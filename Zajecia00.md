@@ -1,52 +1,58 @@
 ---
-title: "Psychometria - ćwiczenia (semestr zimowy 2019/20)"
+title: "Psychometria - ćwiczenia (semestr zimowy 2020/21)"
 ---
 
 # Przedstawmy się
 
 ## Małgorzata Basińska
-![Moje foto](img/MojeFoto.jpg){#id .class height=350px}  
-[Uwielbiam spędzać czas na dociekaniach]{.smallcaps}  
-[Interesuję się prawami człowieka]{.smallcaps}  
-[Lubię piec ciacha i ciasteczka]{.smallcaps}  
+
+![](img/MojeFoto.jpg){#id .class height=350px}  
+Uwielbiam spędzać czas na dociekaniach  
+Interesuję się prawami człowieka i zimną wojną  
+Lubię piec ciacha i ciasteczka  
 
 ## Jak się ze mną kontaktować
-* Po zajęciach (szybko - rezerwacja sali itp.)
-* Mailowo (mkbasinska@gmail.com)
-* Mailowo możemy umówić się na konsultacje na Skype
+
+- Mailowo: mbas@gumed.edu.pl
+- Konsultacje na Zoomie
 
 # Informacje o przebiegu ćwiczeń, literaturze, zadaniach
 
-## Cele ćwiczeń z psychometrii
+## Jak będą wyglądać zajęcia
+
 ::: incremental
-- będziecie znać psychometryczne podstawy konstrukcji testów psychologicznych 
-- będziecie potrafili ocenić własności psychometryczne testów psychologicznych
-- będziecie mieć podstawy, by stwierdzić, jakie są właściwe zastosowania danego testu
-- będziecie wrażliwi na zagadnienia dotyczące etycznego i uczciwego stosowania testów
-- będziecie wiedzieć, **gdzie szukać informacji** na temat stosowania testów
+
+- Zajęcia on-line
+- Informacja o tym, jak się zalogować na następne zajęcia w Extranecie
+- Robimy zadania na platformie Moodle
+- Wejściówki
+- Python / R
+
 :::
 
-## Jak będą wyglądać zajęcia
-::: incremental
-- Uczenie się przez robienie
-- Bądźcie przygotowani do zajęć - PROSZĘ :)
+## Tak, udostępnię slajdy :)
+
+## Literatura
+
 - Czytajcie literaturę
 - Nie, nie zakładam, że będziecie wszystko umieć po jej przeczytaniu
 - Bądźcie rządni wiedzy - zadawajcie pytania
-:::
 
-## Tak, udostępnię slajdy :)			
+## Podręcznik 1
 
-## Podręczniki!
+![](img/hornowska.png){#id .class height=350px}
+
+## Podręcznik 2
+
+![](img/strelau.png){#id .class height=350px}
+
+## Dodatkowa literatura
+
+![](img/standardy.png){#id .class height=350px}
 
 ## Warunki zaliczenia
-- obecność na zajęciach - można nie być na jednych bez wyjaśnienia, każde następne trzeba odpracować niezależnie od okoliczności
-- wysłanie **wszystkich** zadań domowych
-- uzyskanie min. 60% punktów za zadania domowe
 
-## Dostaniecie plik ze wszystkimi warunkami zaliczenia ćwiczeń, literaturą itp.
-
-
-
-
-
+- obecność na zajęciach
+- zrobienie **wszystkich** zadań na Moodlu
+- oddanie pracy zaliczeniowej
+- uzyskanie > 60% punktów za zajęcia (wejściówki + praca zaliczeniowa)

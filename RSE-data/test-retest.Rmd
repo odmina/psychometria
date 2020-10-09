@@ -1,0 +1,114 @@
+Załaduj tidyverse
+```{r}
+library(tidyverse)
+library(tidyselect)
+```
+
+Wygeneruj wyniki drugiego pomiaru - dwa identyczne pomiary
+```{r}
+RSE <- read_tsv("~/Robota/ZAJECIA_psychometria/RSE-data/data_scores.csv")
+RSE <- head(RSE, n=1000)
+RSE <- RSE %>% 
+  select(T1 = TOTAL) %>% 
+  mutate(T2 = T1) %>% 
+  arrange(T2)
+
+glimpse(RSE)
+mean(RSE$T1)
+sd(RSE$T1)
+mean(RSE$T2)
+sd(RSE$T2)
+
+ggplot(data = RSE) + 
+   geom_point(mapping = aes(x = T1, y = T2), alpha=0.2, position = "jitter")
+ 
+cor(RSE$T1, RSE$T2, method = "pearson")
+
+```
+
+Wygeneruj wyniki drugiego pomiaru - dodana losowa zmiana oryginalnego wyniku
+```{r}
+RSE <- read_tsv("~/Robota/ZAJECIA_psychometria/RSE-data/data_scores.csv")
+RSE <- head(RSE, n=1000)
+RSE <- RSE %>% 
+  select(T1 = TOTAL) %>% 
+  mutate(zscore = T1/sd(T1)) %>% 
+  mutate(blad = rnorm(n())) %>%
+  mutate(T2 = round(T1+0.5*blad*sd(T1))) %>%
+  mutate(T2 = case_when(
+    T2 > 30 ~ 30 - blad,
+    T2 < 0 ~ 0 + abs(blad),
+    TRUE ~ T2
+  )) %>% 
+  arrange(T2)
+
+glimpse(RSE)
+mean(RSE$T1)
+sd(RSE$T1)
+mean(RSE$T2)
+sd(RSE$T2)
+
+ggplot(data = RSE) + 
+   geom_point(mapping = aes(x = T1, y = T2), alpha=0.2, position = "jitter")
+ 
+cor(RSE$T1, RSE$T2, method = "pearson")
+
+```
+
+Wygeneruj wyniki drugiego pomiaru - dodana losowa zmiana oryginalnego wyniku
+```{r}
+RSE <- read_tsv("~/Robota/ZAJECIA_psychometria/RSE-data/data_scores.csv")
+RSE <- head(RSE, n=1000)
+RSE <- RSE %>% 
+  select(T1 = TOTAL) %>% 
+  mutate(zscore = T1/sd(T1)) %>% 
+  mutate(blad = rnorm(n())) %>%
+  mutate(T2 = round(T1+blad*sd(T1))) %>%
+  mutate(T2 = case_when(
+    T2 > 30 ~ 30 - blad,
+    T2 < 0 ~ 0 + abs(blad),
+    TRUE ~ T2
+  )) %>% 
+  arrange(T2)
+
+glimpse(RSE)
+mean(RSE$T1)
+sd(RSE$T1)
+mean(RSE$T2)
+sd(RSE$T2)
+
+ggplot(data = RSE) + 
+   geom_point(mapping = aes(x = T1, y = T2), alpha=0.2, position = "jitter")
+ 
+cor(RSE$T1, RSE$T2, method = "pearson")
+
+```
+
+Wygeneruj wyniki drugiego pomiaru - całkowicie losowe
+```{r}
+RSE <- read_tsv("~/Robota/ZAJECIA_psychometria/RSE-data/data_scores.csv")
+RSE <- head(RSE, n=1000)
+RSE <- RSE %>% 
+  select(T1 = TOTAL) %>% 
+  # mutate(zscore = T1/sd(T1)) %>% 
+  mutate(blad = rnorm(n())) %>%
+  mutate(T2 = round(15+blad*sd(T1))) %>%
+  mutate(T2 = case_when(
+    T2 > 30 ~ 30 - blad,
+    T2 < 0 ~ 0 + abs(blad),
+    TRUE ~ T2
+  )) %>% 
+  arrange(T2)
+
+glimpse(RSE)
+mean(RSE$T1)
+sd(RSE$T1)
+mean(RSE$T2)
+sd(RSE$T2)
+
+ggplot(data = RSE) + 
+   geom_point(mapping = aes(x = T1, y = T2), alpha=0.2, position = "jitter")
+ 
+cor(RSE$T1, RSE$T2, method = "pearson")
+
+```

@@ -4,4 +4,4 @@
 
 Picture from [xkcd.com](xkcd.com). This work is licensed under a Creative Commons Attribution-NonCommercial 2.5 License.
 
-[https://github.com/odmina/psychometria](tu jest całe repo)
+[https://github.com/odmina/psychometria/](tu jest całe repo)

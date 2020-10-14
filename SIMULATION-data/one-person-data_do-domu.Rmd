@@ -1,0 +1,153 @@
+# ZADANIE DOMOWE
+
+## Jak wygenerować dane
+
+Funkcja generator_1() tworzy duży zbiór danych, zawierający wyniki wielu pomiarów wykonanych tym samym narzędziem u jednej osoby. Poniżej deklaracja tej funkcji. Nie zmieniaj jej, tylko uruchom kod poniżej.
+
+```{r}
+generator_1 <- function(err) {
+  set.seed(40)
+  if (err > 5) return(print("Za duża wartość. Wpisz wartość < 5")) 
+  source_data <- data.frame(X_true = rep(30, 1000), X_error = rnorm(1000, mean = 0, sd = err))
+  my_data <- data.frame(X_o = round(source_data$X_true + source_data$X_error))
+  return(my_data)
+}
+```
+
+Funkcja przymuje jeden argument. Może być to liczba rzeczywista od 0 do 5. Uwaga: ułamki z ".". Czyli możesz wpisać np. 0, 1, 1.5, 2.32, 3.3456
+
+Im większą liczbę wprowadzisz, tym większy błąd pomiaru. 
+
+Żeby zapisać zbiór, użyj <-. funkcja head() wyświetla n pierwszych wierszy zbioru. Przykłady:
+
+```{r}
+jakies_dane <- generator_1(1)
+head(jakies_dane, n = 20)
+inne_dane <- generator_1(3.4)
+head(inne_dane, n = 20)
+```
+
+## Wykonaj co najmniej 3 razy to same działania...
+
+...żeby zobaczyć, jak zmienia się wariancja, odchylenie standardowe i suma odchyleń w zależności od tego, jak duży jest błąd. Za każdym razem wprowadź inną wartość błędu. Polecam zacząć od wartości bliskiej 0.
+
+### Pierwszy 
+
+Stwórz zbiór przy użyciu funkcji generator_1() i wyświetl jego "głowę" funkcją head():
+
+```{r}
+dane <- generator_1(5)
+head(dane, n = 20) 
+```
+
+Policz średni wynik używając funkcji mean. Zmienna z wynikiem nazywa się X_o i jest w zbiorze dane. Żeby się do niej odwołać musisz użyć $.
+
+```{r}
+X_o_sr <- mean(...)
+X_o_sr
+```
+
+Wyświetl wykres (nic nie zmieniaj):
+```{r}
+plot(seq(1, 1000, 1), dane$X_o)
+lines(seq(1, 1000, 1), rep(mean(dane$X_o), 1000), col = "red")
+```
+
+Oblicz odchylenia poszczególnych obserwacji od średniego wyniku oraz sumę i średnią tych odchyleń:
+
+```{r}
+dane$X_o_odch <- dane$X_o - ...
+head(dane, 20)
+sum(...)
+mean(...)
+```
+
+Oblicz odchylenie standardowe wyniku X_o.
+
+```{r}
+sd(...)
+```
+
+### Drugi
+
+Stwórz zbiór przy użyciu funkcji generator_1() i wyświetl jego "głowę" funkcją head():
+
+```{r}
+dane <- generator_1(5)
+head(dane, n = 20) 
+```
+
+Policz średni wynik używając funkcji mean. Zmienna z wynikiem nazywa się X_o i jest w zbiorze dane. Żeby się do niej odwołać musisz użyć $.
+
+```{r}
+X_o_sr <- mean(...)
+X_o_sr
+```
+
+Wyświetl wykres (nic nie zmieniaj):
+```{r}
+plot(seq(1, 1000, 1), dane$X_o)
+lines(seq(1, 1000, 1), rep(mean(dane$X_o), 1000), col = "red")
+```
+
+Oblicz odchylenia poszczególnych obserwacji od średniego wyniku oraz sumę i średnią tych odchyleń:
+
+```{r}
+dane$X_o_odch <- dane$X_o - ...
+head(dane, 20)
+sum(...)
+mean(...)
+```
+
+Oblicz odchylenie standardowe wyniku X_o.
+
+```{r}
+sd(...)
+```
+
+### Trzeci
+
+Stwórz zbiór przy użyciu funkcji generator_1() i wyświetl jego "głowę" funkcją head():
+
+```{r}
+dane <- generator_1(5)
+head(dane, n = 20) 
+```
+
+Policz średni wynik używając funkcji mean. Zmienna z wynikiem nazywa się X_o i jest w zbiorze dane. Żeby się do niej odwołać musisz użyć $.
+
+```{r}
+X_o_sr <- mean(...)
+X_o_sr
+```
+
+Wyświetl wykres (nic nie zmieniaj):
+```{r}
+plot(seq(1, 1000, 1), dane$X_o)
+lines(seq(1, 1000, 1), rep(mean(dane$X_o), 1000), col = "red")
+```
+
+Oblicz odchylenia poszczególnych obserwacji od średniego wyniku oraz sumę i średnią tych odchyleń:
+
+```{r}
+dane$X_o_odch <- dane$X_o - ...
+head(dane, 20)
+sum(...)
+mean(...)
+```
+
+Oblicz odchylenie standardowe wyniku X_o.
+
+```{r}
+sd(...)
+```
+
+## Zastanów się nad odpowiedzią na poniższe pytania.
+
+Jeżeli błąd pomiaru jest większy, to jak w przypadku wielu pomiarów dokonanych u jednej osoby tym samym narzędziem zmienia się:
+
+- Wariancja wyniku?
+- Odchylenie standardowe wyniku?
+- Suma obserwowanych odchyleń (surowe! x - mean(x)) pojedynczego wyniku od średniego wyniku wszystkich pomiarów?
+- Średnia obserwowanych odchyleń (surowe! x - mean(x)) pojedynczego wyniku od średniego wyniku wszystkich pomiarów?
+- Średni wynik wszystkich pomiarów?

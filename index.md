@@ -1,6 +1,6 @@
 # To jest repozytorium z materiałami na ćwiczenia z Psychometrii :)
 
-[https://github.com/odmina/psychometria/](tu jest całe repo)
+[Tu jest całe repo](https://github.com/odmina/psychometria/)
 
 ![https://imgs.xkcd.com/comics/existence_proof.png](https://imgs.xkcd.com/comics/existence_proof.png)
 

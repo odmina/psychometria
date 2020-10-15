@@ -1,0 +1,298 @@
+# ZADANIE DOMOWE
+
+## Jak wygenerować dane
+
+Funkcja generator_2() tworzy zbiór danych, zawierający wyniki dwóch pomiarów tym samym testem, wykonanych w grupie 1000 osób. Poniżej deklaracja tej funkcji. Nie zmieniaj jej, tylko uruchom kod poniżej.
+
+```{r}
+generator_2 <- function (ile_bledu) {
+  if (ile_bledu > 4) return(print("Za duża wartość. Wpisz wartość < 4"))
+  set.seed(10)
+  source_data <- data.frame(
+    X_true = round(rnorm(1000, mean = 14, sd = 5)), 
+    X_error_T1 = rnorm(1000, mean = 0, sd = ile_bledu),
+    X_error_T2 = rnorm(1000, mean = 0, sd = ile_bledu))
+  my_data <- data.frame(
+    id = rep(seq(1, 1000, 1),2),
+    pomiar = c(rep("T1", 1000), rep("T2", 1000)),
+    X_true = rep(source_data$X_true, 2),
+    X_o = c(source_data$X_true + source_data$X_error_T1, source_data$X_true + source_data$X_error_T2))
+  my_data$X_o <- round(my_data$X_o)
+  my_data$X_o <- ifelse(my_data$X_o < 0, 0, my_data$X_o)
+  my_data$X_o <- ifelse(my_data$X_o > 30, 30, my_data$X_o)
+  my_data$X_error <- my_data$X_o - my_data$X_true
+  my_data <- my_data[order(my_data$id),c("id", "X_true", "X_error", "pomiar", "X_o")]
+  #tu zaczyna się reshape
+  my_data <- reshape(my_data, idvar = c("id", "X_true"), timevar = "pomiar", v.names = c("X_error", "X_o"),  direction = "wide")
+  names(my_data) <- c("id", "X_true", "T1_error", "T1", "T2_error", "T2")
+  my_data <- my_data [, c("id", "X_true", "T1_error", "T2_error", "T1", "T2")]
+  rownames(my_data) <- NULL
+  return(my_data)
+}
+```
+
+Funkcja generator_2() przymuje jeden argument. Może być to liczba rzeczywista od 0 do 4. Uwaga: ułamki z ".". Czyli możesz wpisać np. 0, 1, 1.5, 2.32, 3.3456
+
+Im większą liczbę wprowadzisz, tym większy błąd pomiaru. 
+
+Żeby zapisać zbiór, użyj <-. funkcja head() wyświetla n pierwszych wierszy zbioru. Przykłady:
+
+```{r}
+jakies_dane <- generator_2(1)
+head(jakies_dane, n = 20)
+inne_dane <- generator_2(3.4)
+head(inne_dane, n = 20)
+```
+
+## Wykonaj co najmniej 3 razy to same działania...
+
+...żeby zobaczyć, jak zmienia się korelacja między wynikami testu i retestu w zależności od tego, jak duży jest błąd pomiaru. Za każdym razem wprowadź inną wartość błędu. Polecam zacząć od wartości bliskiej 0.
+
+### Pierwsze
+
+Wygeneruj zbiór przy pomocy funkcji generator_2() (wprowadź wielkość błędu) i wyświetl jego "głowę" przy pomocy funkcji head().
+
+```{r}
+tt_data <- generator_2(...)
+head(..., 20)
+```
+
+Zobaczmy, jak w naszym zbiorze wyglądają: 
+
+- odchylenie  standardowe wyniku prawdziwego. Zmienna X_true
+
+```{r}
+sd_X_true <- sd(tt_data$X_true)
+sd_X_true
+sd_T1 <- sd(...)
+sd_T1
+sd_T2 <- sd(...)
+sd_T2
+```
+
+Obejrzyj rozproszenie wyników na wykresie (nic nie zmieniaj):
+
+```{r}
+#Wynik prawdziwy
+plot(seq(1, nrow(tt_data), 1), tt_data$X_true, main = "Wynik prawdziwy")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$X_true), nrow(tt_data)), col = "red")
+
+#Pierwszy pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T1, main = "Pierwszy pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T1), nrow(tt_data)), col = "red")
+
+#Drugi pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T2, main = "Drugi pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T2), nrow(tt_data)), col = "red")
+```
+
+- odchylenie standardowe błędu w pierwszym i drugim pomiarze (zmienne T1_error i T2_error)
+
+```{r}
+sd_T1_error <- sd(...)
+sd_T2_error <- sd(...)
+sd_T1_error
+sd_T2_error
+```
+
+Czy błąd w pierwszym i drugim pomiarze czyli T1_error i T2_error są ze sobą skorelowane?
+
+```{r}
+plot(tt_data$T1_error, tt_data$T2_error)
+cor(...)
+```
+
+Czy wariancja w pierwszym i drugim pomiarze (T1 i T2) jest taka, jak wariancja błędu + wariancja wyniku prawdziwego? 
+Wariancja to odchylenie standardowe do kwadratu :) 
+^2 podnosi poprzedzające wyrażenie do kwadratu.
+
+```{r}
+sd_X_true^2 + sd_T1_error^2
+sd(...)^2
+sd_X_true^2 + sd_T2_error^2
+sd(...)^2
+```
+
+Jeżeli oszacujemy rzetelność z wykorzystaniem tych danych, otrzymamy takie oto wyniki dla pierwszego i drugiego pomiaru:
+
+```{r}
+sd(tt_data$X_true)^2 / (sd(tt_data$X_true)^2 + sd(tt_data$T1_error)^2)
+sd(tt_data$X_true)^2 / (sd(tt_data$X_true)^2 + sd(tt_data$T2_error)^2)
+```
+
+Czy wspołczynnik korelacji dla T1 i T2 da nam podobne oszacowanie?
+
+```{r}
+plot(tt_data$T1, tt_data$T2)
+cor(..., ...)
+```
+
+### Drugie
+
+Wygeneruj zbiór przy pomocy funkcji generator_2() (wprowadź wielkość błędu) i wyświetl jego "głowę" przy pomocy funkcji head().
+
+```{r}
+tt_data <- generator_2(...)
+head(..., 20)
+```
+
+Zobaczmy, jak w naszym zbiorze wyglądają: 
+
+- odchylenie  standardowe wyniku prawdziwego. Zmienna X_true
+
+```{r}
+sd_X_true <- sd(tt_data$X_true)
+sd_X_true
+sd_T1 <- sd(...)
+sd_T1
+sd_T2 <- sd(...)
+sd_T2
+```
+
+Obejrzyj rozproszenie wyników na wykresie (nic nie zmieniaj):
+
+```{r}
+#Wynik prawdziwy
+plot(seq(1, nrow(tt_data), 1), tt_data$X_true, main = "Wynik prawdziwy")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$X_true), nrow(tt_data)), col = "red")
+
+#Pierwszy pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T1, main = "Pierwszy pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T1), nrow(tt_data)), col = "red")
+
+#Drugi pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T2, main = "Drugi pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T2), nrow(tt_data)), col = "red")
+```
+
+- odchylenie standardowe błędu w pierwszym i drugim pomiarze (zmienne T1_error i T2_error)
+
+```{r}
+sd_T1_error <- sd(...)
+sd_T2_error <- sd(...)
+sd_T1_error
+sd_T2_error
+```
+
+Czy błąd w pierwszym i drugim pomiarze czyli T1_error i T2_error są ze sobą skorelowane?
+
+```{r}
+plot(tt_data$T1_error, tt_data$T2_error)
+cor(...)
+```
+
+Czy wariancja w pierwszym i drugim pomiarze (T1 i T2) jest taka, jak wariancja błędu + wariancja wyniku prawdziwego? 
+Wariancja to odchylenie standardowe do kwadratu :) 
+^2 podnosi poprzedzające wyrażenie do kwadratu.
+
+```{r}
+sd_X_true^2 + sd_T1_error^2
+sd(...)^2
+sd_X_true^2 + sd_T2_error^2
+sd(...)^2
+```
+
+Jeżeli oszacujemy rzetelność z wykorzystaniem tych danych, otrzymamy takie oto wyniki dla pierwszego i drugiego pomiaru:
+
+```{r}
+sd(tt_data$X_true)^2 / (sd(tt_data$X_true)^2 + sd(tt_data$T1_error)^2)
+sd(tt_data$X_true)^2 / (sd(tt_data$X_true)^2 + sd(tt_data$T2_error)^2)
+```
+
+Czy wspołczynnik korelacji dla T1 i T2 da nam podobne oszacowanie?
+
+```{r}
+plot(tt_data$T1, tt_data$T2)
+cor(..., ...)
+```
+
+### Trzecie
+
+Wygeneruj zbiór przy pomocy funkcji generator_2() (wprowadź wielkość błędu) i wyświetl jego "głowę" przy pomocy funkcji head().
+
+```{r}
+tt_data <- generator_2(...)
+head(..., 20)
+```
+
+Zobaczmy, jak w naszym zbiorze wyglądają: 
+
+- odchylenie  standardowe wyniku prawdziwego. Zmienna X_true
+
+```{r}
+sd_X_true <- sd(tt_data$X_true)
+sd_X_true
+sd_T1 <- sd(...)
+sd_T1
+sd_T2 <- sd(...)
+sd_T2
+```
+
+Obejrzyj rozproszenie wyników na wykresie (nic nie zmieniaj):
+
+```{r}
+#Wynik prawdziwy
+plot(seq(1, nrow(tt_data), 1), tt_data$X_true, main = "Wynik prawdziwy")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$X_true), nrow(tt_data)), col = "red")
+
+#Pierwszy pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T1, main = "Pierwszy pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T1), nrow(tt_data)), col = "red")
+
+#Drugi pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T2, main = "Drugi pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T2), nrow(tt_data)), col = "red")
+```
+
+- odchylenie standardowe błędu w pierwszym i drugim pomiarze (zmienne T1_error i T2_error)
+
+```{r}
+sd_T1_error <- sd(...)
+sd_T2_error <- sd(...)
+sd_T1_error
+sd_T2_error
+```
+
+Czy błąd w pierwszym i drugim pomiarze czyli T1_error i T2_error są ze sobą skorelowane?
+
+```{r}
+plot(tt_data$T1_error, tt_data$T2_error)
+cor(...)
+```
+
+Czy wariancja w pierwszym i drugim pomiarze (T1 i T2) jest taka, jak wariancja błędu + wariancja wyniku prawdziwego? 
+Wariancja to odchylenie standardowe do kwadratu :) 
+^2 podnosi poprzedzające wyrażenie do kwadratu.
+
+```{r}
+sd_X_true^2 + sd_T1_error^2
+sd(...)^2
+sd_X_true^2 + sd_T2_error^2
+sd(...)^2
+```
+
+Jeżeli oszacujemy rzetelność z wykorzystaniem tych danych, otrzymamy takie oto wyniki dla pierwszego i drugiego pomiaru:
+
+```{r}
+sd(tt_data$X_true)^2 / (sd(tt_data$X_true)^2 + sd(tt_data$T1_error)^2)
+sd(tt_data$X_true)^2 / (sd(tt_data$X_true)^2 + sd(tt_data$T2_error)^2)
+```
+
+Czy wspołczynnik korelacji dla T1 i T2 da nam podobne oszacowanie?
+
+```{r}
+plot(tt_data$T1, tt_data$T2)
+cor(..., ...)
+```
+
+## PYTANIE
+
+Jak zmieniła się korelacja między testem a retestem, kiedy błąd wzrósł?
+Jak zmieniła się korelacja między testem a retestem, kiedy błąd zmalał?
+Jak zmieniała się rzetelność testu kiedy zmieniała się wielkość błędu?
+Czy kiedy zmieniala się wielkość błędu, zmieniała się wariancja wyniku prawdziwego?
+
+## PYTANIE Z * DLA CHĘTNYCH - jeżeli chcesz wiedzieć, czy Twoja odpowiedź/intuicja jest dobra, wpisz ją poniżej i napisz do mnie maila w tej sprawie
+
+Jaka jest korelacja wyniku prawdziwego z wynikiem obserwowanym? Czy da się ją oszacować mając tylko współczynnik rzetelności?
+Dlaczego korelacja wyniku prawdziwego z wynikiem obserwowanym jest większa, niż korelacja dwóch wyników obserwowanych?

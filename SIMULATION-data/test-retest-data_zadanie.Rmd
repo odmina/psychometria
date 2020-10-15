@@ -68,6 +68,22 @@ sd_T1_error
 sd_T2_error
 ```
 
+Obejrzyj rozproszenie wyników na wykresie (nic nie zmieniaj):
+
+```{r}
+#Wynik prawdziwy
+plot(seq(1, nrow(tt_data), 1), tt_data$X_true, main = "Wynik prawdziwy")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$X_true), nrow(tt_data)), col = "red")
+
+#Pierwszy pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T1, main = "Pierwszy pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T1), nrow(tt_data)), col = "red")
+
+#Drugi pomiar
+plot(seq(1, nrow(tt_data), 1), tt_data$T2, main = "Drugi pomiar")
+lines(seq(1, nrow(tt_data), 1), rep(mean(tt_data$T2), nrow(tt_data)), col = "red")
+```
+
 Czy błąd w pierwszym i drugim pomiarze czyli T1_error i T2_error są ze sobą skorelowane?
 
 ```{r}
@@ -99,3 +115,7 @@ Czy wspołczynnik korelacji dla T1 i T2 da nam podobne oszacowanie?
 plot(tt_data$T1, tt_data$T2)
 cor(..., ...)
 ```
+
+## Pytanie
+
+Czy test o takim współczynniku rzetelności jest rzetelnym narzędziem?

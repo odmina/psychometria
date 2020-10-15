@@ -9,7 +9,7 @@ title: Rzetelność - jak dobrze test mierzy to, co mierzy
 - lepiej zrozumieć statystykę, jaka stoi za pomiarem rzetelności
 - obliczyć rzetelność testu z wykorzystaniem wybranych metod
   - korelacja między testem a retestem
-  - korelacja między połówkami testu i wzór Spearmana-Browna
+- wiedzieć, co to są testy równoległe
 
 # PODSTAWOWA STATYSTYKA
 
@@ -44,26 +44,6 @@ Zakładamy, że poziom naszej cechy w jakimś okresie powinien być (w miarę) s
 
 Here comes R :)  
 Zadanko 2 test_retest
-
-## 0 - dwa identyczne pomiary
-
-![](img/tt1.png){#id .class height=350px}  
-$r_{tt}=1$
-
-## I - dodane trochę błędu do drugiego pomiaru
-
-![](img/tt09.png){#id .class height=350px}  
-$r_{tt}=0.8906881$
-
-## II - dodane więcej błędu do drugiego pomiaru
-
-![](img/tt07.png){#id .class height=350px}  
-$r_{tt}=0.7064398$
-
-## III - całkowicie losowe wyniki w drugim pomiarze
-
-![](img/tt00.png){#id .class height=350px}  
-$r_{tt}=-0.009529104$
 
 # WAŻNE: testy równoległe
 

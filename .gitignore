@@ -14,6 +14,9 @@ reveal.js/
 #nie sledź logów
 *.log
 
+#nie sledź Rproj
+*.Rproj
+
 #nie śledź folderu materiały do druku
 materialy_do_druku/
 

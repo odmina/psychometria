@@ -23,6 +23,9 @@ materialy_do_druku/
 #nie śledź folderu z wejściówkami :)
 WEJSCIOWKI/
 
+#nie sledź piaskownicy
+piaskownica.*
+
 # Created by https://www.toptal.com/developers/gitignore/api/macos,sublimetext,latex,r
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,sublimetext,latex,r
 

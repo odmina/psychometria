@@ -1,0 +1,109 @@
+# RZETELNOŚĆ SZACOWANA METODĄ POŁÓWKOWĄ
+
+## SETUP I IMPORT DANYCH
+
+Żeby zadziałał import, musisz zapisać plik dane.csv i ten notatnik w jendym folderze!
+
+Importowane wyniki pochodzą stąd: https://openpsychometrics.org i zostały ściągnięte 20.11.2019 stąd: http://openpsychometrics.org/_rawdata/RSE.zip
+
+Będziecie pracować na fragmencie tego zbioru.
+
+```{r}
+raw_data <- read.delim("data.csv")
+my_data <- head(raw_data, 200)
+#reverse Q3, Q5, Q8, Q9, Q10
+my_reverse <- function(item, min, max) {
+  max - (item - min)
+}
+reverse_items <- function(df, items_to_reverse, min, max) {
+  for(i in items_to_reverse) {
+    df[[i]] <- my_reverse(df[[i]], min, max)
+  }
+  return(df)
+}
+my_data <- reverse_items(my_data, c("Q3", "Q5", "Q8", "Q9", "Q10"), 1, 4)
+```
+
+Podejrzyj, jak wyglądają dane.
+
+```{r}
+head(my_data, n = 10)
+```
+
+## DZIELIMY NA POŁOWY
+
+Jak to zrobić, żeby dobrze podzielić test na połowy? Po pierwsze, połowy muszą spełniać warunki stawiane testom równoległym, dla przypomnienia:
+
+- mają taką samą średnią
+- mają takie samo odchylenie standardowe
+- mają takie same interkorelacje między itemami (o tym później)
+- jeżeli spróbujemy skorelować ich wynik z jakąś inną zmienną, dla obydwu testów korelacja będzie taka sama
+
+W praktyce dzieli się test na połowy tak, by równoważyć zmęczenie, wprawę i uwagę badanego lub inne źródła błędu, których jesteśmy świadomi. Np. poprzez wybranie pozycji parzystych i nieparzystych.
+
+Kod poniżej wpisuje do zmiennych polowa1 i polowa2 nazwy zmiennych, które mają znaleźć się w pierwszej i drugiej połówce i pozwala policzyć sumę dla pierwszej i drugiej połowy. Suma pierwszej połowy to total_p1, a drugiej total_p2.
+
+```{r}
+polowa1 <- c("Q1", "Q3", "Q5", "Q7", "Q9")
+polowa2 <- c("Q2", "Q4", "Q6", "Q8", "Q10")
+
+my_data$total_p1 <- apply(my_data[ , polowa1], 1, sum)
+my_data$total_p2 <- apply(my_data[ , polowa2], 1, sum)
+```
+
+Obejrzyjmy teraz nasz zbiór.
+
+```{r}
+head(my_data, 10)
+```
+
+Pamiętając o założeniach dotyczących równoległości, sprawdźmy średnią i odchylenie standardowe oraz korelację wyniku w pierwszej i drugiej połowie ze zmienną wiek.
+
+```{r}
+mean(my_data$total_p1)
+mean(my_data$total_p2)
+sd(my_data$total_p1)
+sd(my_data$total_p2)
+cor(my_data$total_p1, my_data$age)
+cor(my_data$total_p2, my_data$age)
+```
+
+## LICZYMY KORELACJĘ MIĘDZY POŁOWAMI
+
+Dokładnie tak samo, jak w teście i reteście. Korelację między połówkami zapiszemy w zmiennej r_pp.
+
+```{r}
+r_pp <- cor(my_data$total_p2, my_data$total_p1)
+r_pp
+```
+
+## OK, ALE TESTY BYŁY 2x KRÓTSZE
+
+...niż nasz oryginalny test. Wiemy, że generalnie dłuższy test będzie bardziej rzetelny, bo zbieramy większą próbkę zachowania. W tej sytuacji z pomocą przychodzi nam wzór Spearmana-Browna.
+
+$$r_{tt}=\frac{2r_{pp}}{1+r_{pp}}$$
+
+Gdzie:  
+$r_{tt}$ - rzetelność całego testu  
+$r_{pp}$ - korelacja między połówkami testu
+
+```{r}
+r_tt <- 2*r_pp / (1+r_pp) 
+r_tt
+```
+
+## WZÓR SPEARMANA-BROWNA, WERSJA OGÓLNA
+
+$$r_{nn}=\frac{nr_{cc}}{1+(n-1)r_{cc}}$$  
+Gdzie:  
+$r_{nn}$ - rzetelność testu wydłużonego **n** razy  
+$r_{cc}$ - rzetelność testu, którą zmierzyliśmy  
+Wartość $r_{nn}$ uzyskana ze wzoru Spearmana-Browna nigdy nie będzie większa od 1.
+Kto wie dlaczego? 
+
+Wersję ogólną (po przekształceniu) można wykorzystać do określenia, ile razy trzeba wydłużyć test, żeby uzyskać zakładaną rzetelność.  
+Uwaga: trzeba go wydłużać pytaniami podobnie dobrymi jak te, które już są w teście.
+
+## CO JESZCZE POWIEDZĄ NAM KORELACJE MIĘDZY POŁÓWKAMI?
+
+Pozwolą nam ocenić dobór treści w teście. Jeżeli mamy wątpliwości a propos jakiejś grupy pytań i pytania te trafią do jednej z połówek, sprawdzając korelację między połówkami. 

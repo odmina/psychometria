@@ -1,0 +1,131 @@
+# PRACA ZALICZENIOWA
+
+Nieprzekraczalny termin oddania pracy: 
+
+## Import danych
+
+**Zaimportuj plik z danymi. Jeżeli zapiszesz ten notatnik oraz Twój plik z danymi do zadania w jednym folderze, poniższy kod zadziała, jeżeli w wykropkowne miejsce wpiszesz nazwę Twojego pliku. Jeżeli ten notatnik i plik z danymi zapisane są w różnych folderach, musisz w miejsce ... wpisać pełną ścieżkę pliku. Poniższy kod zapisze zbiór danych jako moje_dane.**
+
+```{r}
+moje_dane <- read.csv2(...)
+```
+
+**Podejrzyj, jak wygląda Twój zbiór. Pierwsze 10 obserwacji.**
+
+```{r}
+head(moje_dane, n = 10)
+```
+
+**Zobacz, jakie są w nim zmienne.**
+
+```{r}
+summary(moje_dane)
+```
+
+## Korelacja między testem i retestem
+
+**Wpisz do poniższej komórki kod, który pozwoli na oszacowanie rzetelności metodą test-retest. Wyniki pierwszego pomiaru znajdują się w zmiennej T1, a wyniki drugiego pomiaru w zmiennej T2.**
+
+```{r}
+
+```
+
+### Twoja interpretacja wyniku
+
+*Poniżej wpisz swoją interpretajcę wyniku, odwołaj się do źródeł wariancji*
+
+## Korelacja między połówkami testu
+
+**Wpisz do poniższej komórki kod, który pozwoli na oszacowanie rzetelności metodą połówkową.**
+
+**1. Podziel test na połowy, wskazując pytania, które powinny znaleźć się w każdej z połówek tak, by oszacowanie rzetelności było miarodajne (pytania były zadawane w kolejności, jaka jest widoczna w zbiorze).** 
+
+```{r}
+polowa1 <- c("", "", "")
+polowa2 <- 
+```
+
+**2. Kod, który liczy wynik dla każdej z połówek testu jest już napisany, nie zmieniaj go. Wyniki dla poszczególnych połówek zapisywane są w zmiennych total_polowa1 i total_polowa2.**
+
+```{r}
+
+```
+
+**3. Oszacuj korelację między połówkami testu i zapisz ją w zmiennej r_polowy**
+```{r}
+
+```
+
+**4. Korzystając ze zmiennej r_polowy i odpowiedniego wzoru oszacuj rzetelność całego testu**
+
+```{r}
+polowa1 <- c("", "", "")
+polowa2 <- 
+total_polowa1 <-
+total_polowa2 <- 
+r_polowy <- 
+```
+
+### Czy współczynnik rzetelności całego testu oszacownany z wykorzystaniem odpowiedniego wzoru jest wyższy, czy niższy niż korelacja między połówkami testu? Wyjaśnij, dlaczego tak jest?
+
+*Tu wpisz swoją odpowiedź*
+
+## Alfa Cronbacha
+
+**Policz alfę dla testu.**
+
+```{r}
+
+```
+
+### Zinterpretuj uzyskaną alfę
+
+*tu wpisz interpretację*
+
+### Wyjaśnij...
+
+**1. Czy alfa spadnie, czy wzrośnie po dodaniu do testu pytania "Czy lubisz kalafior?".**
+
+*tu wpisz odpowiedź*
+
+**2. Wyniki dla pytania "Czy lubisz kalfior" są w zmiennej kalafior. Oblicz alfę dla testu z dodanym pytaniem "Czy lubisz kalfior".**
+
+```{r}
+
+```
+
+**3. Oblicz odchylenie standardowe wyniku testu z dodanym pytaniem o kalafior**
+
+```{r}
+
+```
+
+**4. Oblicz korelację zmiennej kalafior z dowolnym pytaniem z testu**
+
+```{r}
+
+```
+
+**5. Korzystając z obliczonego wyżej odchylenia standardowego wyniku testu z dodanym pytaniem oraz współczynnika korelacji zmiennej kalafior z pytaniem testu wyjaśnij, dlaczego alfa spadła lub wzrosła po dodaniu absurdalnego pytania**
+
+*tu wpisz swoje wyjaśnienie*
+
+## Trafność
+
+### Oblicz korelację z ...
+
+Oblicz współczynnik korelacji wyniku testu z ... . 
+
+```{r}
+
+```
+
+### Jak zinterpretujesz otrzymany wyżej wynik?
+
+*tu wpisz swoją odpowiedź*
+
+### Twoje metody
+
+**Zaproponuj dwa inne sposoby oceny trafności tego narzędzia. Bądź szczegółowy. Tzn. nie pisz "np. macierz wielu cech, wielu metod", ale wyjaśnij, jakie inne narzędzia miałyby znaleźć się w tej macierzy i jakie inne cechy miałyby być mierzone. Dla każdego z zaproponowanych sposobów wyjaśnij, jakie wyniki będą świadczyły o trafności, a jakie o jej braku.**
+
+*tu wpisz swoją odpowiedź*

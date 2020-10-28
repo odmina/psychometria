@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Małgorzata Basińska">
+  <title>Rzetelność - jak dobrze test mierzy to, co mierzy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Rzetelność - jak dobrze test mierzy to, co mierzy</h1>
+  <p class="author">Małgorzata Basińska</p>
+</section>
+
+<section>
+<section id="ocena-rzetelności-metodą-polegającą-na-podzieleniu-testu-na-połowy" class="title-slide slide level1">
+<h1>Ocena rzetelności metodą polegającą na podzieleniu testu na połowy</h1>
+
+</section>
+<section id="szacowanie-rzetelności-metodą-połówkową" class="slide level2">
+<h2>Szacowanie rzetelności metodą połówkową</h2>
+<ul>
+<li><strong>PRZYKŁAD:</strong>
+<ul>
+<li>przeprowadziliśmy w jakiejś grupie test tylko raz i chcemy oszacować jego rzetelność.</li>
+</ul></li>
+<li><strong>JAK OSZACOWAĆ RZETELNOŚĆ:</strong>
+<ul>
+<li>współczynnik równoważności międzypołówkowej</li>
+<li>korelacja między połówkami testu</li>
+<li>ważne pytanie: jak dzielić test na połowy??</li>
+</ul></li>
+</ul>
+</section>
+<section id="dlaczego-dzielenie-testu-na-połowy-może-pozwolić-nam-ocenić-rzetelność" class="slide level2">
+<h2>Dlaczego dzielenie testu na połowy może pozwolić nam ocenić rzetelność</h2>
+<p>Zakładamy, że każda z połówek bada ten sam konstrukt, a zatem wyniki uzyskane z wykorzystaniem obydwu połówek powinny być ze sobą skorelowane.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Ważna uwaga</strong>: oceniając rzetelność metodą test-retest i metodą połówkową oceniamy ją w odniesieniu do różnych źródeł błędu. Dla testu-retestu jest to zmienność wyników w czasie, a dla metody połówkowej dobór treści! Więc w obydwu przypadkach oceniamy rzetelność, ale dowiadujemy się czego innego.</p>
+</section>
+<section id="uwaga-połówki-testu-są-krótsze-niż-cały-test" class="slide level2">
+<h2>Uwaga: połówki testu są krótsze niż cały test</h2>
+<p>Więc siłą rzeczy rzetelność będzie niższa, ponieważ zbieramy mniejszą próbkę zachowania.</p>
+</section>
+<section id="wzór-spearmana-browna-dla-połówek-testu" class="slide level2">
+<h2>Wzór Spearmana-Browna dla połówek testu</h2>
+<p>Do szacowania rzetelności całego testu na postawie współczynnika równoważności międzypołówkowej (korelacji między połówkami testu) <span class="math display">\[r_{tt}=\frac{2r_{pp}}{1+r_{pp}}\]</span> Gdzie: <span class="math inline">\(r_{tt}\)</span> - rzetelność całego testu<br />
+<span class="math inline">\(r_{pp}\)</span> - rzetelność połówek testu</p>
+</section></section>
+<section>
+<section id="ogólna-wersja-wzoru-spearmana-browna" class="title-slide slide level1">
+<h1>Ogólna wersja wzoru Spearmana-Browna</h1>
+
+</section>
+<section id="wzór-spearmana-browna-wersja-ogólna" class="slide level2">
+<h2>Wzór Spearmana-Browna wersja ogólna</h2>
+<p><span class="math display">\[r_{nn}=\frac{nr_{cc}}{1+(n-1)r_{cc}}\]</span><br />
+Gdzie:<br />
+<span class="math inline">\(r_{nn}\)</span> - rzetelność testu wydłużonego <strong>n</strong> razy<br />
+<span class="math inline">\(r_{cc}\)</span> - rzetelność testu, którą zmierzyliśmy<br />
+Wartość <span class="math inline">\(r_{nn}\)</span> uzyskana ze wzoru Spearmana-Browna nigdy nie będzie większa od 1. Kto wie dlaczego?</p>
+</section>
+<section id="wzór-spearmana-browna-można-wykorzystać-by-stwierdzić-ile-razy-należy-wydłużyć-test-aby-uzyskać-zakładaną-rzetelność" class="slide level2">
+<h2>Wzór Spearmana-Browna można wykorzystać, by stwierdzić, ile razy należy wydłużyć test, aby uzyskać zakładaną rzetelność</h2>
+</section></section>
+<section>
+<section id="rzetelność-i-próbkowanie-treści" class="title-slide slide level1">
+<h1>Rzetelność i próbkowanie treści</h1>
+
+</section>
+<section id="próbkowanie-treści-a-zmienność-wyników-w-czasie" class="slide level2">
+<h2>Próbkowanie treści a zmienność wyników w czasie</h2>
+<ul>
+<li>Wykorzystując do oceny rzetelności metodę test-retest badamy zmienność wyników w czasie, między jedną a drugą sytuacją testową</li>
+<li>Jest to tylko jedno z możliwych źródeł błędu</li>
+<li>Innym źródłem błędu jest to, jaką próbkę zachowania będziemy zbierać, innymi słowy to, jakie pozycje trafią do naszego testu</li>
+</ul>
+</section>
+<section id="jaki-jest-sens-metody-połówkowej" class="slide level2">
+<h2>Jaki jest sens metody połówkowej</h2>
+<ul>
+<li>Metoda połówkowa pozwala nam ocenić rzetelność testu związaną z doborem treści.</li>
+<li>Można powiedzieć, że dzieląc test na połowy i badając korelację między połówkami testu de facto sprawdzamy do jakiego stopnia obie połowy testu badają to samo.</li>
+<li>Zakładamy, że powinny badać to samo, a zatem korelacja powinna być wysoka.</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

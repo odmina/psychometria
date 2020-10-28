@@ -1,6 +1,5 @@
-Files codebook.txt data.csv were downloaded from https://openpsychometrics.org (access 14 Nov 2019)
+Files codebook.txt data.csv were downloaded from http://openpsychometrics.org/_rawdata/MACH_data.zip (access 23 Oct 2020)
 
-About NPAS:
-https://openpsychometrics.org/tests/NPAS/development/
+File moje_dane.csv is modified from data.csv to be used on Psychometrics classes.
 
-Data in files NPAS-data*.csv are parts of data.csv
+Files moje_dane*.csv are parts of moje_dane.csv.

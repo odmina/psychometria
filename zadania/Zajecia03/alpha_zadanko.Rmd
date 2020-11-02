@@ -1,0 +1,106 @@
+# ALFA CRONBACHA
+
+## SETUP I IMPORT DANYCH
+
+Żeby zadziałał import, musisz zapisać plik dane.csv i ten notatnik w jendym folderze!
+
+Importowane wyniki pochodzą stąd: https://openpsychometrics.org i zostały ściągnięte 20.11.2019 stąd: http://openpsychometrics.org/_rawdata/RSE.zip
+
+Będziecie pracować na fragmencie tego zbioru.
+
+```{r}
+raw_data <- read.delim("data.csv")
+my_data <- raw_data[c(301:500),]
+#reverse Q3, Q5, Q8, Q9, Q10
+my_reverse <- function(item, min, max) {
+  max - (item - min)
+}
+reverse_items <- function(df, items_to_reverse, min, max) {
+  for(i in items_to_reverse) {
+    df[[i]] <- my_reverse(df[[i]], min, max)
+  }
+  return(df)
+}
+my_data <- reverse_items(my_data, c("Q3", "Q5", "Q8", "Q9", "Q10"), 1, 4)
+```
+
+Podejrzyj, jak wyglądają dane.
+
+```{r}
+head(my_data, n = 10)
+```
+
+## Pytania testu
+
+Na początek musimy zidentyfikować w zbiorze zmienne z odpowiedziami w pytaniach testu. Pytania znajdują się w zmiennych od Q1 do Q10. Stwórz wektor, w którym będą zapisane nazwy tych zmiennych. Następnie dla każdego badanego policzmy jego wynik i zapiszemy w zmiennej "total".
+
+```{r}
+pytania <- c(...)
+my_data$total <- apply(my_data[ , pytania], 1, sum)
+```
+
+## Paczka psych
+
+Żeby policzyć alfę, musimy załadować paczkę "psych". Jeżeli jeszcze nigdy z niej nie korzystałaś/eś, usuń # w pierwszej linijce.
+
+```{r}
+#instal.packages("psych")
+library(psych)
+```
+
+## Liczymy alfę
+
+Skorzystaj z funkcji alpha z załadowanej właśnie paczki psych i oblicz alfę dla testu. Pamiętaj, żeby wskazać, gdzie w zbiorze znajdują się pytania testu. Skorzystaj w tym celu z utworzonego wcześniej wektora pytania. Zbiór nazywa się my_data[].
+
+```{r}
+psych::alpha(...)
+```
+
+Zapiszmy wynik działania funkcji alpha do zmiennej. "Wyciągnijcie" ze zmiennej alfunia samą surową alfę.
+
+```{r}
+alfunia <- ...
+...
+```
+
+## A co się stanie jak dodamy bezsensowne pytanie?
+
+Wyobraźmy sobie, że do naszego testu samooceny dodaliśmy pytanie o to, czy ktoś lubi jeździć samochodem. Nie zmieniaj kodu poniżej
+
+```{r}
+set.seed(40)
+my_data$auto <- round(rnorm(nrow(my_data), 3, 1))
+
+#w tej linijce wskazujemy pytania naszego nowego testu o samoocenie i żelkach
+wszystkie_auto <-c(pytania, "auto")
+#a w tej sumę wyników z żelkami
+my_data$total_auto <- apply(my_data[ , wszystkie_auto], 1, sum)
+```
+
+Zobaczmy, jak to, czy ktoś lubi jeździć samochodem koreluje z wynikiem naszego oryginalnego testu:
+
+```{r}
+cor(my_data$total, my_data$auto)
+```
+
+Zobaczmy, jak wygląda odchylenie standardowe wyniku testu bez zmiennej auto i ze zmienną auto. 
+
+```{r}
+#bez auta
+sd(my_data$total)
+
+#z autem
+sd(my_data$total_auto)
+```
+
+Policz, jaka jest korelacja zmiennej auto z wybranym pytaniem testu. 
+
+```{r}
+cor(..., ...)
+```
+
+Policz alfę dla testu z dodanym pytaniem o auto
+
+```{r}
+alpha(...)
+```

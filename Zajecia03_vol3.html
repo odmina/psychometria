@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Małgorzata Basińska">
+  <title>Rzetelność - jak dobrze test mierzy to, co mierzy</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Rzetelność - jak dobrze test mierzy to, co mierzy</h1>
+  <p class="author">Małgorzata Basińska</p>
+</section>
+
+<section>
+<section id="rzetelność-a-spójność-wewnętrzna-testu" class="title-slide slide level1">
+<h1>Rzetelność a spójność wewnętrzna testu</h1>
+
+</section>
+<section id="alfa-cronbacha-wygląda-tak" class="slide level2">
+<h2>Alfa Cronbacha wygląda tak</h2>
+<p><span class="math display">\[\alpha=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{k}s_i^2}{s^2_t})\]</span><br />
+Gdzie:<br />
+k - liczba pozycji w teście<br />
+<span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście<br />
+<span class="math inline">\(s_i^2\)</span> - wariancja wyniku każdej z pozycji testowych</p>
+</section>
+<section id="albo-tak" class="slide level2">
+<h2>Albo tak</h2>
+<p><span class="math display">\[\alpha=(\frac{k^2 \overline{s_{ij}}}{s^2_t})\]</span><br />
+Gdzie:<br />
+k - liczba pozycji w teście <span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście <span class="math inline">\(\overline{s_{ij}}\)</span> - średnia kowariancja pozycji</p>
+</section>
+<section id="jaki-jest-sens-alfy" class="slide level2">
+<h2>Jaki jest sens alfy</h2>
+<ul>
+<li>Na wariancję wyniku testowego składa się wariancja poszczególnych pozycji…</li>
+<li>…oraz kowariancja (jest to termin zbliżony do korelacji) tych pozycji.</li>
+<li>Alfa jest miarą tego, jaką część ogólnej wariancji wyników w teście stanowi suma kowariancji poszczególnych pozycji.</li>
+</ul>
+</section>
+<section id="jak-to-działa" class="slide level2">
+<h2>Jak to działa</h2>
+<ul>
+<li>W hipotetycznej sytuacji, w której wariancja dla poszczególnych itemów zostaje taka sama…</li>
+<li>…im większa kowariancja między poszczególnymi pozycjami…</li>
+<li>…tym bardziej zróżnicowany (między badanymi) ogólny wynik w teście…</li>
+<li>…i tym wyższa alfa.</li>
+</ul>
+</section>
+<section id="wyobraźcie-sobie" class="slide level2">
+<h2>Wyobraźcie sobie</h2>
+<ul>
+<li>…że odpowiadacie na pytania zupełnie ze sobą niezwiązane. Jaka będzie kowariancja między odpowiedziami na te pytania?</li>
+<li>…że odpowiadacie na pytania w teście dotyczącym np. sumienności. Jaka będzie kowariancja między odpowiedziami na poszczególne pytania?</li>
+</ul>
+</section>
+<section id="tym-samym" class="slide level2">
+<h2>Tym samym</h2>
+<p>Alfa Cronbacha jest miarą tego, jak bardzo jednorodny jest test. Zakładamy, ze <strong>jednoczynnikowe</strong> testy i skale mierzą jeden konstrukt i powinny być jednorodne. Alfa jest miarą rzetelności związanej z doborem treści.</p>
+</section>
+<section id="wzór-k-r20" class="slide level2">
+<h2>Wzór K-R20</h2>
+<ul>
+<li>Wzór K-R20 jest podobny do alfy Cronbacha</li>
+<li>Można go zastosować w testach, w których mamy dwie możliwości odpowiedzi, jedną zgodną, a drugą niezgodną z kluczem</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><span class="math display">\[KR_{20}=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{q}p_i q_i}{s^2_t})\]</span><br />
+Gdzie:<br />
+k - liczba pozycji w teście<br />
+<span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście<br />
+<span class="math inline">\(p_i\)</span> - proporcja osób odpowiadających zgodnie z kluczem <span class="math inline">\(q_i\)</span> - proporcja osób odpowiadających NIEzgodnie z kluczem</p>
+</section></section>
+<section>
+<section id="podsumowanie-wiedzy-o-rzetelności" class="title-slide slide level1">
+<h1>Podsumowanie wiedzy o rzetelności</h1>
+
+</section>
+<section id="źródła-błędu-a-rzetelność" class="slide level2">
+<h2>Źródła błędu a rzetelność</h2>
+<ul>
+<li>niezgodność/niespójność w ocenach sędziów</li>
+<li>zmienność w czasie</li>
+<li>brak spójności wewnętrznej testu i błędy w doborze treści</li>
+</ul>
+</section>
+<section id="metody-szacowania-rzetelności-vs-źródła-błędu" class="slide level2">
+<h2>Metody szacowania rzetelności vs źródła błędu</h2>
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sędziowie</td>
+<td style="text-align: left;">Ocena tego samego materiału przez dwóch sędziów i obliczenie - współczynnika korelacji - kappa Cohena</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Zmienność w czasie</td>
+<td style="text-align: left;">Technika test - retest i obliczenie współczynnika korelacji między testem i retestem</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dobór (próbkowanie) i heterogeniczność treści</td>
+<td style="text-align: left;">Ocena korelacji między połówkami testu (pamiętaj o wzorze Spearmana-Browna) Ocena korelacji między wersjami alternatywnymi Ocena spójności wewnętrznej - K-R20 - Alfa Cronbacha</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="jak-zwiększać-rzetelność-mcintire2007foundations" class="slide level2">
+<h2>Jak zwiększać rzetelność? <span class="citation" data-cites="mcintire2007foundations">(McIntire &amp; Miller, 2007)</span></h2>
+<div>
+<ul>
+<li class="fragment">dodanie pytań</li>
+<li class="fragment">zwiększenie homogeniczności testu</li>
+<li class="fragment">skrócenie interwału pomiędzy testem i retestem (uwaga na efekt wprawy!)</li>
+<li class="fragment">zwiększenie efektywności przeprowadzania testu</li>
+<li class="fragment">ostrożność podczas oceniania</li>
+<li class="fragment">ograniczenie zgadywania lub odpowiadania nieszczerze / bez zaangażowania</li>
+</ul>
+</div>
+<div id="refs" class="references hanging-indent" role="doc-bibliography">
+<div id="ref-mcintire2007foundations">
+<p>McIntire, S. A., &amp; Miller, L. A. (2007). <em>Foundations of Psychological Testing: A Practical Approach</em>. Retrieved from <a href="https://books.google.pl/books?id=dB0fw5lf0GQC">https://books.google.pl/books?id=dB0fw5lf0GQC</a></p>
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -1,5 +1,5 @@
 ---
-title: Rzetelność - jak dobrze test mierzy to, co mierzy
+title: Rzetelność - podział testu na połowy
 ---
 
 # Ocena rzetelności metodą polegającą na podzieleniu testu na połowy

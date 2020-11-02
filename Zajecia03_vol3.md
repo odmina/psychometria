@@ -1,5 +1,5 @@
 ---
-title: Rzetelność - jak dobrze test mierzy to, co mierzy
+title: Rzetelność - spójność wewnętrzna i podsumowanie
 ---
 
 # Rzetelność a spójność wewnętrzna testu 

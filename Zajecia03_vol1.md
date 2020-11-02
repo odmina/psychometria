@@ -1,5 +1,5 @@
 ---
-title: Rzetelność - jak dobrze test mierzy to, co mierzy
+title: Rzetelność - test-retest
 ---
 
 # Po zajęciach powinniście umieć

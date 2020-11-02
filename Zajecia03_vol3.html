@@ -37,17 +37,17 @@
 </section>
 <section id="alfa-cronbacha-wygląda-tak" class="slide level2">
 <h2>Alfa Cronbacha wygląda tak</h2>
-<p><span class="math display">\[\alpha=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{k}s_i^2}{s^2_t})\]</span><br />
+<p><span class="math display">\[\alpha=(\frac{k}{k-1})(1 - \frac{\sum_{i=1}^{k}\sigma_i^2}{\sigma^2_X})\]</span><br />
 Gdzie:<br />
 k - liczba pozycji w teście<br />
-<span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście<br />
-<span class="math inline">\(s_i^2\)</span> - wariancja wyniku każdej z pozycji testowych</p>
+<span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku w teście<br />
+<span class="math inline">\(\sigma_i^2\)</span> - wariancja wyniku każdej z pozycji testowych</p>
 </section>
 <section id="albo-tak" class="slide level2">
 <h2>Albo tak</h2>
-<p><span class="math display">\[\alpha=(\frac{k^2 \overline{s_{ij}}}{s^2_t})\]</span><br />
+<p><span class="math display">\[\alpha=(\frac{k^2 \overline{\sigma_{ij}}}{\sigma^2_X})\]</span><br />
 Gdzie:<br />
-k - liczba pozycji w teście <span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście <span class="math inline">\(\overline{s_{ij}}\)</span> - średnia kowariancja pozycji</p>
+k - liczba pozycji w teście <span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku w teście <span class="math inline">\(\overline{\sigma_{ij}}\)</span> - średnia kowariancja pozycji</p>
 </section>
 <section id="jaki-jest-sens-alfy" class="slide level2">
 <h2>Jaki jest sens alfy</h2>
@@ -86,10 +86,10 @@ k - liczba pozycji w teście <span class="math inline">\(s^2_t\)</span> - warian
 </section>
 <section class="slide level2">
 
-<p><span class="math display">\[KR_{20}=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{q}p_i q_i}{s^2_t})\]</span><br />
+<p><span class="math display">\[KR_{20}=(\frac{k}{k-1})(1 - \frac{\sum_{i=1}^{q}p_i q_i}{\sigma^2_X})\]</span><br />
 Gdzie:<br />
 k - liczba pozycji w teście<br />
-<span class="math inline">\(s^2_t\)</span> - wariancja wyniku w teście<br />
+<span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku w teście<br />
 <span class="math inline">\(p_i\)</span> - proporcja osób odpowiadających zgodnie z kluczem <span class="math inline">\(q_i\)</span> - proporcja osób odpowiadających NIEzgodnie z kluczem</p>
 </section></section>
 <section>

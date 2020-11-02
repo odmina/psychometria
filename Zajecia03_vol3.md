@@ -6,19 +6,19 @@ title: Rzetelność - spójność wewnętrzna i podsumowanie
 
 ## Alfa Cronbacha wygląda tak 
 
-$$\alpha=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{k}s_i^2}{s^2_t})$$  
+$$\alpha=(\frac{k}{k-1})(1 - \frac{\sum_{i=1}^{k}\sigma_i^2}{\sigma^2_X})$$  
 Gdzie:  
 k - liczba pozycji w teście  
-$s^2_t$ - wariancja wyniku w teście  
-$s_i^2$ - wariancja wyniku każdej z pozycji testowych  
+$\sigma^2_X$ - wariancja wyniku w teście  
+$\sigma_i^2$ - wariancja wyniku każdej z pozycji testowych  
 
 ## Albo tak
 
-$$\alpha=(\frac{k^2 \overline{s_{ij}}}{s^2_t})$$  
+$$\alpha=(\frac{k^2 \overline{\sigma_{ij}}}{\sigma^2_X})$$  
 Gdzie:  
 k - liczba pozycji w teście
-$s^2_t$ - wariancja wyniku w teście
-$\overline{s_{ij}}$ - średnia kowariancja pozycji
+$\sigma^2_X$ - wariancja wyniku w teście
+$\overline{\sigma_{ij}}$ - średnia kowariancja pozycji
 
 ## Jaki jest sens alfy
 
@@ -51,10 +51,10 @@ Alfa Cronbacha jest miarą tego, jak bardzo jednorodny jest test. Zakładamy, ze
 
 --------------
 
-$$KR_{20}=(\frac{k}{k-1})(\frac{s^2_t-\sum_{i=1}^{q}p_i q_i}{s^2_t})$$  
+$$KR_{20}=(\frac{k}{k-1})(1 - \frac{\sum_{i=1}^{q}p_i q_i}{\sigma^2_X})$$  
 Gdzie:  
 k - liczba pozycji w teście  
-$s^2_t$ - wariancja wyniku w teście  
+$\sigma^2_X$ - wariancja wyniku w teście  
 $p_i$ - proporcja osób odpowiadających zgodnie z kluczem
 $q_i$ - proporcja osób odpowiadających NIEzgodnie z kluczem 
 

@@ -15,9 +15,9 @@ NPAS$total <- apply(NPAS[ , NPAS_items], 1, sum)
 my_reverse <- function(item, min, max) {
   max - (item - min)
 }
-NPAS <- NPAS %>%
-  mutate(ekstrawersja = TIPI1 + my_reverse(TIPI6, 1, 7),
-    ugodowosc = my_reverse(TIPI2, 1, 7) + TIPI7)
+
+NPAS$ekstrawersja <- NPAS$TIPI1 + my_reverse(NPAS$TIPI6, 1, 7)
+NPAS$ugodowosc <- my_reverse(NPAS$TIPI2, 1, 7) + NPAS$TIPI7
 
 NPAS <- NPAS[ , c(NPAS_items, "total", "ekstrawersja", "ugodowosc")]
 ```

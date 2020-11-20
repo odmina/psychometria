@@ -29,6 +29,9 @@ piaskownica.*
 #nie sledz htmli jednak
 *.html
 
+#nie sledz starych plikow
+Zajecia_trafnosc.md
+
 # Created by https://www.toptal.com/developers/gitignore/api/macos,sublimetext,latex,r
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,sublimetext,latex,r
 

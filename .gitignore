@@ -20,8 +20,10 @@ reveal.js/
 #nie śledź folderu materiały do druku
 materialy_do_druku/
 
-#nie śledź folderu z wejściówkami :)
+#nie śledź folderu z wejściówkami :) i wyników do pracy zaliczeniowej
 WEJSCIOWKI/
+PRACA_ZALICZENIOWA/wyniki
+
 
 #nie sledź piaskownicy
 piaskownica.*

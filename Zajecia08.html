@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Małgorzata Basińska">
+  <title>temp</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="ocena-rzetelności-indywidualnego-wyniku" class="title-slide slide level1">
+<h1>Ocena rzetelności indywidualnego wyniku</h1>
+
+</section>
+<section id="standardowy-błąd-pomiaru" class="slide level2">
+<h2>Standardowy błąd pomiaru</h2>
+<p><span class="math display">\[SEM=s_x\sqrt{1-r_{tt}}\]</span></p>
+<p>Gdzie:<br />
+<span class="math inline">\(s_x\)</span> - odchylenie standardowe wyników testowych<br />
+<span class="math inline">\(r_tt\)</span> - rzetelność testu</p>
+</section>
+<section id="sem-ma-rozkład-normalny" class="slide level2">
+<h2>SEM ma rozkład normalny…</h2>
+<p><img data-src="img/rn.png" id="id" class="class" height="350" alt="By Dan Kernler - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=36506025" /> <small>Zmodyfikowane z Dan Kernler - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=36506025</small></p>
+</section>
+<section id="i-dlatego" class="slide level2">
+<h2>…i dlatego:</h2>
+<ul>
+<li>68% wyników mieści się w zakresie +/- 1 SEM</li>
+<li>90% wyników mieści się w zakresie +/- 1,64 SEM</li>
+<li>95% wyników mieści się w zakresie +/- 1,96 SEM</li>
+<li>99% wyników mieści się w zakresie +/- 2,58 SEM</li>
+</ul>
+</section>
+<section id="zadanko" class="slide level2">
+<h2>Zadanko</h2>
+<p>Skonstruujcie 95% przedział ufności dla wyniku 100 w teście o odchyleniu standardowym 15 i rzetelności 0,902 <span class="math display">\[&lt;X-1,96 SEM, X+1,96 SEM&gt;\]</span> <span class="math display">\[SEM=s_x\sqrt{1-r_{tt}}\]</span></p>
+</section>
+<section id="błąd-standardowy-różnicy-między-dwoma-wynikami" class="slide level2">
+<h2>Błąd standardowy różnicy między dwoma wynikami</h2>
+<p><span class="math inline">\(SE_{diff}=\sqrt{SEM_1^2+SEM_2^2}\)</span> <span class="math inline">\(SE_{diff}=\sqrt{s_{x1}^2(1-r_{tt1})+s_{x2}^2(1-r_{tt2})}\)</span> <span class="math inline">\(SE_{diff}=s_{x}\sqrt{2(1-r_{tt})}\)</span></p>
+</section>
+<section id="se_diff-również-ma-rozkład-normalny" class="slide level2">
+<h2><span class="math inline">\(SE_{diff}\)</span> również ma rozkład normalny</h2>
+<p>…i dlatego mamy 95% szansy, że różnica wynosząca minimum <span class="math inline">\(1,96 * SE_{diff}\)</span> jest nieprzypadkowa.<br />
+W tym przypadku poziom ufności p wynosi <span class="math inline">\(1-0.95=0.05\)</span></p>
+</section>
+<section id="zadanko-1" class="slide level2">
+<h2>Zadanko</h2>
+<p>W teście o rzetelności 0,9 i odchyleniu standardowym 5 otrzymaliśmy u jednego badanego wynik 25 a u drugiego 35. Czy mamy prawo twierdzić, że te wyniki się różnią? Przyjmijcie p = 0.05<br />
+<span class="math inline">\(SE_{diff}=s_{x}\sqrt{2(1-r_{tt})}\)</span></p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  // reveal.js plugins
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Push each slide change to the browser history
+        history: true,
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -1,0 +1,173 @@
+# ZADANIE POPRAWKOWE
+
+## Terminy
+
+Nieprzekraczalny termin oddania pracy to 10.01.2021, godz. 23.59.
+
+## Sposób przekazania rozwiązania 
+
+Rozwiązanie zadanie (plik html wygenerowany w RStudio) należy zamieścić na platformie szkolenia.gumed.edu.pl
+
+## O danych
+
+Tak jak w zadaniu zaliczeniowym, dane na których będziecie pracować to wyniki testu MACH-IV mierzącego makiawelizm. Pracujecie na zmodyfikowanym fragmencie zbioru, który w oryginalnej wersji jest dostępny tutaj: http://openpsychometrics.org/_rawdata/MACH_data.zip
+
+Wyższy wynik w teście oznacza wyższy poziom makiawelizmu.
+
+## Import danych
+
+Zaimportuj plik z danymi. Jeżeli zapiszesz ten notatnik oraz Twój plik z danymi do zadania w jednym folderze, poniższy kod zadziała, jeżeli w wykropkowne miejsce wpiszesz nazwę Twojego pliku. Jeżeli ten notatnik i plik z danymi zapisane są w różnych folderach, musisz w miejsce ... wpisać pełną ścieżkę pliku. Poniższy kod zapisze zbiór danych jako moje_dane.
+
+```{r}
+moje_dane <- read.csv(...)
+```
+
+**Podejrzyj, jak wygląda Twój zbiór. Pierwsze 10 obserwacji.**
+
+```{r}
+head(moje_dane, n = 10)
+```
+
+## Krótka informacja nt. zawartości zbioru:
+
+- Zmienne od Q1A do Q20A: pytania testu MACH-IV.
+- Zmienne od TIPI1 do TIPI10: pytania Ten Item Personality Inventory, testu osobowości wykorzystucjącego model Big Five i mierzącego otwartość na doświadczenia, ugodowość, ekstrawersję, stabilność emocjonalną i sumienność.
+- Zmienne od VCL1 do VCL16: zmienne, w których odnotowano odpowiedź badanego na pytanie, czy zna dane słowo, przy czym zmienne VCL6, VCL9 i VCL12 odnoszą się do wymyślonych słów, których badani nie mogli znać i mogą stanowić miarę odnoszącą się do tego, na ile rzetelnie badani podeszli do wypełnienia testu.
+
+## Rzut oka na dane
+
+Dla zbadanej próby oblicz średnią oraz odchylenie standardowe wyniku w teście. Suma punków uzyskanych w teście (wynik) znajduje się w zmiennej T1. Kod wpisz w komórce poniżej.
+
+```{r}
+...
+```
+
+## Szacowanie rzetelności metodą połówkową
+
+Do komórki poniżej wpisz kod, który pozwoli podzielić test na połowy. Przyjmij, że pytania były zadawane w losowej kolejności. Jednocześnie weź pod uwagę, że w przypadku części z nich bieguny skali podczas wypełniania testu były odwrócone. Możemy przypuszczać, że wzorzec odpowiadania w pytaniach z odwróconą skalą był nieco inny, niż w pozostałych pytaniach. Dzieląc test na połowy postaraj się zrównoważyć ten efekt.
+
+Odwrócone pytania: "Q3A", "Q4A", "Q6A", "Q7A", "Q9A", "Q10A", "Q11A", "Q14A", "Q16A", "Q17A"
+
+Kod liczący wynik w obydwu połowach jest już wpisany. Wyniki zostaną zapisane w zmiennych moje_dane$total_p1 i moje_dane$total_p2
+
+```{r}
+mach_polowa1 <- c(...)
+mach_polowa2 <- c(...)
+
+#liczy wyniki
+moje_dane$total_p1 <- apply(moje_dane[ , mach_polowa1], 1, sum)
+moje_dane$total_p2 <- apply(moje_dane[ , mach_polowa2], 1, sum)
+```
+
+W komórce poniżej oblicz współczynnik korelacji między pierwszą a drugą połową testu i zapisz go w zmiennej cor_pp.
+
+```{r}
+cor_pp <- ...
+```
+
+Czy obliczony współczynnik korelacji może być intepretowany jako miara rzetelności całego testu? Dlaczego? Poniżej zapisz swoją odpowiedź wraz z uzasadnieniem.
+
+*miejsce na odpowiedź*
+
+## Alfa Cronbacha
+
+Policz alfę dla testu. Skorzystaj z funkcji alpha z biblioteki psych. Funkcja ładująca bibliotekę już jest wpisana.
+
+```{r}
+library(psych)
+...
+```
+
+Zinterpretuj uzyskany wynik. Oceń, czy świadczy o wysokiej czy niskiej rzetelności, odwołując się do możliwych do uzyskania wartości alfy. Wskaż, czego miarą jest alfa. Odwołaj się przy tym do pojęcia konstruktu w psychologii. Określ, co w związku z tym mówi nam o tym konkretnym teście obliczony przed chwilą wynik. 
+
+*miejscie na odpowiedź*
+
+## Źródła błędu w pomiarze testowym
+
+Czy obliczona wcześniej alfa Cronbacha pozwoli Ci przewidzieć, jaka będzie korelacja między uzyskanym wynikiem testu oraz wynikiem retestu przeprowadzonego po upływie pół roku? Dlaczego?
+
+*miejsce na odpowiedź*
+
+## Trafność
+
+### Wykorzystujemy TIPI
+
+Dla każdej z podskal TIPI:
+
+1. Przedstaw swoją hipotezę na temat związku między makiawelizmem a mierzoną przez daną podskalę TIPI cechą. Powinna to być hipoteza kierunkowa, czyli taka, która określa kierunek związku (kiedy A rośnie to B rośnie/maleje).
+2. Oblicz korelację wyniku ogólnego testu makiawelizmu z wynikiem w danej podskali TIPI.
+3. Zinterpretuj uzyskany wynik odwołując się do swojej hipotezy.
+
+UWAGA: badając trafność testu powinniśmy zweryfikować istotność statystyczną uzyskanego wyniku. W niniejszym zadaniu wszystkie wartości powyżej 
+
+#### Ugodowość
+
+*Twoja hipoteza*
+
+Poniżej policz odpowiedni współczynnik korelacji:
+
+```{r}
+moje_dane$ugodowosc <- moje_dane$TIPI2 + moje_dane$TIPI7
+cor(...)
+```
+
+*Interpretacja*
+
+#### Otwartość na doświadczenia
+
+*Twoja hipoteza*
+
+Poniżej policz odpowiedni współczynnik korelacji:
+
+```{r}
+moje_dane$otwartosc <- moje_dane$TIPI5 + moje_dane$TIPI10
+cor(...)
+```
+
+*Interpretacja*
+
+#### Stabilność emocjonalna
+
+*Twoja hipoteza*
+
+Poniżej policz odpowiedni współczynnik korelacji:
+
+```{r}
+moje_dane$stabilnosc <- moje_dane$TIPI4 + moje_dane$TIPI9
+cor(...)
+```
+
+*Interpretacja*
+
+#### Sumienność
+
+*Twoja hipoteza*
+
+Poniżej policz odpowiedni współczynnik korelacji:
+
+```{r}
+moje_dane$sumiennosc <- moje_dane$TIPI3 + moje_dane$TIPI8
+cor(...)
+```
+
+*Interpretacja*
+
+#### Ekstrawersja
+
+*Twoja hipoteza*
+
+Poniżej policz odpowiedni współczynnik korelacji:
+
+```{r}
+moje_dane$ekstrawersja <- moje_dane$TIPI1 + moje_dane$TIPI6
+cor(...)
+```
+
+*Interpretacja*
+
+### Inne zmienne
+
+Zaproponuj dwie inne zmienne, które można zmierzyć testem psychologicznym, które można wykorzystać badając tradność testu MACH-IV. Postaw odnoszące się do nich hipotezy i określ, jakie wyniki będą świadczyć o trafności, a jakie o innej braku.
+
+*miejsce na odpowiedź*
+

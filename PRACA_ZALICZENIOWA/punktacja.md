@@ -1,6 +1,6 @@
 ## Korelacja między testem i retestem 
 
-3/3 
+2/3 Korelacja w istocie jest wysoka i oznacza to, że badani odpowiadali podobnie podczas testu i retestu., natomiast nie ma to związku z tym, że test bada konstrukt, który miał badać. Może badać zupełnie inny, niż miał badać, a wyniki i tak będą mogły być stabilne w czasie.
 
 3 punkty:
 
@@ -21,8 +21,7 @@
 
 ## Alfa Cronbacha 
 
-6.5/7 Odejmuję 0.5 punkta za wyjaśnienie, dlaczego alfa spadła, bo choć faktem jest, że pytanie o kalafior nie ma związku z makiawelizmem, to w wyjasnieniu chodziło o powołanie się na kowariancję/korelację między pytaniami i to, jak ma się ona do wariancji wyników w całym teście. 
-
+6/7 Piękna pętla for :) Odejmuję 0.5 punkta za interpetację alfy, ponieważ określenie "test bada podobny konstrukt" jest bardzo nieprecyzyjne i w sumie nie wiem, do czego konstrukt ma być podobny... wysoka alfa świadczy o tym, że że test jest JEDNORODNY. Kolejne 0.5 punkta odejmuję za wyjaśnienie, czemu alfa spadła, bo mimo tego, że wyjaśnienie jest prawidłowe, to nie odwołała się Pani w nim do obliczonego wyżej współczynnika korelacji między pytaniem o kalafior i opytaniami testu. 
 
 7 punktów, w tym:
 - 1 za obliczenie
@@ -37,9 +36,7 @@
 
 ## Trafność
 
-5.5/7
-
-Interpretacja: 0.5/2 - interpretacja co do zasady jest słuszna, ale a) brakuje odniesienia do trafności b) użyte przez Panią określenie wzrost jednej cechy, skutkuje spadkiem drugiej sugeruje, że jakaś zmienna jest przyczynowo związana z drugą, a współczynnik korelacji nic nie mówi o przyczynowości.
+3.5/7 Prawidłowo obliczyła Pani korelację, za interpretację daję 0.5 punkta, bo nie napisała Pani, jak obliczona korelacja świadczy o trafoności testu. Za zaproponowane metody daję 1 punkt, bo owszem, można takich użyć, ale nie napisała Pani słowa o tym, jakie wyniki miałyby świadczyć o trafności lub jej braku. 
 
 7 puntktów, w tym:
 

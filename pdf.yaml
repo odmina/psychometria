@@ -3,11 +3,10 @@ bibliography: references.bibtex
 linkcolor: blue
 geometry:
 - top=35mm
-- left=25mm
-- right=25mm
+- left=35mm
+- right=35mm
 - bottom=35mm
 papersize: a4
-mainfont: Courier
 header-includes: |
     \usepackage{polski}
     \usepackage[polish]{babel}

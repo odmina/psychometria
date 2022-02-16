@@ -171,7 +171,7 @@ Rudner, L. M. (1994). Questions to ask when evaluating tests. Practical Assessme
 
 ## Test idealny
 
-![](gral.png)
+![](img/gral.png)
 
 ## Co składa się na wynik, który obserwujemy w teście?
 
@@ -180,7 +180,7 @@ $X_O$ - wynik obserwowany
 $X_t$ - wynik prawdziwy  
 $X_e$ - błąd
 
-## Jakie są źródła błędu podczas testowania [@mcintire2007foundations][@urbina2014essentials]
+## Jakie są źródła błędu podczas testowania [@mcintire2007foundations; @urbina2014essentials]
 
 :::incremental
 

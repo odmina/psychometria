@@ -11,12 +11,34 @@
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
   <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/night.css" id="theme">
   <link rel="stylesheet" href="styles.css"/>
@@ -42,8 +64,14 @@
 <li>…i po co się jej uczycie</li>
 <li>co to jest test psychologiczny</li>
 <li>jakie są kryteria dobroci testu</li>
+<li>jakie są źródła błędu w pomiarze testowym</li>
 </ul>
 </section></section>
+<section id="proszę-wykonać-test-i-na-górze-kartki-wpisać-1" class="title-slide slide level1">
+<h1>Proszę wykonać test i na górze kartki wpisać 1</h1>
+
+</section>
+
 <section>
 <section id="co-jest-przedmiotem-psychometrii" class="title-slide slide level1">
 <h1>Co jest przedmiotem psychometrii</h1>
@@ -52,9 +80,9 @@
 <section id="definicja-psychometrii" class="slide level2">
 <h2>Definicja psychometrii</h2>
 <blockquote>
-<p>Dziedzina zajmująca się opisem i mierzeniem<br />
-zjawisk i procesów psychicznych,<br />
-zwłaszcza teorią i konstrukcją<br />
+<p>Dziedzina zajmująca się opisem i mierzeniem<br />
+zjawisk i procesów psychicznych,<br />
+zwłaszcza teorią i konstrukcją<br />
 <strong>narzędzi</strong> służących do tego celu <span class="citation" data-cites="Zawadzki2008">(Zawadzki &amp; Hornowska, 2008)</span></p>
 </blockquote>
 <p><em>Jak nazywa się takie narzędzie?</em></p>
@@ -68,7 +96,7 @@ zwłaszcza teorią i konstrukcją<br />
 <ul>
 <li class="fragment">Jak konstruować pozycje testowe</li>
 <li class="fragment">Na jakiej podstawie spośród wielu propozycji pozycji testowych wybrać te najlepsze</li>
-<li class="fragment">Jak przekształcić odpowiedzi w teście na wynik testu</li>
+<li class="fragment">Jak przekształcić odpowiedzi w teście na wynik testu</li>
 </ul></li>
 </ul>
 </div>
@@ -77,11 +105,11 @@ zwłaszcza teorią i konstrukcją<br />
 
 <div>
 <ul>
-<li class="fragment">Jak przebiega adaptacja testu stworzonego w innym języku i w innych warunkach kulturowych</li>
-<li class="fragment">W jakim stopniu możemy z wyniku testu wyciągać wnioski na temat mierzonej cechy</li>
+<li class="fragment">Jak przebiega adaptacja testu stworzonego w innym języku i w innych warunkach kulturowych</li>
+<li class="fragment">W jakim stopniu możemy z wyniku testu wyciągać wnioski na temat mierzonej cechy</li>
 <li class="fragment">Jak dokładnie wynik testu odzwierciedla rzeczywisty poziom cechy, którą mierzy test</li>
 <li class="fragment">Jak interpretować wyniki testów</li>
-<li class="fragment">Jak oceniać to, czy i na ile test jest bezstronny</li>
+<li class="fragment">Jak oceniać to, czy i na ile test jest bezstronny</li>
 </ul>
 </div>
 </section>
@@ -98,33 +126,46 @@ zwłaszcza teorią i konstrukcją<br />
 <p><img data-src="img/zletesty2.png" /></p>
 </section></section>
 <section>
-<section id="testy-psychologiczne---definicja-i-cechy-testu-psychologicznego" class="title-slide slide level1">
-<h1>Testy psychologiczne - definicja i cechy testu psychologicznego</h1>
+<section id="testy-psychologiczne---definicja" class="title-slide slide level1">
+<h1>Testy psychologiczne - definicja</h1>
 
 </section>
-<section id="co-to-jest-test" class="slide level2">
-<h2>Co to jest test</h2>
+<section id="definicja-testu-wg-standardów" class="slide level2">
+<h2>Definicja testu wg “Standardów”</h2>
 <blockquote>
-<p><strong>Definicja testu wg “Standardów”</strong><br />
-Narzędzie lub procedura pozwalające<br />
+<p>Narzędzie lub procedura pozwalające<br />
 na otrzymanie próbki zachowań osoby badanej<br />
 w określonej dziedzinie oraz na standaryzowany<br />
 sposób ich oceny lub punktacji <span class="citation" data-cites="AmericanEducationalResearchAssociation2007">(AERA, APA, &amp; NCME, 2007)</span></p>
 </blockquote>
 </section>
-<section id="co-to-jest-test-psychologiczny" class="slide level2">
-<h2>Co to jest test psychologiczny</h2>
-<blockquote>
-<p><strong>Definicja testu wg S. Urbiny</strong><br />
-- Systematyczna procedura<br />
-- otrzymywania próbek zachowania,<br />
-- istotnych dla poznawczego, afektywnego<br />
+<section id="definicja-testu-wg-s.-urbiny" class="slide level2">
+<h2>Definicja testu wg S. Urbiny</h2>
+<ul>
+<li class="fragment">Systematyczna procedura<br />
+</li>
+<li class="fragment">otrzymywania próbek zachowania,<br />
+</li>
+<li class="fragment">istotnych dla poznawczego, afektywnego<br />
 lub interpersonalnego funkcjonowania,<br />
-- oraz punktacji i oceniania tych próbek - zgodnie ze standardami. <span class="citation" data-cites="urbina2014essentials">(Urbina, 2014)</span></p>
-</blockquote>
+</li>
+<li class="fragment">oraz punktacji i oceniania tych próbek</li>
+<li class="fragment">zgodnie ze standardami. <span class="citation" data-cites="urbina2014essentials">(Urbina, 2014)</span></li>
+</ul>
+</section>
+<section id="czy-to-test-psychologiczny" class="slide level2">
+<h2>Czy to test psychologiczny?</h2>
+<figure>
+<img data-src="img/matura.png" alt="matura" /><figcaption aria-hidden="true">matura</figcaption>
+</figure>
+</section></section>
+<section>
+<section id="rodzaje-testów" class="title-slide slide level1">
+<h1>Rodzaje testów</h1>
+
 </section>
 <section id="jakie-są-rodzaje-testów-hornowska2009" class="slide level2">
-<h2>Jakie są rodzaje testów <span class="citation" data-cites="Hornowska2009">Hornowska (2009)</span></h2>
+<h2>Jakie są rodzaje testów <span class="citation" data-cites="Hornowska2009">(Hornowska, 2009)</span></h2>
 <ul>
 <li>indywidualny vs grupowy</li>
 <li>standaryzowany vs niestandaryzowany</li>
@@ -135,22 +176,25 @@ lub interpersonalnego funkcjonowania,<br />
 <li>zorientowane na normy vs zorientowane na kryterium</li>
 </ul>
 </section>
-<section id="zadanko-1" class="slide level2">
-<h2>Zadanko 1</h2>
+<section id="jaki-to-test" class="slide level2">
+<h2>Jaki to test?</h2>
+<p><a href="https://szkolenia.gumed.edu.pl/mod/scorm/player.php?a=154&amp;currentorg=XERTE-ORG-1601819287&amp;scoid=1413&amp;sesskey=GNSSwdoSdG&amp;display=popup&amp;mode=normal">Kwestionariusz kompetencji społecznych</a></p>
+<blockquote>
+<p><strong>Informacja ze strony Pracowni Testów PTP</strong>: KKS służy do oceny kompetencji społecznych rozumianych jako nabyte umiejętności warunkujące efektywność funkcjonowania człowieka w różnych sytuacjach społecznych. (…) kwestionariusz składa się z 90 pozycji, stanowiących bezokolicznikowe określenia różnych czynności. Badany ocenia na skali czterostopniowej efektywność, z jaką je wykonuje.</p>
+</blockquote>
+<p><small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small></p>
 </section>
-<section id="czy-to-test-psychologiczny" class="slide level2">
-<h2>Czy to test psychologiczny</h2>
-<figure>
-<img data-src="img/matura.png" alt="matura" /><figcaption aria-hidden="true">matura</figcaption>
-</figure>
-</section>
-<section id="czy-to-test-psychologiczny-1" class="slide level2">
-<h2>Czy to test psychologiczny</h2>
-<p><img data-src="img/przyjaciolka.png" alt="przyjaciolka" /><br />
-<a href="https://samequizy.pl/ktorymi-platkami-sniadaniowymi-jestes/">samequizy.pl</a></p>
-</section>
-<section id="zadanko-2" class="slide level2">
-<h2>Zadanko 2</h2>
+<section id="jaki-to-test-1" class="slide level2">
+<h2>Jaki to test?</h2>
+<p><a href="https://szkolenia.gumed.edu.pl/mod/scorm/player.php?a=154&amp;currentorg=XERTE-ORG-1601819287&amp;scoid=1413&amp;sesskey=GNSSwdoSdG&amp;display=popup&amp;mode=normal">Kwestionariusz kompetencji społecznych</a></p>
+<blockquote>
+<p><strong>Informacja ze strony Pracowni Testów PTP</strong>: KKS służy do oceny kompetencji społecznych rozumianych jako nabyte umiejętności warunkujące efektywność funkcjonowania człowieka w różnych sytuacjach społecznych. (…) kwestionariusz składa się z 90 pozycji, stanowiących bezokolicznikowe określenia różnych czynności. Badany ocenia na skali czterostopniowej efektywność, z jaką je wykonuje.</p>
+</blockquote>
+</section></section>
+<section>
+<section id="jak-oceniamy-testy-psychologiczne" class="title-slide slide level1">
+<h1>Jak oceniamy testy psychologiczne</h1>
+
 </section>
 <section id="warunki-które-powinien-spełniać-test-psychologiczny" class="slide level2">
 <h2>Warunki, które powinien spełniać test psychologiczny</h2>
@@ -165,23 +209,24 @@ lub interpersonalnego funkcjonowania,<br />
 </section>
 <section id="dlaczego-psychometria-jest-ważna-raz-jeszcze" class="slide level2">
 <h2>Dlaczego psychometria jest ważna raz jeszcze</h2>
-<p><img data-src="img/pytanie.png" /></p>
-</section>
-<section class="slide level2">
-
 <div>
 <ul>
-<li class="fragment">Testy są jednym z podstawowych narzędzi stosowanych przez psychologa</li>
+<li class="fragment">Testy są jednym z podstawowych narzędzi stosowanych przez psychologa</li>
 <li class="fragment">Psychometria pozwoli Wam odróżnić dobry test od złego</li>
 <li class="fragment">Żaden test psychologiczny nie jest idealnym narzędziem</li>
-<li class="fragment">Żeby odpowiedzialnie stosować testy, trzeba wiedzieć, jakie są warunki i ograniczenia ich stosowania</li>
+<li class="fragment">Żeby odpowiedzialnie stosować testy, trzeba wiedzieć, jakie są warunki i ograniczenia ich stosowania</li>
 </ul>
 </div>
 </section>
 <section id="warunki-które-powinien-spełniać-test-psychologiczny-1" class="slide level2">
 <h2>Warunki, które powinien spełniać test psychologiczny</h2>
-<p>Rudner, L. M. (1994). Questions to ask when evaluating tests. Practical Assessment, Research and Evaluation, 4(2). Retrieved from https://www.pareonline.net/getvn.asp?v=4&amp;n=2</p>
+<p>Rudner, L. M. (1994). Questions to ask when evaluating tests. Practical Assessment, Research and Evaluation, 4(2). Retrieved from https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1045&amp;context=pare</p>
 </section></section>
+<section id="błąd-w-pomiarze-testowym" class="title-slide slide level1">
+<h1>Błąd w pomiarze testowym</h1>
+
+</section>
+
 <section>
 <section id="literatura" class="title-slide slide level1">
 <h1>Literatura</h1>
@@ -189,18 +234,18 @@ lub interpersonalnego funkcjonowania,<br />
 </section>
 <section id="literatura-1" class="slide level2 unnumbered">
 <h2 class="unnumbered">Literatura</h2>
-<div id="refs" class="references hanging-indent" role="doc-bibliography">
-<div id="ref-AmericanEducationalResearchAssociation2007">
-<p>AERA, APA, &amp; NCME. (2007). <em>Standardy dla testów stosowanych w psychologii i pedagogice</em>. Gdańsk: Gdańskie Wydawnictwo Psychologiczne.</p>
+<div id="refs" class="references csl-bib-body hanging-indent" data-line-spacing="2" role="doc-bibliography">
+<div id="ref-AmericanEducationalResearchAssociation2007" class="csl-entry" role="doc-biblioentry">
+AERA, APA, &amp; NCME. (2007). <em><span class="nocase">Standardy dla test<span class="nocase">ó</span>w stosowanych w psychologii i pedagogice</span></em>. Gda<span>ń</span>sk: Gda<span>ń</span>skie Wydawnictwo Psychologiczne.
 </div>
-<div id="ref-Hornowska2009">
-<p>Hornowska, E. (2009). <em>Testy psychologiczne. Teoria i praktyka</em> (4th ed.). Warszawa: Wydawnictwo Naukowe "Scholar".</p>
+<div id="ref-Hornowska2009" class="csl-entry" role="doc-biblioentry">
+Hornowska, E. (2009). <em><span class="nocase">Testy psychologiczne. Teoria i praktyka</span></em> (4th ed.). Warszawa: Wydawnictwo Naukowe "Scholar".
 </div>
-<div id="ref-urbina2014essentials">
-<p>Urbina, S. (2014). <em>Essentials of Psychological Testing</em> (II). Retrieved from <a href="https://books.google.pl/books?id=UnHrAwAAQBAJ">https://books.google.pl/books?id=UnHrAwAAQBAJ</a></p>
+<div id="ref-urbina2014essentials" class="csl-entry" role="doc-biblioentry">
+Urbina, S. (2014). <em><span class="nocase">Essentials of Psychological Testing</span></em> (II). Retrieved from <a href="https://books.google.pl/books?id=UnHrAwAAQBAJ">https://books.google.pl/books?id=UnHrAwAAQBAJ</a>
 </div>
-<div id="ref-Zawadzki2008">
-<p>Zawadzki, B., &amp; Hornowska, E. (2008). Psychometria. Konstrukcja i adaptacja testów psychologicznych. In J. Strelau &amp; D. Doliński (Eds.), <em>Psychologia. Podrȩcznik akademicki, tom 1</em> (I, pp. 847–893). Gdańsk: Gdańskie Wydawnictwo Psychologiczne.</p>
+<div id="ref-Zawadzki2008" class="csl-entry" role="doc-biblioentry">
+Zawadzki, B., &amp; Hornowska, E. (2008). <span class="nocase">Psychometria. Konstrukcja i adaptacja test<span class="nocase">ó</span>w psychologicznych</span>. In J. Strelau &amp; D. Doliński (Eds.), <em>Psychologia. Podr<span>ȩ</span>cznik akademicki, tom 1</em> (I, pp. 847–893). Gda<span>ń</span>sk: Gda<span>ń</span>skie Wydawnictwo Psychologiczne.
 </div>
 </div>
 </section></section>
@@ -209,7 +254,7 @@ lub interpersonalnego funkcjonowania,<br />
 
   <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
 
-  // reveal.js plugins
+  <!-- reveal.js plugins -->
   <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
@@ -220,10 +265,148 @@ lub interpersonalnego funkcjonowania,<br />
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
         // Push each slide change to the browser history
-        history: true,
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

@@ -10,6 +10,9 @@ title: "Krótkie wprowadzenie do psychometrii"
 - ...i po co się jej uczycie
 - co to jest test psychologiczny
 - jakie są kryteria dobroci testu
+- jakie są źródła błędu w pomiarze testowym
+
+# Proszę wykonać test i na górze kartki wpisać 1
 
 # Co jest przedmiotem psychometrii
 
@@ -58,19 +61,17 @@ title: "Krótkie wprowadzenie do psychometrii"
 
 ![](img/zletesty2.png)
 
-# Testy psychologiczne - definicja i cechy testu psychologicznego
+# Testy psychologiczne - definicja
 
-## Co to jest test
+## Definicja testu wg "Standardów"
 
->**Definicja testu wg "Standardów"**  
 >Narzędzie lub procedura pozwalające  
 >na otrzymanie próbki zachowań osoby badanej  
 >w określonej dziedzinie oraz na standaryzowany  
 >sposób ich oceny lub punktacji  [@AmericanEducationalResearchAssociation2007]
 
-## Co to jest test psychologiczny
+## Definicja testu wg S. Urbiny
 
->**Definicja testu wg S. Urbiny**  
 >- Systematyczna procedura  
 >- otrzymywania próbek zachowania,  
 >- istotnych dla poznawczego, afektywnego  
@@ -78,28 +79,61 @@ title: "Krótkie wprowadzenie do psychometrii"
 >- oraz punktacji i oceniania tych próbek
 >- zgodnie ze standardami. [@urbina2014essentials]
 
-## Jakie są rodzaje testów @Hornowska2009
+## Czy to test psychologiczny?
 
-- indywidualny vs grupowy
-- standaryzowany vs niestandaryzowany
+![matura](img/matura.png)
+
+# Rodzaje testów
+
+## Jakie są rodzaje testów [@Hornowska2009]
+
+- indywidualne vs grupowe
+- standaryzowane vs niestandaryzowane
 - właściwości poznawyczych vs afektywnych
 - słowne vs bezsłowne
 - szybkości vs mocy
 - obiektywne vs nieobiektywne
 - zorientowane na normy vs zorientowane na kryterium
 
-## Zadanko 1
+## Jaki to test?
 
-## Czy to test psychologiczny
+[Kwestionariusz kompetencji społecznych](https://szkolenia.gumed.edu.pl/mod/scorm/player.php?a=154&currentorg=XERTE-ORG-1601819287&scoid=1413&sesskey=GNSSwdoSdG&display=popup&mode=normal)
 
-![matura](img/matura.png)
+>**Informacja ze strony Pracowni Testów PTP**: KKS służy do oceny kompetencji społecznych rozumianych jako nabyte umiejętności warunkujące efektywność funkcjonowania człowieka w różnych sytuacjach społecznych. (...) kwestionariusz składa się z 90 pozycji, stanowiących bezokolicznikowe określenia różnych czynności. Badany ocenia na skali czterostopniowej efektywność, z jaką je wykonuje.
 
-## Czy to test psychologiczny
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
 
-![przyjaciolka](img/przyjaciolka.png)  
-[samequizy.pl](https://samequizy.pl/ktorymi-platkami-sniadaniowymi-jestes/)
+## Jaki to test?
 
-## Zadanko 2
+Skala Inteligencji Wechslera, podtest powtarzanie cyfr wprost
+
+Zadaniem osoby badanej jest powtórzenie podanych cyfr. Pierwsza próba polega na powtórzeniu trzech cyfr, w kolejnych próbach zwiększana jest liczba cyfr do powórzenia.
+
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+
+## Jaki to test?
+
+[Inwenarz motywacji osiągnięć](https://www.practest.com.pl/lmi-inwentarz-motywacji-osiagniec)
+
+>**Informacja ze strony Pracowni Testów PTP**: Kwestionariusz mierzy motywację osiągnięć z uwzględnieniem różnych jej komponentów, takich jak preferowanie trudnych zadań, wiara w sukces, ukierunkowanie na cel, nastawienie na rywalizację, wytrwałość i inne. Pozwala dzięki temu na diagnozę profilową. Łącznie zawiera 170 pozycji tworzących 17 skal. Wyniki mogą też być ujmowane na trzech skalach czynnikowych, którymi są: Pewność siebie, Ambicja i Samokontrola.
+
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+
+## Jaki to test?
+
+[Kolorowy test połączeń](https://www.practest.com.pl/search/evide_searcher/kolorowy%20test%20połączeń)
+
+>**Informacja ze strony Pracowni Testów PTP**: CTT jest testem neuropsychologicznym służącym do badania różnorodnych procesów związanych z uwagą i funkcjami wykonawczymi (...). Składa się z dwóch części CTT-1 i CTT-2, podawanych osobie badanej jedna po drugiej. Każda z części zawiera różowe i żółte kółka w których umieszczone są liczby od 1 do 25. Zadaniem badanego jest połączenie liczb liniami prostymi w porządku rosnącym, przy czym w CTT-2 należy je łączyć tak, aby zachować naprzemienność kolorystyczną. 
+
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+
+## Jaki to test?
+
+Wejściówka na psychometrii :)
+
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+
+# Jak oceniamy testy psychologiczne
 
 ## Warunki, które powinien spełniać test psychologiczny
 
@@ -112,10 +146,6 @@ title: "Krótkie wprowadzenie do psychometrii"
 
 ## Dlaczego psychometria jest ważna raz jeszcze
 
-![](img/pytanie.png)
-
----------------------
-
 ::: incremental
 
 - Testy są jednym z podstawowych narzędzi stosowanych przez psychologa
@@ -127,7 +157,11 @@ title: "Krótkie wprowadzenie do psychometrii"
 
 ## Warunki, które powinien spełniać test psychologiczny
   
-Rudner, L. M. (1994). Questions to ask when evaluating tests. Practical Assessment, Research and Evaluation, 4(2). Retrieved from https://www.pareonline.net/getvn.asp?v=4&n=2
+Rudner, L. M. (1994). Questions to ask when evaluating tests. Practical Assessment, Research and Evaluation, 4(2). Retrieved from https://scholarworks.umass.edu/cgi/viewcontent.cgi?article=1045&context=pare
+
+# Błąd w pomiarze testowym
+
+
 
 # Literatura
 

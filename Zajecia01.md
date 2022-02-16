@@ -89,7 +89,7 @@ title: "Krótkie wprowadzenie do psychometrii"
 
 - indywidualne vs grupowe
 - standaryzowane vs niestandaryzowane
-- właściwości poznawyczych vs afektywnych
+- właściwości poznawczych vs afektywnych
 - słowne vs bezsłowne
 - szybkości vs mocy
 - obiektywne vs nieobiektywne
@@ -101,15 +101,15 @@ title: "Krótkie wprowadzenie do psychometrii"
 
 >**Informacja ze strony Pracowni Testów PTP**: KKS służy do oceny kompetencji społecznych rozumianych jako nabyte umiejętności warunkujące efektywność funkcjonowania człowieka w różnych sytuacjach społecznych. (...) kwestionariusz składa się z 90 pozycji, stanowiących bezokolicznikowe określenia różnych czynności. Badany ocenia na skali czterostopniowej efektywność, z jaką je wykonuje.
 
-<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
 
 ## Jaki to test?
 
 Skala Inteligencji Wechslera, podtest powtarzanie cyfr wprost
 
-Zadaniem osoby badanej jest powtórzenie podanych cyfr. Pierwsza próba polega na powtórzeniu trzech cyfr, w kolejnych próbach zwiększana jest liczba cyfr do powórzenia.
+Zadaniem osoby badanej jest powtórzenie podanych cyfr. Pierwsza próba polega na powtórzeniu trzech cyfr, w kolejnych próbach zwiększana jest liczba cyfr do powtórzenia.
 
-<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
 
 ## Jaki to test?
 
@@ -117,7 +117,7 @@ Zadaniem osoby badanej jest powtórzenie podanych cyfr. Pierwsza próba polega n
 
 >**Informacja ze strony Pracowni Testów PTP**: Kwestionariusz mierzy motywację osiągnięć z uwzględnieniem różnych jej komponentów, takich jak preferowanie trudnych zadań, wiara w sukces, ukierunkowanie na cel, nastawienie na rywalizację, wytrwałość i inne. Pozwala dzięki temu na diagnozę profilową. Łącznie zawiera 170 pozycji tworzących 17 skal. Wyniki mogą też być ujmowane na trzech skalach czynnikowych, którymi są: Pewność siebie, Ambicja i Samokontrola.
 
-<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
 
 ## Jaki to test?
 
@@ -125,13 +125,13 @@ Zadaniem osoby badanej jest powtórzenie podanych cyfr. Pierwsza próba polega n
 
 >**Informacja ze strony Pracowni Testów PTP**: CTT jest testem neuropsychologicznym służącym do badania różnorodnych procesów związanych z uwagą i funkcjami wykonawczymi (...). Składa się z dwóch części CTT-1 i CTT-2, podawanych osobie badanej jedna po drugiej. Każda z części zawiera różowe i żółte kółka w których umieszczone są liczby od 1 do 25. Zadaniem badanego jest połączenie liczb liniami prostymi w porządku rosnącym, przy czym w CTT-2 należy je łączyć tak, aby zachować naprzemienność kolorystyczną. 
 
-<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
 
 ## Jaki to test?
 
 Wejściówka na psychometrii :)
 
-<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawyczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
+<small>indywidualny/grupowy | standaryzowany/niestandaryzowany | właściwości poznawczych/afektywnych | słowny/bezsłowny | szybkości/mocy | obiektywny/nieobiektywny | zorientowany na normy/zorientowany na kryterium</small>
 
 # Jak oceniamy testy psychologiczne
 
@@ -161,7 +161,35 @@ Rudner, L. M. (1994). Questions to ask when evaluating tests. Practical Assessme
 
 # Błąd w pomiarze testowym
 
+## Skala Samooceny Rosenberga podejście 2
 
+- wypełnij test po raz drugi, na górze kartki zapisz wielkie 2
+- podsumuj, ile uzyskałeś/aś punktów:
+  + za każdą odpowiedź w pytaniach 3, 5, 8, 9, 10 otrzymujesz tyle punktów, ile jest zapisane powyżej odpowiedzi
+  + w pytaniach 1, 2, 4, 6, 7 musisz odwrócić skalę tak, by za odpowiedź "zdecydowanie zgadzam się" otrzymać 4 punkty, a za odpowieź "zdecydowanie nie zgadzam się" 1 punkt
+- czy w obydwu przypadkach uzyskałaś/eś tyle samo punktów?
+
+## Test idealny
+
+![](gral.png)
+
+## Co składa się na wynik, który obserwujemy w teście?
+
+$$X_O=X_t+X_e$$
+$X_O$ - wynik obserwowany  
+$X_t$ - wynik prawdziwy  
+$X_e$ - błąd
+
+## Jakie są źródła błędu podczas testowania [@mcintire2007foundations][@urbina2014essentials]
+
+:::incremental
+
+- kontekst przeprowadzenia testu
+  - ocena testu
+- osoby badane
+- konstrukcja testu (test sam w sobie)
+
+:::
 
 # Literatura
 

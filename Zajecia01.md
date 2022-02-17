@@ -166,12 +166,8 @@ Rudner, L. M. (1994). Questions to ask when evaluating tests. Practical Assessme
 - wypełnij test po raz drugi, na górze kartki zapisz wielkie 2
 - podsumuj, ile uzyskałeś/aś punktów:
   + za każdą odpowiedź w pytaniach 3, 5, 8, 9, 10 otrzymujesz tyle punktów, ile jest zapisane powyżej odpowiedzi
-  + w pytaniach 1, 2, 4, 6, 7 musisz odwrócić skalę tak, by za odpowiedź "zdecydowanie zgadzam się" otrzymać 4 punkty, a za odpowieź "zdecydowanie nie zgadzam się" 1 punkt
+  + w pytaniach 1, 2, 4, 6, 7 musisz odwrócić skalę tak, by za odpowiedź "zdecydowanie zgadzam się" otrzymać 4 punkty, a za odpowiedź "zdecydowanie nie zgadzam się" 1 punkt
 - czy w obydwu przypadkach uzyskałaś/eś tyle samo punktów?
-
-## Test idealny
-
-![](img/gral.png)
 
 ## Co składa się na wynik, który obserwujemy w teście?
 

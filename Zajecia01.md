@@ -190,3 +190,5 @@ $X_e$ - błąd
 # Literatura
 
 ## Literatura
+
+<small>

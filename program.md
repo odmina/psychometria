@@ -30,7 +30,7 @@ Moim celem jest, byście po zajęciach:
 
 Obecność jest obowiązkowa, jej potwierdzeniem jest wpisanie się na listę.  
 
-Dopuszczam jedną nieobecność, którą można odrobić we własnym zakresie. Każdą następną nieobecność, niezależnie od przyny, musicie odpracować w sposób ustalony ze mną. By to zrobić, musicie zgłosić się do mnie mailowo w TYM SAMYM TYGODNIU, w którym opuściliście zajęcia. Nieodpracowana nieobecność jest podstawą do niezaliczenia zajęć.
+Dopuszczam jedną nieobecność, którą można odrobić we własnym zakresie. Każdą następną nieobecność, niezależnie od przyczyny, musicie odpracować w sposób ustalony ze mną. By to zrobić, musicie zgłosić się do mnie mailowo w TYM SAMYM TYGODNIU, w którym opuściliście zajęcia. Nieodpracowana nieobecność jest podstawą do niezaliczenia zajęć.
 
 #### Zadania domowe
 
@@ -140,7 +140,7 @@ NIEUMIEJĘTNOŚĆ KORZYSTANIA Z R NIE ZWALNIA Z POPRAWNEGO WYKONANIA ZADAŃ. KA�
 1. Brzeziński, J. (2010). Metodologia Badań Psychologicznych (5th ed.). Wydawnictwo Naukowe PWN.
 2. Anastasi, A., & Urbina, S. (1999). Testy psychologiczne. Pracownia Testów Psychologicznych Polskiego Tow. Psychologicznego.
 
-## Gorąco polecam - ciekawe źrodła uzupełniające
+## Gorąco polecam - ciekawe źródła uzupełniające
 
 1. American Educational Research Association, American Psychological Association, & National Council on Measurement in Education. (2007). *Standardy dla testów stosowanych w psychologii i pedagogice*. Gdańskie Wydawnictwo Psychologiczne.
 2. Rudner, L. M. (1994). *Questions to ask when evaluating tests*. Practical Assessment, Research and Evaluation, 4(2). Retrieved from https://www.pareonline.net/getvn.asp?v=4&n=2

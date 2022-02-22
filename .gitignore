@@ -1,6 +1,12 @@
 #nie śledź pdfów poza folderem slajdy_pdf
 *.pdf
 
+#nie śledź folderów ze zbiorami 
+zbiory/
+RSE-data/
+NPAS-data/
+
+
 #nie śledź kalendarza
 *.ics
 
@@ -23,6 +29,7 @@ materialy_do_druku/
 #nie śledź folderu z wejściówkami :) i wyników do pracy zaliczeniowej
 WEJSCIOWKI/
 PRACA_ZALICZENIOWA/wyniki
+PRACA_ZALICZENIOWA/
 
 
 #nie sledź piaskownicy

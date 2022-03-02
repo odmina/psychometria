@@ -1,8 +1,8 @@
 ---
 author: Małgorzata Basińska
-theme: white
 csl: apa.csl
 css: "styles.css"
+theme: white
 bibliography: references.bibtex
 slide-level: 2
 ---

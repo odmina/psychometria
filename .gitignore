@@ -36,7 +36,7 @@ PRACA_ZALICZENIOWA/
 piaskownica.*
 
 #nie sledz htmli jednak
-*.html
+#*.html
 
 #nie sledz starych plikow
 Zajecia_trafnosc.md

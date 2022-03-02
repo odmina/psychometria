@@ -1,0 +1,82 @@
+---
+title: "Test-retest"
+author: "Małgorzata Basińska"
+date: "3/1/2022"
+output: 
+  html_document:
+    theme: paper
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+#jeżeli nie instalowałeś/aś tidyverse, odkomentuj poniższą linijkę
+#install.packages("tidyverse") 
+library(tidyverse)
+```
+
+# Import pliku .csv
+
+Zaczynamy od zaimportowania pliku zawierającego dane. U mnie jest on zapisany w tym samym folderze, w którym jest notatnik (więc nie muszę podawać ścieżki dostępu), pod nazwą dane_SES.csv.
+
+```{r} 
+dane <- read_csv("dane_SES.csv")
+```
+
+
+# Wykres
+
+Przedstawmy wyniki naszych pomiarów na wykresie.
+
+```{r} 
+ggplot(data = dane) +
+  geom_point(mapping = aes(p1, p2)) +
+  labs(title = "Korelacja między pierwszym a drugim pomiarem przy pomocy SES Rosenberga", 
+       x = "Wynik w 1. pomiarze", y = "Wynik w 2. pomiarze") +
+  theme_linedraw()
+```
+
+Na wykresie widać, że ktoś udzielił odpowiedzi "9". W SES nie da się uzyskać takiego wyniku. Nie wiemy, jaka jest przyczyna pojawienia się 9. Może być to zarówno błąd w obliczeniu, jak i błąd podczas wpisywania wyniku (pominięcie pierwszej cyfry). Należy odfiltrować tę obserwację.
+
+```{r} 
+dane <- dane %>%
+  filter(p1 >= 10, p2 >= 10)
+```
+
+Wykres ponownie:
+
+```{r} 
+ggplot(data = dane) +
+  geom_point(mapping = aes(p1, p2), alpha = 0.4) +
+  labs(title = "Korelacja między pierwszym a drugim pomiarem przy pomocy SES Rosenberga", 
+       x = "Wynik w 1. pomiarze", y = "Wynik w 2. pomiarze") +
+  theme_linedraw()
+```
+
+Na wykresie widać, że zdecydowana większość badanych w 2. pomiarze uzyskała taki sam wynik, jak w pomiarze 1. Wyniki w obydwu pomiarach są silnie skorelowane. 
+
+# Średnie i odchylenia standardowe w obydwu pomiarach
+
+Zanim policzymy korelację, musimy sprawdzić, jakie są średnia i odchylenie standardowe w obydwu pomiarach. W pomiarze 1. średnia obliczona z wykorzystaniem funkcji `mean()` wynosiła `r  round(mean(dane$p1), 2)`, a odchylenie standardowe, obliczone z wykorzystaniem funkcji `sd()` wynosiło `r round(sd(dane$p1), 2)`. W pomiarze 2. średnia wynosiła `r  round(mean(dane$p2), 2)`, a odchylenie standardowe `r round(sd(dane$p2), 2)`. Zauważcie, że średnie i odchylenia standardowe w 1. i 2. pomiarze są bardzo zbliżone. Możemy przedstawić rozkład wyników w 1. i 2. pomiarze na wykresie pudełkowym.
+
+```{r} 
+dane_long <- dane %>%
+  pivot_longer(names_to = "pomiar", cols = everything())
+
+ggplot(data = dane_long) +
+  geom_boxplot(aes(x=pomiar, y=value))+
+  labs(title = "Rozkład wyników w pierwszym i drugim pomiarze", 
+      y = "wynik") +
+  theme_linedraw()
+```
+
+
+
+# Korelacja między pomiarami
+
+Korelacja między pierwszym i drugim pomiarem obliczona z wykorzystaniem funkcji `cor()` wynosi `r  round(cor(dane$p1, dane$p2), 3)`. Możemy zatem powiedzieć, że w naszej próbie *współczynnik stabilności bezwzględnej* SES, w przypadku, gdy pomiary wykonywane są w odstępie około półtorej godziny, wynosi `r  round(cor(dane$p1, dane$p2), 3)`. Tym samym blisko 98% obserwowanej wariancji (zmienności) wyników w 1. i 2. pomiarze możemy przypisać wariancji (zmienności) mierzonych przez test względnie stałych właściwości osób badanych. Pozostała wariancja (zmienność) wynika z oddziaływania czynników innych niż stałe właściwości osób badanych w 1. i 2. pomiarze. Jest to wariancja błędu.
+
+
+
+
+
+

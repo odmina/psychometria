@@ -1,0 +1,204 @@
+---
+title: Rzetelność vol1
+---
+
+# Wynik prawdziwy
+
+## Równanie KTT
+
+$$X_o=X_t+X_e$$ $X_o$ - wynik obserwowany\
+$X_t$ - wynik prawdziwy\
+$X_e$ - błąd
+
+## Jaki jest rozkład błędu?
+
+# Symulacja. Co się dzieje, jak badamy testem w nieskończoność?
+
+## Odpal poniższą komórkę
+
+```{r}
+options(scipen = 20)
+
+generate <- function(n = 100, wynik = 20, sd_error = 3) {
+  set.seed(40)
+  df <- data.frame(
+    ID = seq(from = 1, to = n, by = 1), 
+    X_true = rep(wynik, n), 
+    X_error = rnorm(n, mean = 0, sd = sd_error))
+  df$X_o <- df$X_true + df$X_error
+  return(df)
+}
+
+populate <- function(n = 100, m_wynik = 25, sd_true = 5, sd_error = 3) {
+  set.seed(20)
+  df <- data.frame(
+    ID = seq(from = 1, to = n, by = 1), 
+    X_true = rnorm(n, mean = m_wynik, sd = sd_true), 
+    X_error = rnorm(n, mean = 0, sd = sd_error))
+  df$X_o <- df$X_true + df$X_error
+  return(df)
+}
+
+populate_retest <- function(n = 100, m_wynik = 25, sd_true = 5, sd_error = 3) {
+  set.seed(20)
+  df <- data.frame(
+    ID = seq(from = 1, to = n, by = 1), 
+    X_true = rnorm(n, mean = m_wynik, sd = sd_true), 
+    X_error = rnorm(n, mean = 0, sd = sd_error))
+  df$X_o <- df$X_true + df$X_error
+  return(df)
+}
+```
+
+## ZOBACZ DANE
+
+Korzystając z zadeklarowanej wyżej funkcji generate() wygeneruj zbiór wyników jednej osoby i zobacz, co w nim jest.
+
+```{r}
+small_data <- generate(n = 100, wynik = 20, sd_error = 3)
+head(small_data, 10)
+```
+
+## POLICZ ŚREDNIĄ I SD WYNIKU OBSERWOWANEGO i BŁEDU
+
+```{r}
+mean(small_data$X_o)
+sd(small_data$X_o)
+```
+
+------------------------------------------------------------------------
+
+```{r}
+mean(small_data$X_error)
+sd(small_data$X_error)
+```
+
+------------------------------------------------------------------------
+
+Na wykresie:
+
+```{r}
+plot(small_data$ID, small_data$X_o, ylim = c(0,30))
+lines(small_data$ID, rep(mean(small_data$X_o), nrow(small_data)), col = "red")
+```
+
+------------------------------------------------------------------------
+
+Jak to wygląda, jak błąd będzie większy?
+
+```{r}
+dwa_bledy <- data.frame(ID = seq(1, 100, 1), e3 = small_data$X_o, e10 = generate(n = 100, wynik = 20, sd_error = 10)$X_o)
+plot(dwa_bledy$ID, dwa_bledy$e3, ylim = c(0,35), col = "green")
+points(dwa_bledy$ID, dwa_bledy$e10, col = "blue")
+lines(small_data$ID, rep(20, 100), col = "red")
+```
+
+## Ok, to co się stanie, jak będziemy badać w nieskończoność?
+
+------------------------------------------------------------------------
+
+```{r}
+  data <- data.frame(n = seq(1, 10000, 1))
+  data$mean <- sapply(data$n,  
+    function(x){mean(generate(n = x, wynik = 20, sd_error = 10)$X_o)})
+  plot(data$n, data$mean, type = "l", log = "x", col = "red", ylim=c(0,30))
+  lines(data$n, rep(20, 10000))
+```
+
+## Rozkład błędu
+
+```{r}
+hist(generate(n = 10000, wynik = 20, sd_error = 10)$X_e)
+```
+
+## WNIOSKI
+
+-   W sytuacji, w której błąd ma rozkład normalny o średniej 0, rzeczywiście gdy będziemy badać w nieskończoność, uzyskamy wynik prawdziwy.
+-   Im większe odchylenie standardowe błędu, tym bardziej "rozrzucowne" wyniki i możemy spodziewać się, że będziemy uzyskiwać większe różnice między pomiarami wykoananymi u tej samej osoby.
+
+# Założenia KTT i rzetelność wzorem
+
+## Równanie KTT
+
+$$X_o=X_t+X_e$$ $X_o$ - wynik obserwowany\
+$X_t$ - wynik prawdziwy\
+$X_e$ - błąd
+
+## Założenia dotyczące błędu pomiaru
+
+-   $M_E = 0$
+-   $r_{TE} = 0$
+-   $r_{E1E2} = 0$ (o tym zaraz)
+
+## Innymi słowy...
+
+-   Błąd ma charakter **losowy**, więc:
+
+    -   Gdybyśmy badali tę samą osobę danym testem nieskończenie wiele razy, to średni błąd wynosiłby 0
+    -   Korelacja błędu i wyniku prawdziwego wynosi 0
+    -   W dwóch kolejnych badaniach tym samym testem korelacja **błędu** wynosi zero
+
+## Błąd losowy vs błąd systematyczny
+
+-   Odkrywasz (mniejsza o to jak :)), że za każdym razem kiedy się ważysz waga dodaje 1 kg - jaki to błąd?
+-   Zmierzyłeś/aś wysokość swojego pokoju przykładając centymetr krawiecki do ściany. Zrobiłeś/aś to 10 razy i za każdym razem uzyskałeś trochę inny wynik - jaki to błąd?
+
+## Równanie KTT - wariancja
+
+$$s^2=s^2_t+s^2_e$$ $s$ - odchylenie standardowe wyniku obserwowanego\
+$s_t$ - odchylenie standardowe wyniku prawdziwego $s_e$ - odchylenie standardowe błędu
+
+## Kto nie wierzy...
+
+```{r}
+people <- populate(n = 10000, m_wynik = 25, sd_true = 5, sd_error = 3)
+
+paste0("Wynik prawdziwy średnia ", mean(people$X_true))
+paste0("Wynik prawdziwy wariancja ", var(people$X_true))
+paste0("Błąd średnia ", mean(people$X_error))
+paste0("Błąd wariancja ", var(people$X_error))
+paste0("Wynik obserwowany średnia ", mean(people$X_o))
+paste0("Wynik obserwowany wariancja ", var(people$X_o))
+paste0("Suma wariancji błędu i wyniku prawdziwego ", var(people$X_true) + var(people$X_error))
+```
+
+## Definicja rzetelności wzorem
+
+$$\frac{s^2_t}{s^2}$$
+
+## Wskaźnik rzetelności
+
+-   Na podstawie definicji i założeń ktt da się udowodnić, że kwadrat korelacji między wynikiem prawdziwym i wynikiem obserwowanym to to samo, co rzetelność z definicji.
+-   Tym samym korelacja między wynikiem prawdziwym i obserwowanym pozwoliłaby nam powiedzieć, jak rzetelny jest test (wystarczyłoby ją podnieść do kwadratu)
+
+## Kto nie wierzy...
+
+```{r}
+cor(people$X_o, people$X_true)
+cor(people$X_o, people$X_true)^2
+var(people$X_true) / var(people$X_o)
+```
+
+# Jakie to ma znaczenie w życiu?!
+
+## Testy równoległe
+
+-   mają taką samą średnią
+-   mają takie samo odchylenie standardowe
+-   mają takie same interkorelacje między itemami (o tym później)
+-   jeżeli spróbujemy skorelować ich wynik z jakąś inną zmienną, dla obydwu testów korelacja będzie taka sama
+
+## Korelacja między testami równoległymi
+
+-   współczynnik korelacji między testami równoległymi to współczynnik rzetelności
+-   da się udowodnić, że jeżeli założenia o równoległości testów są spełnione, to współczynnik korelacji między tymi testami odpowiada rzetelności testu
+
+## Test-retest
+
+-   Specyficznym rodzajem pomiaru testem równoległym jest dwukrotny pomiar tym samym testem
+-   Chociaż można dyskutować, czy przypadkiem rozwiązywanie testu po raz drugi to nie jest inna sytuacja testowa i nie jest to jakieś nowe źródło błędu
+
+## Podział testu na połowy
+
+-   Możemy założyć, że dwie połówki testu to testy równoległe i obliczyć korelację między nimi?
+-   Jakie źródło błędu będziemy oceniać w tym przypadku?

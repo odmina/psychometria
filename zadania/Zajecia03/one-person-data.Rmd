@@ -46,11 +46,11 @@ mean(small_data$X_o_odch)
 Można też na obrazku:
 
 ```{r}
-plot(seq(1, 100, 1), small_data$X_o)
+plot(seq(1, 100, 1), small_data$X_o, xlab = "pomiar", ylab = "wynik", main="Hipotetyczne wyniki kolejnych pomiarów tym samym testem", sub = "Czerwona linia oznacza średni wynik pomiaru")
 lines(seq(1, 100, 1), rep(mean(small_data$X_o), 100), col = "red")
 ```
 
-## SŁOWEM PRZYPOMNIENIA: ODCHYLENIE STANDARDOWE 
+## SŁOWEM PRZYPOMNIENIA: ODCHYLENIE STANDARDOWE
 
 Żeby policzyć odchylenie standardowe, każde z pojedynczych odchyleń (x - mean(x)) musisz podnieść do kwadratu. Wtedy wszystkie staną się dodatnie. Gdybyśmy nie podnieśli ich do kwadratu, po doddaniu mielibyśmy 0 (patrz wyżej). W zbiorze mamy zatem coś takiego:
 
@@ -92,5 +92,4 @@ sd(small_data$X_o_odch)
 6. Im większe odchylenie standardowe błędu i im bardziej "rozrzucone wyniki", tym mniejsza rzetelność testu (bo świadczy to o większym błędzie).
 7. Generalnie kiedy badamy jedną osobę wiele razy, im bardziej "rozrzucone" wyniki, tym większy błąd pomiaru.
 
-**WAŻNA UWAGA, DO ZAPAMIĘTANIA:** odchylenie standardowe jest statystyką opisującą całą próbę, a nie pojedynczą obserwację.
 

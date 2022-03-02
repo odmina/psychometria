@@ -27,11 +27,11 @@ inne_dane <- generator_1(3.4)
 head(inne_dane, n = 20)
 ```
 
-## Wykonaj co najmniej 3 razy to same działania...
+## Wykonaj co najmniej 3 razy te same działania...
 
 ...żeby zobaczyć, jak zmienia się wariancja, odchylenie standardowe i suma odchyleń w zależności od tego, jak duży jest błąd. Za każdym razem wprowadź inną wartość błędu. Polecam zacząć od wartości bliskiej 0.
 
-### Pierwszy 
+### Pierwszy
 
 Stwórz zbiór przy użyciu funkcji generator_1() i wyświetl jego "głowę" funkcją head():
 

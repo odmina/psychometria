@@ -31,6 +31,7 @@ my_reshape <- function (df) {
   return(df)
 }
 tt_data <- generator()
+tt_data <- my_reshape(tt_data)
 ```
 
 # TAKIE MAMY DANE
@@ -38,13 +39,6 @@ tt_data <- generator()
 Zajrzyj do danych :)
 
 ```{r}
-head(tt_data, 20)
-```
-
-Żeby łatwiej było z nimi pracować, umieścimy pomiar T1 i T2 w dwóch kolumnach.
-
-```{r}
-tt_data <- my_reshape(tt_data)
 head(tt_data, 20)
 ```
 

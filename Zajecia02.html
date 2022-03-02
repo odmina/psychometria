@@ -11,14 +11,36 @@
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
   <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
     div.column{display: inline-block; vertical-align: top; width: 50%;}
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/white.css" id="theme">
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -26,7 +48,8 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Rzetelność - jak dobrze test mierzy to, co mierzy</h1>
+  <h1 class="title">Rzetelność - jak dobrze test mierzy to, co
+mierzy</h1>
   <p class="author">Małgorzata Basińska</p>
 </section>
 
@@ -39,25 +62,30 @@
 <h2>Po zajęciach powinniście umieć</h2>
 <ul>
 <li>podać definicję rzetelności</li>
-<li>wytłumaczyć, o co chodzi z błędem i wynikiem prawdziwym w myśl klasycznej teorii testów</li>
-<li>wskazać główne źródła błędu w pomiarze testowym</li>
+<li>wytłumaczyć, o co chodzi z błędem i wynikiem prawdziwym w myśl
+klasycznej teorii testów</li>
+<li>wskazać główne źródła błędu w pomiarze testowym</li>
 </ul>
 </section>
 <section id="po-co-nam-wiedza-o-rzetelności" class="slide level2">
-<h2>Po co nam wiedza o rzetelności</h2>
+<h2>Po co nam wiedza o rzetelności</h2>
 <ul>
-<li>informacje o wynikach uzyskanych przez pacjentów/klientów w testach są nieodłączną częścią pracy psychologa</li>
-<li>odpowiedzialne korzystanie z takich informacji wymaga wiedzy:
+<li>informacje o wynikach uzyskanych przez pacjentów/klientów w testach
+są nieodłączną częścią pracy psychologa</li>
+<li>odpowiedzialne korzystanie z takich informacji wymaga wiedzy:
 <ul>
-<li>o tym, że wynik testu nie odzwierciedla idealnie poziomu danej cechy u badanego</li>
-<li>jak interpretować wynik testowe korzystając z wiedzy o rzetelności i błędzie pomiaru</li>
+<li>o tym, że wynik testu nie odzwierciedla idealnie poziomu danej cechy
+u badanego</li>
+<li>jak interpretować wynik testowe korzystając z wiedzy o rzetelności
+i błędzie pomiaru</li>
 </ul></li>
 </ul>
 </section>
 <section class="slide level2">
 
 <ul>
-<li>dzięki dorobkowi psychometrii w tym zakresie testy psychologiczne stają się coraz dokładniejszymi narzędziami pomiaru</li>
+<li>dzięki dorobkowi psychometrii w tym zakresie testy psychologiczne
+stają się coraz dokładniejszymi narzędziami pomiaru</li>
 </ul>
 </section></section>
 <section>
@@ -65,54 +93,66 @@
 <h1>Klasyczna teoria testów</h1>
 
 </section>
-<section id="definicja-rzetelności-wg-s.-urbiny--urbina2014essentials" class="slide level2">
-<h2>Definicja rzetelności wg S. Urbiny <span class="citation" data-cites="urbina2014essentials">(2014)</span></h2>
+<section id="definicja-rzetelności-wg-s.-urbiny--urbina2014essentials"
+class="slide level2">
+<h2>Definicja rzetelności wg S. Urbiny <span class="citation"
+data-cites="urbina2014essentials">(2014)</span></h2>
 <blockquote>
 <p><strong>Rzetelność</strong> to właściwość wyników testowych<br />
 sugerująca, że są one wystarczająco stabilne<br />
 i wolne od błędu pomiaru by były użyteczne.</p>
 </blockquote>
 </section>
-<section id="definicja-rzetelności-wg-standardów-americaneducationalresearchassociation2007" class="slide level2">
-<h2>Definicja rzetelności wg <em>Standardów</em> <span class="citation" data-cites="AmericanEducationalResearchAssociation2007">(AERA, APA, &amp; NCME, 2007)</span></h2>
+<section
+id="definicja-rzetelności-wg-standardów-americaneducationalresearchassociation2007"
+class="slide level2">
+<h2>Definicja rzetelności wg <em>Standardów</em> <span class="citation"
+data-cites="AmericanEducationalResearchAssociation2007">(AERA, APA,
+&amp; NCME, 2007)</span></h2>
 <blockquote>
-<p>Stopień, w jakim wyniki testowe otrzymane dla<br />
+<p>Stopień, w jakim wyniki testowe otrzymane dla<br />
 grupy osób są stabilne oraz nie zmieniają się<br />
 w kolejnych badaniach tym samym testem;<br />
-mogą być uznane za powtarzalne i rzetelnedla osoby badanej;<br />
-także stopień, w jakim wyniki testowe są wolne<br />
+mogą być uznane za powtarzalne i rzetelne dla osoby badanej;<br />
+także stopień, w jakim wyniki testowe są wolne<br />
 od błędu pomiaru dla danej grupy.</p>
 </blockquote>
 </section>
 <section id="innymi-słowy" class="slide level2">
 <h2>Innymi słowy</h2>
-<p>Jeżeli zakładamy, że badamy jakąś cechę, której poziom u danej osoby jest <em>względnie stały w czasie</em> a nasz <em>test za każdym razem daje zupełnie inny wynik</em>, to taki test jest <strong>całkowicie bezużyteczny</strong>.</p>
-</section>
-<section id="zadanko-1" class="slide level2">
-<h2>Zadanko 1</h2>
+<p>Jeżeli zakładamy, że badamy jakąś cechę, której poziom u danej osoby
+jest <em>względnie stały w czasie</em> a nasz <em>test za każdym razem
+daje zupełnie inny wynik</em>, to taki test jest <strong>całkowicie
+bezużyteczny</strong>.</p>
 </section>
 <section id="pytanie" class="slide level2">
 <h2>Pytanie</h2>
 <p><strong>Czy istnieje idealne narzędzie pomiarowe?</strong><br />
 <strong>Takie, które daje pomiar nieobarczony błędem?</strong></p>
 </section>
-<section id="co-składa-się-na-wynik-uzyskany-w-teście" class="slide level2">
-<h2>Co składa się na wynik uzyskany w teście</h2>
-<p><span class="math display">\[X_O=X_t+X_e\]</span> <span class="math inline">\(X_O\)</span> - wynik obserwowany<br />
+<section id="co-składa-się-na-wynik-uzyskany-w-teście"
+class="slide level2">
+<h2>Co składa się na wynik uzyskany w teście</h2>
+<p><span class="math display">\[X_O=X_t+X_e\]</span> <span
+class="math inline">\(X_O\)</span> - wynik obserwowany<br />
 <span class="math inline">\(X_t\)</span> - wynik prawdziwy<br />
 <span class="math inline">\(X_e\)</span> - błąd</p>
 </section>
 <section id="wynik-prawdziwy" class="slide level2">
 <h2>WYNIK PRAWDZIWY</h2>
-<p><img data-src="https://upload.wikimedia.org/wikipedia/en/0/08/Monty-Python-1975-poster.png" /></p>
 </section>
-<section id="co-to-jest-wynik-prawdziwy---jak-go-sobie-wyobrazić" class="slide level2">
+<section id="co-to-jest-wynik-prawdziwy---jak-go-sobie-wyobrazić"
+class="slide level2">
 <h2>Co to jest wynik prawdziwy - jak go sobie wyobrazić</h2>
-<p>Hipotetyczny wynik idealnie odzwierciedlający poziom mierzonej cechy u osoby badanej, czytaj: nieobarczony błędem.</p>
+<p>Hipotetyczny wynik idealnie odzwierciedlający poziom mierzonej cechy
+u osoby badanej, czytaj: nieobarczony błędem.</p>
 </section>
-<section id="co-to-jest-wynik-prawdziwy-w-myśl-klasycznej-teorii-testów" class="slide level2">
-<h2>Co to jest wynik prawdziwy w myśl klasycznej teorii testów</h2>
-<p>Wynik osoby badanej, gdybyśmy przebadali ją tym samym testem nieskończoną liczbę razy. <span class="math display">\[\infty\]</span></p>
+<section id="co-to-jest-wynik-prawdziwy-w-myśl-klasycznej-teorii-testów"
+class="slide level2">
+<h2>Co to jest wynik prawdziwy w myśl klasycznej teorii testów</h2>
+<p>Wynik osoby badanej, gdybyśmy przebadali ją tym samym testem
+nieskończoną liczbę razy. <span
+class="math display">\[\infty\]</span></p>
 </section>
 <section id="definicja-rzetelności-wzorem" class="slide level2">
 <h2>Definicja rzetelności wzorem</h2>
@@ -123,34 +163,43 @@ od błędu pomiaru dla danej grupy.</p>
 <h2>Błąd losowy vs błąd systematyczny</h2>
 <div>
 <ul>
-<li class="fragment">Odkrywasz (mniejsza o to jak :)), że za każdym razem kiedy się ważysz waga dodaje 1 kg - jaki to błąd?</li>
-<li class="fragment">Zmierzyłeś/aś wysokość swojego pokoju przykładając centymetr krawiecki do ściany. Zrobiłeś/aś to 10 razy i za każdym razem uzyskałeś trochę inny wynik - jaki to błąd?</li>
+<li class="fragment">Odkrywasz (mniejsza o to jak :)), że za każdym
+razem kiedy się ważysz waga dodaje 1 kg - jaki to błąd?</li>
+<li class="fragment">Zmierzyłeś/aś wysokość swojego pokoju przykładając
+centymetr krawiecki do ściany. Zrobiłeś/aś to 10 razy i za każdym razem
+uzyskałeś trochę inny wynik - jaki to błąd?</li>
 </ul>
 </div>
 </section>
 <section id="założenia-klasycznej-teorii-testów" class="slide level2">
 <h2>Założenia klasycznej teorii testów</h2>
 <ul>
-<li><span class="math inline">\(X_O=X_t+X_e\)</span> (na wynik obserwowany składa się wynik prawdziwy i błąd)</li>
+<li><span class="math inline">\(X_O=X_t+X_e\)</span> (na wynik
+obserwowany składa się wynik prawdziwy i błąd)</li>
 <li>Błąd ma charakter <strong>losowy</strong>, więc:
 <ul>
-<li>Gdybyśmy badali tę samą osobę danym testem nieskończenie wiele razy, to średni błąd wynosiłby 0</li>
-<li>Korelacja błędu i wyniku prawdziwego wynosi 0</li>
-<li>W dwóch kolejnych badaniach tym samym testem korelacja <strong>błędu</strong> wynosi zero</li>
+<li>Gdybyśmy badali tę samą osobę danym testem nieskończenie wiele razy,
+to średni błąd wynosiłby 0</li>
+<li>Korelacja błędu i wyniku prawdziwego wynosi 0</li>
+<li>W dwóch kolejnych badaniach tym samym testem korelacja
+<strong>błędu</strong> wynosi zero</li>
 </ul></li>
 </ul>
 </section></section>
 <section>
-<section id="prosty-przykład-oceny-rzetelności-testu-psychologicznego" class="title-slide slide level1">
+<section id="prosty-przykład-oceny-rzetelności-testu-psychologicznego"
+class="title-slide slide level1">
 <h1>Prosty przykład oceny rzetelności testu psychologicznego</h1>
 
 </section>
-<section id="jak-to-wszystko-przełożyć-na-testy-psychologiczne" class="slide level2">
+<section id="jak-to-wszystko-przełożyć-na-testy-psychologiczne"
+class="slide level2">
 <h2>Jak to wszystko przełożyć na testy psychologiczne</h2>
 <ul>
-<li>Nie mamy możliwości badania tej samej osoby testem w <span class="math inline">\(\infty\)</span></li>
+<li>Nie mamy możliwości badania tej samej osoby testem w <span
+class="math inline">\(\infty\)</span></li>
 <li>Mamy za to możliwość zbadania <em>wielu osób</em>…</li>
-<li>I wykonania &gt;1 (zwykle 2) pomiarów</li>
+<li>I wykonania &gt;1 (zwykle 2) pomiarów</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -191,51 +240,60 @@ od błędu pomiaru dla danej grupy.</p>
 </tr>
 </tbody>
 </table>
-<p>N - id badanego; T1 - wynik w pierwszym pomiarze; T2 - wynik w drugim pomiarze</p>
+<p>N - id badanego; T1 - wynik w pierwszym pomiarze; T2 - wynik w drugim
+pomiarze</p>
 </section>
 <section id="przykład" class="slide level2">
 <h2>Przykład</h2>
 <ul>
 <li>Badamy rzetelność SES Rosenberga.</li>
-<li>Badani wypełniają SES dwa razy w odstępie tygodnia.</li>
-<li>Wyniki w teście podczas pierwszego pomiaru oznaczamy jako T1.</li>
-<li>Wyniki w teście podczas drugiego pomiaru oznaczamy jako T2.</li>
-<li><em>Uwaga: wyniki dla retestu w podanym przykładzie zostały wygenerowane losowo. Proszę nie traktować ich poważnie :)</em></li>
+<li>Badani wypełniają SES dwa razy (np. w odstępie tygodnia).</li>
+<li>Wyniki w teście podczas pierwszego pomiaru oznaczamy jako T1.</li>
+<li>Wyniki w teście podczas drugiego pomiaru oznaczamy jako T2.</li>
 </ul>
 </section>
 <section id="jak-to-policzymy" class="slide level2">
 <h2>Jak to policzymy</h2>
-<p>Współczynnik korelacji Pearsona dla wyników pierwszego (test) i drugiego (retest) pomiaru.</p>
-<p><span class="math display">\[r_{tt}=\frac{\sum_{i=1}^n(\bar{t_1}-t_{1i})(\bar{t_2}-t_{2i})}{\sqrt{\sum_{i=1}^{n}(\bar{t_{1i}}-t_{1i})^2} \sqrt{\sum_{i=1}^{n}(\bar{t_2}-t_{2i})^2}}\]</span></p>
+<p>Współczynnik korelacji Pearsona dla wyników pierwszego (test)
+i drugiego (retest) pomiaru.</p>
+<p><span
+class="math display">\[r_{tt}=\frac{\sum_{i=1}^n(\bar{t_1}-t_{1i})(\bar{t_2}-t_{2i})}{\sqrt{\sum_{i=1}^{n}(\bar{t_{1i}}-t_{1i})^2}
+\sqrt{\sum_{i=1}^{n}(\bar{t_2}-t_{2i})^2}}\]</span></p>
 </section>
 <section id="otrzymaliśmy-taki-wynik" class="slide level2">
 <h2>Otrzymaliśmy taki wynik</h2>
 <p>r = 0.8241061</p>
-<p><img data-src="img/rtt_rse.png" id="id" class="class" height="250" /></p>
-<p>Jak świadczy on o rzetelności narzędzia?</p>
+<p><img data-src="img/rtt_rse.png" id="id" class="class"
+height="250" /></p>
+<p>Jak świadczy on o rzetelności narzędzia?</p>
 </section></section>
 <section>
-<section id="źródła-błędu-podczas-testowania" class="title-slide slide level1">
+<section id="źródła-błędu-podczas-testowania"
+class="title-slide slide level1">
 <h1>Źródła błędu podczas testowania</h1>
 
 </section>
 <section id="wynik-obserwowany-raz-jeszcze" class="slide level2">
 <h2>Wynik obserwowany raz jeszcze</h2>
-<p><span class="math display">\[X_O=X_t+X_e\]</span> <span class="math inline">\(X_O\)</span> - wynik obserwowany<br />
+<p><span class="math display">\[X_O=X_t+X_e\]</span> <span
+class="math inline">\(X_O\)</span> - wynik obserwowany<br />
 <span class="math inline">\(X_t\)</span> - wynik prawdziwy<br />
 <span class="math inline">\(X_e\)</span> - błąd</p>
 </section>
-<section id="jakie-są-źródła-błędu-podczas-testowania-mcintire2007foundationsurbina2014essentials" class="slide level2">
-<h2>Jakie są źródła błędu podczas testowania <span class="citation" data-cites="mcintire2007foundations">(McIntire &amp; Miller, 2007)</span><span class="citation" data-cites="urbina2014essentials">(Urbina, 2014)</span></h2>
+<section
+id="jakie-są-źródła-błędu-podczas-testowania-mcintire2007foundations-urbina2014essentials"
+class="slide level2">
+<h2>Jakie są źródła błędu podczas testowania <span class="citation"
+data-cites="mcintire2007foundations urbina2014essentials">(McIntire
+&amp; Miller, 2007; Urbina, 2014)</span></h2>
 <div>
 <ul>
-<li class="fragment"><p><em>proszę wyjąć coś do pisania :)</em></p></li>
-<li class="fragment"><p>kontekst przeprowadzenia testu</p>
+<li class="fragment">kontekst przeprowadzenia testu
 <ul>
 <li class="fragment">ocena testu</li>
 </ul></li>
-<li class="fragment"><p>osoby badane</p></li>
-<li class="fragment"><p>konstrukcja testu (test sam w sobie)</p></li>
+<li class="fragment">osoby badane</li>
+<li class="fragment">konstrukcja testu (test sam w sobie)</li>
 </ul>
 </div>
 </section></section>
@@ -244,17 +302,30 @@ od błędu pomiaru dla danej grupy.</p>
 <h1>Literatura</h1>
 
 </section>
-<section id="literatura-1" class="slide level2 unnumbered">
-<h2 class="unnumbered">Literatura</h2>
-<div id="refs" class="references hanging-indent" role="doc-bibliography">
-<div id="ref-AmericanEducationalResearchAssociation2007">
-<p>AERA, APA, &amp; NCME. (2007). <em>Standardy dla testów stosowanych w psychologii i pedagogice</em>. Gdańsk: Gdańskie Wydawnictwo Psychologiczne.</p>
+<section id="literatura-1" class="slide level2">
+<h2>Literatura</h2>
+<p><small></p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-line-spacing="2" role="doc-bibliography">
+<div id="ref-AmericanEducationalResearchAssociation2007"
+class="csl-entry" role="doc-biblioentry">
+AERA, APA, &amp; NCME. (2007). <em><span class="nocase">Standardy dla
+test<span class="nocase">ó</span>w stosowanych w psychologii i
+pedagogice</span></em>. Gda<span>ń</span>sk: Gda<span>ń</span>skie
+Wydawnictwo Psychologiczne.
 </div>
-<div id="ref-mcintire2007foundations">
-<p>McIntire, S. A., &amp; Miller, L. A. (2007). <em>Foundations of Psychological Testing: A Practical Approach</em>. Retrieved from <a href="https://books.google.pl/books?id=dB0fw5lf0GQC">https://books.google.pl/books?id=dB0fw5lf0GQC</a></p>
+<div id="ref-mcintire2007foundations" class="csl-entry"
+role="doc-biblioentry">
+McIntire, S. A., &amp; Miller, L. A. (2007). <em><span
+class="nocase">Foundations of Psychological Testing: A Practical
+Approach</span></em>. Retrieved from <a
+href="https://books.google.pl/books?id=dB0fw5lf0GQC">https://books.google.pl/books?id=dB0fw5lf0GQC</a>
 </div>
-<div id="ref-urbina2014essentials">
-<p>Urbina, S. (2014). <em>Essentials of Psychological Testing</em> (II). Retrieved from <a href="https://books.google.pl/books?id=UnHrAwAAQBAJ">https://books.google.pl/books?id=UnHrAwAAQBAJ</a></p>
+<div id="ref-urbina2014essentials" class="csl-entry"
+role="doc-biblioentry">
+Urbina, S. (2014). <em><span class="nocase">Essentials of Psychological
+Testing</span></em> (II). Retrieved from <a
+href="https://books.google.pl/books?id=UnHrAwAAQBAJ">https://books.google.pl/books?id=UnHrAwAAQBAJ</a>
 </div>
 </div>
 </section></section>
@@ -263,7 +334,7 @@ od błędu pomiaru dla danej grupy.</p>
 
   <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
 
-  // reveal.js plugins
+  <!-- reveal.js plugins -->
   <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
@@ -274,10 +345,148 @@ od błędu pomiaru dla danej grupy.</p>
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
         // Push each slide change to the browser history
-        history: true,
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

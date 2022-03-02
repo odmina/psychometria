@@ -34,15 +34,13 @@ title: Rzetelność - jak dobrze test mierzy to, co mierzy
 >Stopień, w jakim wyniki testowe otrzymane dla  
 >grupy osób są stabilne oraz nie zmieniają się  
 >w kolejnych badaniach tym samym testem;  
->mogą być uznane za powtarzalne i rzetelnedla osoby badanej;  
+>mogą być uznane za powtarzalne i rzetelne dla osoby badanej;  
  także stopień, w jakim wyniki testowe są wolne  
 >od błędu pomiaru dla danej grupy.
 
 ## Innymi słowy
 
 Jeżeli zakładamy, że badamy jakąś cechę, której poziom u danej osoby jest *względnie stały w czasie* a nasz *test za każdym razem daje zupełnie inny wynik*, to taki test jest **całkowicie bezużyteczny**. 
-
-## Zadanko 1
 
 ## Pytanie
 
@@ -57,8 +55,6 @@ $X_t$ - wynik prawdziwy
 $X_e$ - błąd  
 
 ## WYNIK PRAWDZIWY
-
-![](https://upload.wikimedia.org/wikipedia/en/0/08/Monty-Python-1975-poster.png)
 
 ## Co to jest wynik prawdziwy - jak go sobie wyobrazić
   
@@ -114,10 +110,9 @@ N - id badanego; T1 - wynik w pierwszym pomiarze; T2 - wynik w drugim pomiarze
 ## Przykład
 
 - Badamy rzetelność SES Rosenberga.
-- Badani wypełniają SES dwa razy w odstępie tygodnia.
+- Badani wypełniają SES dwa razy (np. w odstępie tygodnia).
 - Wyniki w teście podczas pierwszego pomiaru oznaczamy jako T1.
 - Wyniki w teście podczas drugiego pomiaru oznaczamy jako T2.
-- *Uwaga: wyniki dla retestu w podanym przykładzie zostały wygenerowane losowo. Proszę nie traktować ich poważnie :)*
 
 ## Jak to policzymy
 
@@ -142,11 +137,9 @@ $X_O$ - wynik obserwowany
 $X_t$ - wynik prawdziwy  
 $X_e$ - błąd
 
-## Jakie są źródła błędu podczas testowania [@mcintire2007foundations][@urbina2014essentials]
+## Jakie są źródła błędu podczas testowania [@mcintire2007foundations; @urbina2014essentials]
 
 :::incremental
-
-- *proszę wyjąć coś do pisania :)*
 
 - kontekst przeprowadzenia testu
   - ocena testu
@@ -158,3 +151,7 @@ $X_e$ - błąd
 # Literatura
 
 ## Literatura
+
+<small>
+
+

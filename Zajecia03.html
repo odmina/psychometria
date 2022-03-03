@@ -4,13 +4,16 @@
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
   <meta name="author" content="Małgorzata Basińska">
-  <title>Rzetelność - spójność wewnętrzna i podsumowanie</title>
+  <title>Rzetelność związana z doborem treści</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
   <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
   <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     span.underline{text-decoration: underline;}
@@ -18,7 +21,7 @@
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
   </style>
-  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/night.css" id="theme">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/white.css" id="theme">
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -26,180 +29,214 @@
     <div class="slides">
 
 <section id="title-slide">
-  <h1 class="title">Rzetelność - spójność wewnętrzna i podsumowanie</h1>
+  <h1 class="title">Rzetelność związana z doborem treści</h1>
   <p class="author">Małgorzata Basińska</p>
 </section>
 
 <section>
-<section id="rzetelność-a-spójność-wewnętrzna-testu" class="title-slide slide level1">
-<h1>Rzetelność a spójność wewnętrzna testu</h1>
+<section id="różne-aspekty-rzetelności"
+class="title-slide slide level1">
+<h1>Różne aspekty rzetelności</h1>
+
+</section>
+<section id="próbkowanie-treści-a-zmienność-wyników-w-czasie"
+class="slide level2">
+<h2>Próbkowanie treści a zmienność wyników w czasie</h2>
+<ul>
+<li>Wykorzystując do oceny rzetelności metodę test-retest badamy
+zmienność wyników w czasie, między jedną a drugą sytuacją testową</li>
+<li>Jest to tylko jedno z możliwych źródeł błędu</li>
+<li>Innym źródłem błędu jest to, jaką próbkę zachowania będziemy
+zbierać, innymi słowy to, jakie pozycje trafią do naszego testu</li>
+</ul>
+</section>
+<section
+id="rzetelność-związaną-z-doborem-treści-możemy-mierzyć-na-kilka-sposobów"
+class="slide level2">
+<h2>Rzetelność związaną z doborem treści możemy mierzyć na kilka
+sposobów</h2>
+<ul>
+<li>metoda wersji równoległych (alternatywnych)</li>
+<li>metoda połówkowa</li>
+<li>badanie zgodności wewnętrznej testu</li>
+</ul>
+</section></section>
+<section>
+<section
+id="ocena-rzetelności-metodą-polegającą-na-podzieleniu-testu-na-połowy"
+class="title-slide slide level1">
+<h1>Ocena rzetelności metodą polegającą na podzieleniu testu na
+połowy</h1>
+
+</section>
+<section id="szacowanie-rzetelności-metodą-połówkową"
+class="slide level2">
+<h2>Szacowanie rzetelności metodą połówkową</h2>
+<ul>
+<li><strong>PRZYKŁAD:</strong>
+<ul>
+<li>przeprowadziliśmy w jakiejś grupie test tylko raz i chcemy oszacować
+jego rzetelność.</li>
+</ul></li>
+<li><strong>JAK OSZACOWAĆ RZETELNOŚĆ:</strong>
+<ul>
+<li>współczynnik równoważności międzypołówkowej</li>
+<li>korelacja między połówkami testu</li>
+<li>ważne pytanie: jak dzielić test na połowy??</li>
+</ul></li>
+</ul>
+</section>
+<section
+id="dlaczego-dzielenie-testu-na-połowy-może-pozwolić-nam-ocenić-rzetelność"
+class="slide level2">
+<h2>Dlaczego dzielenie testu na połowy może pozwolić nam ocenić
+rzetelność</h2>
+<p>Zakładamy, że każda z połówek bada ten sam konstrukt, a zatem wyniki
+uzyskane z wykorzystaniem obydwu połówek powinny być ze sobą
+skorelowane.</p>
+</section>
+<section class="slide level2">
+
+<p><strong>Ważna uwaga</strong>: oceniając rzetelność metodą test-retest
+i metodą połówkową oceniamy ją w odniesieniu do różnych źródeł błędu.
+Dla testu-retestu jest to zmienność wyników w czasie, a dla metody
+połówkowej dobór treści! Więc w obydwu przypadkach oceniamy rzetelność,
+ale dowiadujemy się czego innego.</p>
+</section>
+<section id="uwaga-połówki-testu-są-krótsze-niż-cały-test"
+class="slide level2">
+<h2>Uwaga: połówki testu są krótsze niż cały test</h2>
+<p>Więc siłą rzeczy rzetelność będzie niższa, ponieważ zbieramy mniejszą
+próbkę zachowania.</p>
+</section>
+<section id="wzór-spearmana-browna-dla-połówek-testu"
+class="slide level2">
+<h2>Wzór Spearmana-Browna dla połówek testu</h2>
+<p>Do szacowania rzetelności całego testu na postawie współczynnika
+równoważności międzypołówkowej (korelacji między połówkami testu) <span
+class="math display">\[r_{tt}=\frac{2r_{pp}}{1+r_{pp}}\]</span> Gdzie:
+<span class="math inline">\(r_{tt}\)</span> - rzetelność całego
+testu<br />
+<span class="math inline">\(r_{pp}\)</span> - rzetelność połówek
+testu</p>
+</section></section>
+<section>
+<section id="ogólna-wersja-wzoru-spearmana-browna"
+class="title-slide slide level1">
+<h1>Ogólna wersja wzoru Spearmana-Browna</h1>
+
+</section>
+<section id="wzór-spearmana-browna-wersja-ogólna" class="slide level2">
+<h2>Wzór Spearmana-Browna wersja ogólna</h2>
+<p><span
+class="math display">\[r_{nn}=\frac{nr_{cc}}{1+(n-1)r_{cc}}\]</span><br />
+Gdzie:<br />
+<span class="math inline">\(r_{nn}\)</span> - rzetelność testu
+wydłużonego <strong>n</strong> razy<br />
+<span class="math inline">\(r_{cc}\)</span> - rzetelność testu, którą
+zmierzyliśmy<br />
+Wartość <span class="math inline">\(r_{nn}\)</span> uzyskana ze wzoru
+Spearmana-Browna nigdy nie będzie większa od 1. Kto wie dlaczego?</p>
+</section>
+<section
+id="wzór-spearmana-browna-można-wykorzystać-by-stwierdzić-ile-razy-należy-wydłużyć-test-aby-uzyskać-zakładaną-rzetelność"
+class="slide level2">
+<h2>Wzór Spearmana-Browna można wykorzystać, by stwierdzić, ile razy
+należy wydłużyć test, aby uzyskać zakładaną rzetelność</h2>
+</section></section>
+<section>
+<section id="rzetelność-a-spójność-wewnętrzna-testu"
+class="title-slide slide level1">
+<h1>Rzetelność a spójność wewnętrzna testu</h1>
 
 </section>
 <section id="alfa-cronbacha-wygląda-tak" class="slide level2">
 <h2>Alfa Cronbacha wygląda tak</h2>
-<p><span class="math display">\[\alpha=(\frac{k}{k-1})(1 - \frac{\sum_{i=1}^{k}\sigma_i^2}{\sigma^2_X})\]</span><br />
+<p><span class="math display">\[\alpha=(\frac{k}{k-1})(1 -
+\frac{\sum_{i=1}^{k}\sigma_i^2}{\sigma^2_X})\]</span><br />
 Gdzie:<br />
-k - liczba pozycji w teście<br />
-<span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku w teście<br />
-<span class="math inline">\(\sigma_i^2\)</span> - wariancja wyniku każdej z pozycji testowych</p>
+k - liczba pozycji w teście<br />
+<span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku
+w teście<br />
+<span class="math inline">\(\sigma_i^2\)</span> - wariancja wyniku
+każdej z pozycji testowych</p>
 </section>
 <section id="albo-tak" class="slide level2">
 <h2>Albo tak</h2>
-<p><span class="math display">\[\alpha=(\frac{k^2 \overline{\sigma_{ij}}}{\sigma^2_X})\]</span><br />
+<p><span class="math display">\[\alpha=(\frac{k^2
+\overline{\sigma_{ij}}}{\sigma^2_X})\]</span><br />
 Gdzie:<br />
-k - liczba pozycji w teście <span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku w teście <span class="math inline">\(\overline{\sigma_{ij}}\)</span> - średnia kowariancja pozycji</p>
+k - liczba pozycji w teście <span
+class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku w teście
+<span class="math inline">\(\overline{\sigma_{ij}}\)</span> - średnia
+kowariancja pozycji</p>
 </section>
 <section id="jaki-jest-sens-alfy" class="slide level2">
 <h2>Jaki jest sens alfy</h2>
 <ul>
-<li>Na wariancję wyniku testowego składa się wariancja poszczególnych pozycji…</li>
-<li>…oraz kowariancja (jest to termin zbliżony do korelacji) tych pozycji.</li>
-<li>Alfa jest miarą tego, jaką część ogólnej wariancji wyników w teście stanowi suma kowariancji poszczególnych pozycji.</li>
+<li>Na wariancję wyniku testowego składa się wariancja poszczególnych
+pozycji…</li>
+<li>…oraz kowariancja (jest to termin zbliżony do korelacji) tych
+pozycji.</li>
+<li>Alfa jest miarą tego, jaką część ogólnej wariancji wyników w teście
+stanowi suma kowariancji poszczególnych pozycji.</li>
 </ul>
 </section>
 <section id="jak-to-działa" class="slide level2">
 <h2>Jak to działa</h2>
 <ul>
-<li>W hipotetycznej sytuacji, w której wariancja dla poszczególnych itemów zostaje taka sama…</li>
+<li>W hipotetycznej sytuacji, w której wariancja dla poszczególnych
+itemów zostaje taka sama…</li>
 <li>…im większa kowariancja między poszczególnymi pozycjami…</li>
-<li>…tym bardziej zróżnicowany (między badanymi) ogólny wynik w teście…</li>
+<li>…tym bardziej zróżnicowany (między badanymi) ogólny wynik
+w teście…</li>
 <li>…i tym wyższa alfa.</li>
 </ul>
 </section>
 <section id="wyobraźcie-sobie" class="slide level2">
 <h2>Wyobraźcie sobie</h2>
 <ul>
-<li>…że odpowiadacie na pytania zupełnie ze sobą niezwiązane. Jaka będzie kowariancja między odpowiedziami na te pytania?</li>
-<li>…że odpowiadacie na pytania w teście dotyczącym np. sumienności. Jaka będzie kowariancja między odpowiedziami na poszczególne pytania?</li>
+<li>…że odpowiadacie na pytania zupełnie ze sobą niezwiązane. Jaka
+będzie kowariancja między odpowiedziami na te pytania?</li>
+<li>…że odpowiadacie na pytania w teście dotyczącym np. sumienności.
+Jaka będzie kowariancja między odpowiedziami na poszczególne
+pytania?</li>
 </ul>
 </section>
 <section id="tym-samym" class="slide level2">
 <h2>Tym samym</h2>
-<p>Alfa Cronbacha jest miarą tego, jak bardzo jednorodny jest test. Zakładamy, ze <strong>jednoczynnikowe</strong> testy i skale mierzą jeden konstrukt i powinny być jednorodne. Alfa jest miarą rzetelności związanej z doborem treści.</p>
+<p>Alfa Cronbacha jest miarą tego, jak bardzo jednorodny jest test.
+Zakładamy, ze <strong>jednoczynnikowe</strong> testy i skale mierzą
+jeden konstrukt i powinny być jednorodne. Alfa jest miarą rzetelności
+związanej z doborem treści.</p>
 </section>
 <section id="wzór-k-r20" class="slide level2">
 <h2>Wzór K-R20</h2>
 <ul>
 <li>Wzór K-R20 jest podobny do alfy Cronbacha</li>
-<li>Można go zastosować w testach, w których mamy dwie możliwości odpowiedzi, jedną zgodną, a drugą niezgodną z kluczem</li>
+<li>Można go zastosować w testach, w których mamy dwie możliwości
+odpowiedzi, jedną zgodną, a drugą niezgodną z kluczem</li>
 </ul>
 </section>
 <section class="slide level2">
 
-<p><span class="math display">\[KR_{20}=(\frac{k}{k-1})(1 - \frac{\sum_{i=1}^{q}p_i q_i}{\sigma^2_X})\]</span><br />
+<p><span class="math display">\[KR_{20}=(\frac{k}{k-1})(1 -
+\frac{\sum_{i=1}^{q}p_i q_i}{\sigma^2_X})\]</span><br />
 Gdzie:<br />
-k - liczba pozycji w teście<br />
-<span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku w teście<br />
-<span class="math inline">\(p_i\)</span> - proporcja osób odpowiadających zgodnie z kluczem <span class="math inline">\(q_i\)</span> - proporcja osób odpowiadających NIEzgodnie z kluczem</p>
-</section></section>
-<section>
-<section id="podsumowanie-wiedzy-o-rzetelności" class="title-slide slide level1">
-<h1>Podsumowanie wiedzy o rzetelności</h1>
-
-</section>
-<section id="źródła-błędu-a-rzetelność" class="slide level2">
-<h2>Źródła błędu a rzetelność</h2>
-<ul>
-<li>niezgodność/niespójność w ocenach sędziów</li>
-<li>zmienność w czasie</li>
-<li>brak spójności wewnętrznej testu i błędy w doborze treści</li>
-</ul>
-</section>
-<section id="metody-szacowania-rzetelności-vs-źródła-błędu" class="slide level2">
-<h2>Metody szacowania rzetelności vs źródła błędu</h2>
-<table style="width:93%;">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 59%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Źródło błędu</th>
-<th style="text-align: left;">Metody</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Sędziowie</td>
-<td style="text-align: left;">Ocena tego samego materiału przez dwóch sędziów i obliczenie - współczynnika korelacji - kappa Cohena</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section class="slide level2">
-
-<table style="width:93%;">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 59%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Źródło błędu</th>
-<th style="text-align: left;">Metody</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Zmienność w czasie</td>
-<td style="text-align: left;">Technika test - retest i obliczenie współczynnika korelacji między testem i retestem</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section class="slide level2">
-
-<table style="width:93%;">
-<colgroup>
-<col style="width: 33%" />
-<col style="width: 59%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Źródło błędu</th>
-<th style="text-align: left;">Metody</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Dobór (próbkowanie) i heterogeniczność treści</td>
-<td style="text-align: left;">Ocena korelacji między połówkami testu (pamiętaj o wzorze Spearmana-Browna) Ocena korelacji między wersjami alternatywnymi Ocena spójności wewnętrznej - K-R20 - Alfa Cronbacha</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="jak-zwiększać-rzetelność-mcintire2007foundations" class="slide level2">
-<h2>Jak zwiększać rzetelność? <span class="citation" data-cites="mcintire2007foundations">(McIntire &amp; Miller, 2007)</span></h2>
-<div>
-<ul>
-<li class="fragment">dodanie pytań</li>
-<li class="fragment">zwiększenie homogeniczności testu</li>
-<li class="fragment">skrócenie interwału pomiędzy testem i retestem (uwaga na efekt wprawy!)</li>
-<li class="fragment">zwiększenie efektywności przeprowadzania testu</li>
-<li class="fragment">ostrożność podczas oceniania</li>
-<li class="fragment">ograniczenie zgadywania lub odpowiadania nieszczerze / bez zaangażowania</li>
-</ul>
-</div>
-</section></section>
-<section>
-<section id="literatura" class="title-slide slide level1">
-<h1>Literatura</h1>
-
-</section>
-<section id="zajęcia-przygotowane-z-wykorzystaniem" class="slide level2 unnumbered">
-<h2 class="unnumbered">Zajęcia przygotowane z wykorzystaniem</h2>
-<div id="refs" class="references hanging-indent" role="doc-bibliography">
-<div id="ref-mcintire2007foundations">
-<p>McIntire, S. A., &amp; Miller, L. A. (2007). <em>Foundations of Psychological Testing: A Practical Approach</em>. Retrieved from <a href="https://books.google.pl/books?id=dB0fw5lf0GQC">https://books.google.pl/books?id=dB0fw5lf0GQC</a></p>
-</div>
-</div>
+k - liczba pozycji w teście<br />
+<span class="math inline">\(\sigma^2_X\)</span> - wariancja wyniku
+w teście<br />
+<span class="math inline">\(p_i\)</span> - proporcja osób
+odpowiadających zgodnie z kluczem <span
+class="math inline">\(q_i\)</span> - proporcja osób odpowiadających
+NIEzgodnie z kluczem</p>
 </section></section>
     </div>
   </div>
 
   <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
 
-  // reveal.js plugins
+  <!-- reveal.js plugins -->
   <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
   <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
@@ -210,10 +247,148 @@ k - liczba pozycji w teście<br />
       // Full list of configuration options available at:
       // https://revealjs.com/config/
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
         // Push each slide change to the browser history
-        history: true,
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
         math: {
-          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],

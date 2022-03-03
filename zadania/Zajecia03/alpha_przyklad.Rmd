@@ -4,24 +4,40 @@
 
 Żeby zadziałał import, musisz zapisać plik dane.csv i ten notatnik w jendym folderze!
 
-Importowane wyniki pochodzą stąd: https://openpsychometrics.org i zostały ściągnięte 20.11.2019 stąd: http://openpsychometrics.org/_rawdata/RSE.zip
+Importowane wyniki pochodzą stąd: https://openpsychometrics.org i zostały ściągnięte stąd: http://openpsychometrics.org/_rawdata/RSE.zip
 
-Będziecie pracować na fragmencie tego zbioru.
+Poniższy kod przygotowuje zbiór do analizy, w komentarzach możesz przeczytać co robią jego poszczególne części.Ważne: kod odwraca itemy kwestionariusza, które powinny zostać odwrócone. Dane pochodzą z angielskiej wersji Skali Samooceny Rosenberga, którą znacie z zajęć.
 
 ```{r}
-raw_data <- read.delim("data.csv")
-my_data <- head(raw_data, 200)
+#ściągnij dane do analizy
+temp <- tempfile()
+download.file("http://openpsychometrics.org/_rawdata/RSE.zip",temp)
+raw_data <- read_tsv(unzip(temp, files="RSE/data.csv"))
+unlink(temp)
+
+#będziecie pracować na 1000 losowo wybranych obserwacjiobserwacji.
+#inaczej wszystko jest straaaasznie wolne
+raw_data_1000 <- sample_n(raw_data, 1000)
+
 #reverse Q3, Q5, Q8, Q9, Q10
+#funkcja poniżej odwraca pojedyncze itemy
 my_reverse <- function(item, min, max) {
   max - (item - min)
 }
+
+#reverse Q3, Q5, Q8, Q9, Q10
+#funkcja poniżej odwraca wskazane itemy ze zbioru danych i zwraca zbiór danych z odwróconymi itemami
 reverse_items <- function(df, items_to_reverse, min, max) {
   for(i in items_to_reverse) {
     df[[i]] <- my_reverse(df[[i]], min, max)
   }
   return(df)
 }
-my_data <- reverse_items(my_data, c("Q3", "Q5", "Q8", "Q9", "Q10"), 1, 4)
+
+#tworzymy zbiór z odwróconymi itemami 
+#ma on nazwę inną niż oryginalny, by uniknąć pomyłek
+my_data <- reverse_items(raw_data_1000, c("Q3", "Q5", "Q8", "Q9", "Q10"), 1, 4)
+
 ```
 
 Podejrzyj, jak wyglądają dane.
@@ -70,11 +86,9 @@ Możemy również nie zapisywać nic do zmiennej i od razu dodać $total$raw_alp
 psych::alpha(my_data[ , pytania])$total$raw_alpha
 ```
 
-Pamiętacie, jakie było oszacowanie rzetelności tego testu metodą połówkową?
-
 ## Co stanie się, jeżeli dodamy jakiś losowy błąd do wyników?
 
-Kod poniżej dodaje losowy błąd.
+Kod poniżej dodaje losowy błąd do każdego pytania w teście.
 
 ```{r}
 add_noise <- function (ae_sd) {
@@ -163,6 +177,11 @@ cor(my_data$zelki, my_data$Q10)
 Co się wydarzyło? Czy po dodaniu nonsensownego pytania alfa będzie niższa, czy wyższa?
 
 ```{r}
-alfunia$total
-alpha(my_data[ , wszystkie_zelki])
+#oryginalna alfa
+alfunia$total$raw_alpha
+```
+
+```{r}
+#alfa po dodaniu żelek
+alpha(my_data[ , wszystkie_zelki])$total$raw_alpha
 ```

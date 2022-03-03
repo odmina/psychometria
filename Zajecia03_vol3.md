@@ -1,10 +1,59 @@
 ---
-title: Rzetelność - spójność wewnętrzna i podsumowanie
+title: Rzetelność związana z doborem treści
 ---
 
-# Rzetelność a spójność wewnętrzna testu 
+# Różne aspekty rzetelności
 
-## Alfa Cronbacha wygląda tak 
+## Próbkowanie treści a zmienność wyników w czasie
+
+- Wykorzystując do oceny rzetelności metodę test-retest badamy zmienność wyników w czasie, między jedną a drugą sytuacją testową
+- Jest to tylko jedno z możliwych źródeł błędu
+- Innym źródłem błędu jest to, jaką próbkę zachowania będziemy zbierać, innymi słowy to, jakie pozycje trafią do naszego testu
+
+# Ocena rzetelności metodą polegającą na podzieleniu testu na połowy
+
+## Szacowanie rzetelności metodą połówkową
+- **PRZYKŁAD:**
+  - przeprowadziliśmy w jakiejś grupie test tylko raz i chcemy oszacować jego rzetelność.
+- **JAK OSZACOWAĆ RZETELNOŚĆ:**
+  - współczynnik równoważności międzypołówkowej
+  - korelacja między połówkami testu
+  - ważne pytanie: jak dzielić test na połowy??
+
+## Dlaczego dzielenie testu na połowy może pozwolić nam ocenić rzetelność
+
+Zakładamy, że każda z połówek bada ten sam konstrukt, a zatem wyniki uzyskane z wykorzystaniem obydwu połówek powinny być ze sobą skorelowane.
+
+------------
+
+**Ważna uwaga**: oceniając rzetelność metodą test-retest i metodą połówkową oceniamy ją w odniesieniu do różnych źródeł błędu. Dla testu-retestu jest to zmienność wyników w czasie, a dla metody połówkowej dobór treści! Więc w obydwu przypadkach oceniamy rzetelność, ale dowiadujemy się czego innego.
+
+## Uwaga: połówki testu są krótsze niż cały test
+
+Więc siłą rzeczy rzetelność będzie niższa, ponieważ zbieramy mniejszą próbkę zachowania.
+
+## Wzór Spearmana-Browna dla połówek testu
+Do szacowania rzetelności całego testu na postawie współczynnika równoważności międzypołówkowej (korelacji między połówkami testu)
+$$r_{tt}=\frac{2r_{pp}}{1+r_{pp}}$$
+Gdzie:
+$r_{tt}$ - rzetelność całego testu   
+$r_{pp}$ - rzetelność połówek testu
+
+# Ogólna wersja wzoru Spearmana-Browna
+
+## Wzór Spearmana-Browna wersja ogólna
+$$r_{nn}=\frac{nr_{cc}}{1+(n-1)r_{cc}}$$  
+Gdzie:  
+$r_{nn}$ - rzetelność testu wydłużonego **n** razy  
+$r_{cc}$ - rzetelność testu, którą zmierzyliśmy  
+Wartość $r_{nn}$ uzyskana ze wzoru Spearmana-Browna nigdy nie będzie większa od 1.
+Kto wie dlaczego?   
+
+## Wzór Spearmana-Browna można wykorzystać, by stwierdzić, ile razy należy wydłużyć test, aby uzyskać zakładaną rzetelność
+
+# Rzetelność a spójność wewnętrzna testu
+
+## Alfa Cronbacha wygląda tak
 
 $$\alpha=(\frac{k}{k-1})(1 - \frac{\sum_{i=1}^{k}\sigma_i^2}{\sigma^2_X})$$  
 Gdzie:  
@@ -58,58 +107,4 @@ $\sigma^2_X$ - wariancja wyniku w teście
 $p_i$ - proporcja osób odpowiadających zgodnie z kluczem
 $q_i$ - proporcja osób odpowiadających NIEzgodnie z kluczem 
 
-# Podsumowanie wiedzy o rzetelności
 
-## Źródła błędu a rzetelność
-- niezgodność/niespójność w ocenach sędziów
-- zmienność w czasie
-- brak spójności wewnętrznej testu i błędy w doborze treści
-
-## Metody szacowania rzetelności vs źródła błędu
-+-----------------------+------------------------------------------+
-|Źródło błędu			|Metody									   |
-+:======================+:=========================================+
-|Sędziowie			 	|Ocena tego samego materiału  			   |
-|						|przez dwóch sędziów i obliczenie  	       |
-|						|- współczynnika korelacji                 |
-|						|- kappa Cohena							   |
-+-----------------------+------------------------------------------+
-
-----------
-
-+-----------------------+------------------------------------------+
-|Źródło błędu			|Metody									   |
-+:======================+:=========================================+
-|Zmienność w czasie		|Technika test - retest  				   |
-|						|i obliczenie współczynnika korelacji  	   |
-|						|między testem i retestem				   |
-+-----------------------+------------------------------------------+
-
------------ 
-
-+-----------------------+------------------------------------------+
-|Źródło błędu			|Metody									   |
-+:======================+:=========================================+
-|Dobór (próbkowanie)	|Ocena korelacji między połówkami testu	   |  
-|i heterogeniczność     |(pamiętaj o wzorze Spearmana-Browna)	   |
-|treści					|Ocena korelacji między wersjami   		   |
-|						|alternatywnymi  						   |
-|						|Ocena spójności wewnętrznej  			   |
-|						|- K-R20								   |
-|						|- Alfa Cronbacha						   |
-+-----------------------+------------------------------------------+
-
-## Jak zwiększać rzetelność? [@mcintire2007foundations]
-
-:::incremental
-- dodanie pytań
-- zwiększenie homogeniczności testu
-- skrócenie interwału pomiędzy testem i retestem (uwaga na efekt wprawy!)
-- zwiększenie efektywności przeprowadzania testu
-- ostrożność podczas oceniania
-- ograniczenie zgadywania lub odpowiadania nieszczerze / bez zaangażowania 
-:::
-
-# Literatura
-
-## Zajęcia przygotowane z wykorzystaniem

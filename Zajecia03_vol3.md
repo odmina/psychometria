@@ -10,6 +10,12 @@ title: Rzetelność związana z doborem treści
 - Jest to tylko jedno z możliwych źródeł błędu
 - Innym źródłem błędu jest to, jaką próbkę zachowania będziemy zbierać, innymi słowy to, jakie pozycje trafią do naszego testu
 
+## Rzetelność związaną z doborem treści możemy mierzyć na kilka sposobów
+
+- metoda wersji równoległych (alternatywnych)
+- metoda połówkowa
+- badanie zgodności wewnętrznej testu
+
 # Ocena rzetelności metodą polegającą na podzieleniu testu na połowy
 
 ## Szacowanie rzetelności metodą połówkową

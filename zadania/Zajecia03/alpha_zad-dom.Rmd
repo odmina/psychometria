@@ -95,13 +95,13 @@ Nie wiem jak Wy, ale ja nie znoszę surowego outputu funkcji alpha :) wyświetlc
 ...$total$raw_alpha
 ```
 
-Sprawdźcie, co dzieje się z alfą, kiedy usuniemy ze skali poszczególne itemy. 
+Sprawdźcie, co dzieje się z alfą, kiedy usuniemy ze skali poszczególne itemy. Wyświetlona tabela będzie zawierała informacje na temat charakterystyki skali po usunięciu itemu wyszczególnionego w pierwszej kolumnie. Interesująca Was informacja znajduje się w kolumnie raw_alpha. Jak świadczy to o itemach skali?
 
 ```{r}
 alfunia$alpha.drop
 ```
 
-Zobaczcie, jakie są średnie korelacje między itemami.
+Zobaczcie, jaka jest średnia korelacja między itemami.
 
 ```{r}
 ...$total$average_r

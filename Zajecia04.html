@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Małgorzata Basińska">
+  <title>Rzetelność - podsumowanie i interpretacja indywidualnych wyników</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reset.css">
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/reveal.css">
+  <style>
+    .reveal .sourceCode {  /* see #7635 */
+      overflow: visible;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+  <link rel="stylesheet" href="https://unpkg.com/reveal.js@^4//dist/theme/white.css" id="theme">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide">
+  <h1 class="title">Rzetelność - podsumowanie i interpretacja
+indywidualnych wyników</h1>
+  <p class="author">Małgorzata Basińska</p>
+</section>
+
+<section>
+<section id="ocena-rzetelności-indywidualnego-wyniku"
+class="title-slide slide level1">
+<h1>Ocena rzetelności indywidualnego wyniku</h1>
+
+</section>
+<section id="standardowy-błąd-pomiaru" class="slide level2">
+<h2>Standardowy błąd pomiaru</h2>
+<p><span class="math display">\[SEM=s_x\sqrt{1-r_{tt}}\]</span></p>
+<p>Gdzie:<br />
+<span class="math inline">\(s_x\)</span> - odchylenie standardowe
+wyników testowych<br />
+<span class="math inline">\(r_{tt}\)</span> - rzetelność testu</p>
+</section>
+<section id="błąd-pomiaru-ma-rozkład-normalny" class="slide level2">
+<h2>Błąd pomiaru ma rozkład normalny</h2>
+<p><img data-src="img/rn.png" id="id" class="class" height="350"
+alt="By Dan Kernler - Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=36506025" />
+<small>Zmodyfikowane z Dan Kernler, via Wikimedia Commons <a
+href="https://commons.wikimedia.org/w/index.php?curid=36506025">link</a>,
+licencja <a
+href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA
+4.0</a></small></p>
+</section>
+<section id="sem-to-odchylenie-standardowe-błędu-pomiaru-i-dlatego"
+class="slide level2">
+<h2>SEM to odchylenie standardowe błędu pomiaru i dlatego:</h2>
+<ul>
+<li>68% wyników mieści się w zakresie +/- 1 SEM</li>
+<li>75% wyników mieści się w zakresie +/- 1,15 SEM</li>
+<li>90% wyników mieści się w zakresie +/- 1,64 SEM</li>
+<li>95% wyników mieści się w zakresie +/- 1,96 SEM</li>
+<li>99% wyników mieści się w zakresie +/- 2,58 SEM</li>
+</ul>
+</section>
+<section id="zadanko" class="slide level2">
+<h2>Zadanko</h2>
+<p>Skonstruujcie 95% przedział ufności dla wyniku 100 w teście
+o odchyleniu standardowym 15 i rzetelności 0,902 <span
+class="math display">\[&lt;X-1,96 SEM, X+1,96 SEM&gt;\]</span> <span
+class="math display">\[SEM=s_x\sqrt{1-r_{tt}}\]</span></p>
+</section>
+<section id="błąd-standardowy-różnicy-między-dwoma-wynikami"
+class="slide level2">
+<h2>Błąd standardowy różnicy między dwoma wynikami</h2>
+<p><span class="math inline">\(SE_{diff}=\sqrt{SEM_1^2+SEM_2^2}\)</span>
+<span
+class="math inline">\(SE_{diff}=\sqrt{s_{x1}^2(1-r_{tt1})+s_{x2}^2(1-r_{tt2})}\)</span>
+<span
+class="math inline">\(SE_{diff}=s_{x}\sqrt{2(1-r_{tt})}\)</span></p>
+</section>
+<section id="se_diff-również-ma-rozkład-normalny" class="slide level2">
+<h2><span class="math inline">\(SE_{diff}\)</span> również ma rozkład
+normalny</h2>
+<p>…i dlatego mamy 95% szansy, że różnica wynosząca minimum <span
+class="math inline">\(1,96 * SE_{diff}\)</span> jest
+nieprzypadkowa.<br />
+W tym przypadku poziom ufności p wynosi <span
+class="math inline">\(1-0.95=0.05\)</span></p>
+</section>
+<section id="zadanko-1" class="slide level2">
+<h2>Zadanko</h2>
+<p>W teście o rzetelności 0,9 i odchyleniu standardowym 5 otrzymaliśmy
+u jednego badanego wynik 25 a u drugiego 35. Czy mamy prawo twierdzić,
+że te wyniki się różnią? Przyjmijcie p = 0.05<br />
+<span
+class="math inline">\(SE_{diff}=s_{x}\sqrt{2(1-r_{tt})}\)</span></p>
+</section></section>
+<section>
+<section id="normy" class="title-slide slide level1">
+<h1>Normy</h1>
+
+</section>
+<section id="wynik-standardowy" class="slide level2">
+<h2>Wynik standardowy</h2>
+<ul>
+<li>Każdy wynik w teście możemy przeliczyć na wynik standardowy
+w oparciu o dane z próby normalizacyjnej.</li>
+<li>Potrzebujemy w tym celu informacji o średniej i odchyleniu
+standardowym w próbie normalizacyjnej.</li>
+<li>Liczymy go (m.in.) po to, by zorientować się, jaki jest wynik osoby
+badanej na tle innych.</li>
+</ul>
+</section>
+<section id="jak-policzyć-wynik-standardowy" class="slide level2">
+<h2>Jak policzyć wynik standardowy</h2>
+<p><span class="math display">\[z = \frac{X - M}{SD}\]</span></p>
+<p>Gdzie:<br />
+<span class="math inline">\(z\)</span> - wynik standardowy<br />
+<span class="math inline">\(X\)</span> - wynik osoby badanej<br />
+<span class="math inline">\(M\)</span> - średnia<br />
+<span class="math inline">\(SD\)</span> - odchylenie standardowe</p>
+</section>
+<section id="wyniki-przeciętne-niskie-wysokie" class="slide level2">
+<h2>Wyniki przeciętne, niskie, wysokie…</h2>
+<ul>
+<li>Wyniki niskie: <span class="math inline">\(z&lt;-1\)</span></li>
+<li>Wyniki przeciętne <span
+class="math inline">\(-1&lt;z&lt;1\)</span></li>
+<li>Wyniki wysokie: <span class="math inline">\(z&gt;1\)</span></li>
+</ul>
+</section>
+<section id="skale" class="slide level2">
+<h2>Skale</h2>
+<ul>
+<li>Skala T: 0-100, <span class="math inline">\(M = 50\)</span>, <span
+class="math inline">\(SD = 10\)</span></li>
+<li>Skala stenowa: 1-10, <span class="math inline">\(M = 5,5\)</span>,
+<span class="math inline">\(SD = 2\)</span></li>
+<li>Skala staninowa: 1-9, <span class="math inline">\(M = 5\)</span>,
+<span class="math inline">\(SD = 2\)</span></li>
+<li>Skala IQ: <span class="math inline">\(M = 100\)</span>, <span
+class="math inline">\(SD = 15\)</span></li>
+<li>Skala tetronowa: 0-21, <span class="math inline">\(M = 10\)</span>,
+<span class="math inline">\(SD = 4\)</span></li>
+</ul>
+</section>
+<section id="jak-przeliczyć-wynik-standardowy-na-wybraną-skalę"
+class="slide level2">
+<h2>Jak przeliczyć wynik standardowy na wybraną skalę?</h2>
+<p><span class="math inline">\(wynik na nowej skali = {SD}{z} +
+M\)</span></p>
+<p>Gdzie:</p>
+<p><span class="math inline">\(z\)</span> - wynik standardowy<br />
+<span class="math inline">\(M\)</span> - średnia SKALI NA KTÓRĄ
+PRZELICZAMY<br />
+<span class="math inline">\(SD\)</span> - odchylenie standardowe SKALI
+NA KTÓRĄ PRZELICZAMY</p>
+</section></section>
+<section>
+<section id="podsumowanie-wiedzy-o-rzetelności"
+class="title-slide slide level1">
+<h1>Podsumowanie wiedzy o rzetelności</h1>
+
+</section>
+<section id="źródła-błędu-a-rzetelność" class="slide level2">
+<h2>Źródła błędu a rzetelność</h2>
+<ul>
+<li>niezgodność/niespójność w ocenach sędziów</li>
+<li>zmienność w czasie</li>
+<li>brak zgodności wewnętrznej testu i błędy w doborze treści</li>
+</ul>
+</section>
+<section id="metody-szacowania-rzetelności-vs-źródła-błędu"
+class="slide level2">
+<h2>Metody szacowania rzetelności vs źródła błędu</h2>
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">|Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Sędziowie</td>
+<td style="text-align: left;">|Ocena tego samego materiału |przez dwóch
+sędziów i obliczenie |- współczynnika korelacji |- kappa Cohena</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Zmienność w czasie</td>
+<td style="text-align: left;"><pre><code>   |Technika test - retest</code></pre>
+i obliczenie współczynnika korelacji między testem i retestem</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section class="slide level2">
+
+<table style="width:93%;">
+<colgroup>
+<col style="width: 33%" />
+<col style="width: 59%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Źródło błędu</th>
+<th style="text-align: left;">Metody</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Dobór (próbkowanie) i heterogeniczność
+treści</td>
+<td style="text-align: left;">Ocena korelacji między połówkami testu
+(pamiętaj o wzorze Spearmana-Browna) Ocena korelacji między wersjami
+alternatywnymi Ocena spójności wewnętrznej - K-R20 - Alfa Cronbacha</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="jak-zwiększać-rzetelność-mcintire2007foundations"
+class="slide level2">
+<h2>Jak zwiększać rzetelność? <span class="citation"
+data-cites="mcintire2007foundations">(McIntire &amp; Miller,
+2007)</span></h2>
+<div>
+<ul>
+<li class="fragment">dodanie pytań</li>
+<li class="fragment">zwiększenie homogeniczności testu</li>
+<li class="fragment">skrócenie interwału pomiędzy testem i retestem
+(uwaga na efekt wprawy!)</li>
+<li class="fragment">zwiększenie efektywności przeprowadzania testu</li>
+<li class="fragment">ostrożność podczas oceniania</li>
+<li class="fragment">ograniczenie zgadywania lub odpowiadania
+nieszczerze / bez zaangażowania</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="literatura" class="title-slide slide level1">
+<h1>Literatura</h1>
+
+</section>
+<section id="zajęcia-przygotowane-z-wykorzystaniem"
+class="slide level2">
+<h2>Zajęcia przygotowane z wykorzystaniem</h2>
+<p><small></p>
+<div id="refs" class="references csl-bib-body hanging-indent"
+data-line-spacing="2" role="doc-bibliography">
+<div id="ref-mcintire2007foundations" class="csl-entry"
+role="doc-biblioentry">
+McIntire, S. A., &amp; Miller, L. A. (2007). <em><span
+class="nocase">Foundations of Psychological Testing: A Practical
+Approach</span></em>. Retrieved from <a
+href="https://books.google.pl/books?id=dB0fw5lf0GQC">https://books.google.pl/books?id=dB0fw5lf0GQC</a>
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script src="https://unpkg.com/reveal.js@^4//dist/reveal.js"></script>
+
+  <!-- reveal.js plugins -->
+  <script src="https://unpkg.com/reveal.js@^4//plugin/notes/notes.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/search/search.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/zoom/zoom.js"></script>
+  <script src="https://unpkg.com/reveal.js@^4//plugin/math/math.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: true,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'bottom-right',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: false,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'default',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: true,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'slide',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'fade',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    </body>
+</html>

@@ -143,7 +143,7 @@ NIEUMIEJĘTNOŚĆ KORZYSTANIA Z R NIE ZWALNIA Z POPRAWNEGO WYKONANIA ZADAŃ. KA�
 ## Gorąco polecam - ciekawe źródła uzupełniające
 
 1. American Educational Research Association, American Psychological Association, & National Council on Measurement in Education. (2007). *Standardy dla testów stosowanych w psychologii i pedagogice*. Gdańskie Wydawnictwo Psychologiczne.
-2. Rudner, L. M. (1994). *Questions to ask when evaluating tests*. Practical Assessment, Research and Evaluation, 4(2). Retrieved from https://www.pareonline.net/getvn.asp?v=4&n=2
+2. Rudner, L. M. (1994). *Questions to ask when evaluating tests*. Practical Assessment, Research and Evaluation, 4(2). Retrieved from [https://scholarworks.umass.edu/pare/vol4/iss1/2/](https://scholarworks.umass.edu/pare/vol4/iss1/2/)
 3. Joint Committee on Testing Practices. (n.d.). *Rights and Responsibilities of Test Takers: Guidelines and Expectations*. https://www.apa.org/science/programs/testing/rights
 6. Baker, F.B., & Kim, S. (2001). *The Basics of Item Response Theory Using R*. Springer. https://link.springer.com/content/pdf/10.1007%2F978-3-319-54205-8.pdf
 7. Wechsler, D. (1944). *The Measurement of Adult Intelligence*. Williams & Wilkins. (dostępne za darmo w wielu miejscach w internecie)

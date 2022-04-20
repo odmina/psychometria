@@ -1,7 +1,0 @@
-Files codebook.txt data.csv were downloaded from https://openpsychometrics.org (access 14 Nov 2019)
-
-About NPAS:
-https://openpsychometrics.org/tests/NPAS/development/
-
-Data in files NPAS-data*.csv are parts of data.csv
-Data in file data_clean.csv are data from data.csv modified with clean_data.zsh and clean_data.R
